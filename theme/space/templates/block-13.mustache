@@ -1,0 +1,85 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#sliderenabled}}
+<div id="heroSlider" class="c-heroimg c-hero-slider {{#sliderfwenabled}}c-hero-container--fw rounded-0{{/sliderfwenabled}} {{#heroboxshadow}}c-hero-box-shadow {{heroshadowstyle}}{{/heroboxshadow}}">
+
+  <div class="c-hero-container">
+
+      <div class="hero-slider">
+      {{#slides}}
+
+        {{#imgslidesonly}}
+        <div class="c-hero-slider-item">
+        {{#sliderclickable}}<a href="{{url}}">{{/sliderclickable}}
+
+          {{^sliderhtml}}
+          <div class="c-hero-content">
+            {{#subtitle}}<h5 class="h5">{{{ subtitle }}}</h5>{{/subtitle}}
+            {{#title}}<h3 class="h1">{{{ title }}}</h3>{{/title}}
+            {{#caption}}<div class="h3">{{{ caption }}}</div>{{/caption}}
+          </div>
+          {{/sliderhtml}}
+
+          {{{ sliderhtml }}}
+
+          <img src="{{{ image }}}" alt="" class="c-hero-img w-100 d-inline" />
+
+        {{#sliderclickable}}</a>{{/sliderclickable}}
+        </div>
+        {{/imgslidesonly}}
+
+        {{^imgslidesonly}}
+        <div class="c-hero-slider-item c-hero-slider-item--h" style="background-image: url({{{ image }}}); {{#slideheight}}height: {{slideheight}};{{/slideheight}}">
+        {{#sliderclickable}}<a href="{{url}}">{{/sliderclickable}}
+
+          {{^sliderhtml}}
+          <div class="c-hero-content">
+            {{#subtitle}}<h5 class="h5">{{{ subtitle }}}</h5>{{/subtitle}}
+            {{#title}}<h3 class="h1">{{{ title }}}</h3>{{/title}}
+            {{#caption}}<div class="h3">{{{ caption }}}</div>{{/caption}}
+          </div>
+          {{/sliderhtml}}
+
+          {{{ sliderhtml }}}
+
+          <img src="{{{ image }}}" alt="" class="c-hero-img w-100 d-sm-none d-md-inline" />
+
+        {{#sliderclickable}}</a>{{/sliderclickable}}
+        </div>
+        {{/imgslidesonly}}
+
+      {{/slides}}
+      </div>
+    </div>
+</div>
+
+<script>
+  var slider = tns({
+    container: '.hero-slider',
+    items: 1,
+    mode: 'carousel',
+    slideBy: 1,
+    mouseDrag: true,
+    autoHeight: true,
+    controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    {{#sliderloop}}loop: true,{{/sliderloop}}
+    {{#sliderintervalenabled}}autoplayButtonOutput: false, autoplay: true, autoplayTimeout: {{sliderinterval}},{{/sliderintervalenabled}}
+    controls: true
+  });
+</script>
+{{/sliderenabled}}

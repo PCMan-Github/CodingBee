@@ -1,0 +1,109 @@
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+/* @if $enable-grid-classes {
+  .container {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+} */
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but with 100% width for
+// fluid, full width layouts.
+
+@if $enable-grid-classes {
+  .container-fluid {
+    @include make-container();
+  }
+}
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+  }
+
+  // Remove the negative margin from default .row, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}
+
+.row.wide-gutter {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@include media-breakpoint-up(lg) {
+  .row.wide-gutter [class*='col-']:not(:first-child):not(:last-child),
+  .row.wide-gutter [class*='col-']:not(:nth-of-type(n + 3)) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .row.wide-gutter [class*='col-']:not(:first-child):not(:last-child),
+  .row.wide-gutter [class*='col-']:not(:nth-of-type(n + 2)) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+
+.col-sep {
+  position: relative;
+
+  &:before {
+    content: '';
+
+    background-color: $gray-400;
+    width: 1px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: calc(50% - 0.5px);
+  }
+
+}
+
+.section-padding {
+  padding: $section-padding 0;
+
+  @include media-breakpoint-down(md) {
+    padding: $section-padding-sm 0;
+  }
+}
+
+.c-container {
+  width: 100%;
+
+  #page-site-index & {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

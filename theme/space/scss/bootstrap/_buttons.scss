@@ -1,0 +1,1582 @@
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Base styles
+//
+
+.dropdown-toggle {
+  table & {
+    padding: 0.5rem 1rem;
+  }
+
+  &:before {
+    display: none;
+  }
+}
+
+.btn.dropdown-toggle {
+  padding-right: 25px!important;
+}
+
+#installfromrepobox {
+  .btn-icon {
+    position: relative;
+    top: 5px;
+    margin-left: 10px;
+  }
+}
+
+.btn-icon {
+  display: inline-block;
+  text-decoration: none;
+
+  &[data-toggle="popover"] {
+      margin: 0 0.25rem;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+
+      i {
+        margin: 0!important;
+        font-size: inherit;
+      }
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+[data-fieldtype="date_time_selector"] {
+  a {
+    padding: 10px;
+    line-height: 0;
+  }
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+
+  vertical-align: middle;
+
+  border-radius: $btn-border-radius;
+
+  padding: $btn-padding-y $btn-padding-x;
+
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: 180%;
+
+  text-decoration: none;
+  @include transition($btn-transition);
+  -webkit-appearance: none;
+
+  @include media-breakpoint-only(sm) {
+  word-break: break-word;
+  }
+
+  .icon {
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .tag {
+    background-color: $theme-color-3;
+  }
+
+  .icon {
+    font-size: 1rem;
+    line-height: 1;
+    margin: 0;
+
+    &.fa-cog {
+      margin: 0;
+    }
+
+    &.fa-search-plus {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .icon + .d-sm-inline-block,
+  .icon + .header-button-title,
+  .icon + span {
+    margin-left: 0.5rem;
+  }
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: inset 0 0 0 2px rgba($theme-color-3,.25);
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: $btn-disabled-opacity;
+    @include box-shadow(none);
+    cursor: not-allowed;
+  }
+
+  // Opinionated: add "hand" cursor to non-disabled .btn elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px rgba($theme-color-3,.25);
+    }
+  }
+}
+
+#page-grade-grading-manage .actions .action,
+.fdescription a,
+.moodle-dialogue-bd [data-cancel-button],
+.modal-dialog .modal-footer a,
+.backlink a,
+.tool_dataprivacy-expand-all,
+#prev-activity-link,
+#next-activity-link,
+.section-handle.moodle-core-dragdrop-draghandle,
+.filepicker-filename a,
+.forumpost .footer a,
+table.form-autocomplete-suggestions,
+.form-autocomplete-suggestions a,
+fieldset .form-autocomplete-suggestions a,
+[data-action="addstandardtag"],
+#page-admin-roles-permissions .role_buttons input[type="button"],
+#page-grade-edit-letter-index #region-main .mdl-align a,
+.path-admin-tool-assignmentupgrade #region-main div:last-child.mdl-align a,
+#page-admin-user-profile-index a[title="Edit"],
+#page-admin-user-profile-index a[title="Delete"],
+#page-admin-tool-httpsreplace-index [role="main"] p a,
+[data-fieldtype="tags"] a,
+#adminsettings fieldset h3 a:not([class=btn-icon]),
+.collapsibleregioncaption a:not(.btn-icon),
+.notesgroup p a,
+/* btn-sm */
+td .commands a,
+.discussionsubscription a,
+/* btn-reset */
+.resettable a,
+#page-course-switchrole [role="main"] .m-b-1:last-of-type a,
+/* btn-primary */
+.allcoursegrades a,
+.createstep,
+.card-text .footer + a,
+#page-tag-search #tag-search-box form input[type="submit"],
+.notification-area .content-area .footer a,
+#changenumsections a,
+#page-admin-grade-edit-letter-index #region-main .mdl-align a,
+.logselecform input[type="submit"],
+#page-mod-forum-subscribers .subscribertable tr td.actions .actionbutton,
+input.form-submit,
+#id_addidnumbers,
+/* btn-xs */
+.editquestion a,
+.questionflag.editable,
+.iconcol a,
+.addbloglink a,
+.progress-actions a,
+.dropdown-toggle,
+.backlink a,
+.action-menu .dropdown-toggle,
+.feedback_mapped_courses .mdl-align a,
+#buttonscell input[type="submit"],
+.typesummary .helplinkpopup,
+#page-mod-glossary-view .commands a.icon,
+#page-mod-glossary-showentry .commands a.icon,
+.comment-area .fd a,
+.subscribelink a,
+.forumpost .link a,
+.reportlink a,
+#showall a,
+.printicon,
+.printicon.btn-action,
+.comment-link,
+.recipelink a,
+.midpad a,
+.addtomyinterests,
+.flagasinappropriate,
+.removefrommyinterests,
+.edittag,
+#participants td a[role="button"],
+.usp-finish [type="submit"],
+.bookprev,
+.booknext,
+.bookexit,
+.submitbtns .arrow_link,
+.mod_quiz-next-nav,
+.edit_pages_box .addlinks a,
+.newlink a,
+.book_toc_numbered .action-list a,
+.checkforupdates [type="submit"],
+.continuebutton [type="submit"],
+#page-mod-quiz-report .toggleincludeauto a,
+.paging-morelink a,
+.userpicture a:not(:first-child),
+#page-user-profile .node_category .viewmore a, .path-user .node_category .viewmore a,
+#enabletemplateeditor,
+.itemnav a,
+.section-navigation a,
+.cancel a,
+.usp-search-btn,
+.block_blog_menu [type="submit"],
+.forum-post-footer a,
+.tag-backtoallitems a,
+.tool_dataprivacy a,
+[data-region="actions"] p a,
+.c-lang-menu .dropdown-toggle,
+.qtype_multichoice_clearchoice a,
+.usertour a,
+#theme_switch_link a,
+.quizattemptcounts a,
+#page-enrol-index .box [type="submit"],
+.commentlink a,
+.exclusivemode,
+#core-cache-rescan-definitions a,
+.edit-link a,
+#page-admin-tool-usertours-configure .btn-action,
+.tour-actions a,
+#page-admin-mod-glossary-formats .generalbox [type="submit"],
+.movecategory [role="button"],
+.movefield [role="button"],
+.export-actions a,
+.addcomponent,
+.o-standard-footer-html a,
+.felement .btn-action,
+.editprofile span a,
+.userenrolment .col_role .addrole .assignrolelink,
+.unassignrolelink,
+.custompages-add,
+.postratingmenusubmit,
+#page-mod-forum-index .subscription .helplink a,
+.yui3-widget-buttons .yui3-button:not(.closebutton),
+#scorm_toc_toggle_btn,
+#page-mod-customcert-edit .addpage a,
+#page-mod-customcert-edit .deletebutton a
+{
+  display: inline-block;
+  text-align: center;
+
+  vertical-align: middle;
+
+  border-radius: $btn-border-radius;
+
+  padding: $btn-padding-y $btn-padding-x;
+
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: 180%;
+
+  text-decoration: none;
+  @include transition($btn-transition);
+
+  @include media-breakpoint-only(sm) {
+  word-break: break-word;
+  }
+
+  .icon {
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+.btn-primary,
+.btn-default,
+.btn-submit,
+.allcoursegrades a,
+.createstep,
+#page-tag-search #tag-search-box form input[type="submit"],
+.notification-area .content-area .footer a,
+#changenumsections a,
+#page-admin-grade-edit-letter-index #region-main .mdl-align a,
+.logselecform input[type="submit"],
+#page-mod-forum-subscribers .subscribertable tr td.actions .actionbutton,
+input.form-submit, #id_addidnumbers,
+.addbloglink a,
+.progress-actions a,
+.discussionsubscription a,
+.block .footer a,
+.mod_quiz-next-nav,
+.newlink a,
+.checkforupdates [type="submit"],
+.continuebutton [type="submit"],
+.bookexit,
+#page-mod-quiz-summary .submitbtns [type="submit"],
+.path-mod-quiz .othernav a.mod_quiz-next-nav,
+#enabletemplateeditor,
+.usp-finish [type="submit"],
+.block_blog_menu [type="submit"],
+.forum-post-footer a,
+.btn-dark,
+[data-region="actions"] p a,
+.quizattemptcounts a,
+#page-enrol-index .box [type="submit"],
+#core-cache-rescan-definitions a,
+.edit-link a,
+#page-admin-mod-glossary-formats .generalbox [type="submit"],
+[data-action="addstandardtag"],
+.addcomponent,
+.editprofile span a,
+.questionflag.editable,
+.custompages-add,
+.postratingmenusubmit,
+#buttonscell input[type="submit"],
+#page-mod-customcert-edit .addpage a
+{
+  color: $btn-primary-text!important;
+
+  background-color: $btn-primary-bg!important;
+  border: $btn-primary-border-width solid $btn-primary-border!important;
+  box-shadow: 0 1px 1px rgba($btn-primary-shadow,.15), 0 1px 2px rgba($btn-primary-shadow,.15), 0 1px 2px rgba($btn-primary-shadow,.15), 0 2px 4px rgba($btn-primary-shadow,.15), 0 4px 12px rgba($btn-primary-shadow,.15)!important;
+  transition: $btn-transition;
+
+  &:hover {
+    color: $btn-primary-text-hover!important;
+
+    background-color: $btn-primary-bg-hover!important;
+    border-color: $btn-primary-border-hover!important;
+    box-shadow: 0 1px 1px rgba($btn-primary-bg-hover,.55), 0 2px 2px rgba($btn-primary-bg-hover,.35), 0 4px 4px rgba($btn-primary-bg-hover,.15), 0 6px 8px rgba($btn-primary-bg-hover,.15), 0 8px 16px rgba($btn-primary-bg-hover,.15)!important;
+
+    i {
+      color: $btn-primary-text-hover!important;
+    }
+  }
+
+  i {
+    color: $btn-primary-text;
+  }
+}
+
+      .section-modchooser-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 1rem;
+        line-height: 1;
+        width: 100%;
+
+        &.btn-link {
+          background-color: $gray-100!important;
+
+          &:hover {
+            background-color: $theme-color-9!important;
+            color: $theme-color-3;
+          }
+        }
+
+        .icon {
+          font-size: 18px;
+          color: inherit;
+        }
+
+        a:hover {
+          text-decoration: none;
+        }
+      }
+
+      .path-mod-quiz .othernav {
+        text-align: center;
+
+        a {
+          display: block;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+      }
+
+
+      .forumpost .footer a {
+        &:before {
+          display: none;
+        }
+      }
+
+      .newlink a {
+        width: 100%;
+      }
+
+.btn-reset,
+.btn-danger,
+.resettable a,
+#page-course-switchrole [role="main"] .m-b-1:last-of-type a,
+#removecontrols #remove,
+.submit_buttons [name="cancel"],
+.usertour a,
+.fp-file-delete,
+.tagdeleteselected,
+[data-action="cancel-review-request"],
+.unassignrolelink,
+#page-mod-customcert-edit .deletebutton a
+{
+  color: $btn-reset-text!important;
+
+  background-color: $btn-reset-bg!important;
+  box-shadow: 0 1px 1px rgba($btn-reset-shadow,.15), 0 1px 2px rgba($btn-reset-shadow,.15), 0 1px 2px rgba($btn-reset-shadow,.15), 0 2px 4px rgba($btn-reset-shadow,.15), 0 4px 12px rgba($btn-reset-shadow,.15)!important;
+
+  border: 1px solid $btn-reset-border!important;
+
+  transition: $btn-transition;
+
+  i {
+      color: $btn-reset-text;
+  }
+
+  &:hover {
+    background-color: $btn-reset-bg-hover!important;
+    color: $btn-reset-text-hover!important;
+    border-color: $btn-reset-border-hover!important;
+    box-shadow: 0 1px 1px rgba($btn-reset-bg-hover,0.08), 0 2px 2px rgba($btn-reset-bg-hover,0.12), 0 4px 4px rgba($btn-reset-bg-hover,0.14), 0 6px 8px rgba($btn-reset-bg-hover,0.16),0 8px 16px rgba($btn-reset-bg-hover,0.18)!important;
+
+    a { color: $btn-reset-text-hover; }
+  }
+}
+
+
+.btn-special,
+.settings-menu .btn-secondary
+{
+  background-color: $btn-special-bg!important;
+  border: $btn-special-border-width solid $btn-special-border!important;
+  color: $btn-special-text!important;
+
+  box-shadow: 0 1px 1px rgba($btn-special-shadow,0.15),
+              0 2px 2px rgba($btn-special-shadow,0.15),
+              0 4px 4px rgba($btn-special-shadow,0.15),
+              0 8px 8px rgba($btn-special-shadow,0.15)!important;
+
+  &:hover {
+    background-color: $btn-special-bg-hover!important;
+    border-color: $btn-special-border-hover!important;
+    box-shadow: 0 1px 3px rgba($btn-special-border-hover,0.25),
+                0 2px 5px rgba($btn-special-border-hover,0.25),
+                0 4px 7px rgba($btn-special-border-hover,0.25),
+                0 8px 9px rgba($btn-special-border-hover,0.25)!important;
+
+    a { color: $btn-special-text-hover!important; }
+
+  }
+}
+
+.btn-cta {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  border-radius: $border-radius;
+
+  padding: 1rem 2rem;
+
+  font-size: $font-size-base;
+  font-weight: $font-weight-sm-bold;
+  line-height: 180%;
+
+  transition: $general-transition;
+
+  box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.5);
+
+  @include media-breakpoint-between(sm, md) {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1.15rem;
+    font-size: 14px;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.8);
+  }
+
+}
+
+  .btn-cta--primary {
+    color: $btn-primary-text!important;
+
+    background-color: $btn-primary-bg!important;
+    border: $btn-primary-border-width solid $btn-primary-border!important;
+    box-shadow: 0 1px 1px rgba($btn-primary-shadow,.15), 0 1px 2px rgba($btn-primary-shadow,.15), 0 1px 2px rgba($btn-primary-shadow,.15), 0 2px 4px rgba($btn-primary-shadow,.15), 0 4px 12px rgba($btn-primary-shadow,.15)!important;
+    transition: $btn-transition;
+
+    &:hover {
+      background-color: $btn-primary-bg-hover!important;
+      border-color: $btn-primary-border-hover!important;
+      box-shadow: 0 1px 1px rgba($btn-primary-bg-hover,.55), 0 2px 2px rgba($btn-primary-bg-hover,.35), 0 4px 4px rgba($btn-primary-bg-hover,.15), 0 6px 8px rgba($btn-primary-bg-hover,.15), 0 8px 16px rgba($btn-primary-bg-hover,.15)!important;
+
+      a { color: $btn-primary-text-hover; }
+    }
+
+    i {
+      color: $btn-primary-text;
+    }
+  }
+
+  .btn-cta--secondary {
+    background-color: $btn-secondary-bg;
+    border: $btn-secondary-border-width solid $btn-secondary-border;
+    box-shadow: 0 2px 1px 0 $btn-secondary-shadow;
+
+    transition: $general-transition;
+
+    color: $btn-secondary-text;
+
+    a {
+      color: inherit;
+    }
+
+    &:hover {
+      background-color: $btn-secondary-bg-hover;
+      border-color: $btn-secondary-border-hover;
+      box-shadow: 0 1px 1px $btn-secondary-shadow, 0 2px 2px $btn-secondary-shadow, 0 4px 4px $btn-secondary-shadow, 0 6px 8px $btn-secondary-shadow, 0 8px 16px $btn-secondary-shadow;
+      color: $btn-secondary-text-hover;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px rgba($theme-color-3,.25);
+    }
+  }
+
+.btn-secondary,
+.fdescription a,
+.modal-dialog .modal-footer a,
+.backlink a,
+.tool_dataprivacy-expand-all,
+#prev-activity-link,
+#next-activity-link,
+.section-handle.moodle-core-dragdrop-draghandle,
+.filepicker-filename a,
+.forumpost .footer a,
+table.form-autocomplete-suggestions,
+.form-autocomplete-suggestions a,
+fieldset .form-autocomplete-suggestions a,
+#page-admin-roles-permissions .role_buttons input[type="button"],
+#page-grade-edit-letter-index #region-main .mdl-align a,
+.path-admin-tool-assignmentupgrade #region-main div:last-child.mdl-align a,
+.course-footer-nav .btn,
+#page-admin-user-profile-index a[title="Edit"],
+#page-admin-user-profile-index a[title="Delete"],
+#page-admin-tool-httpsreplace-index [role="main"] p a,
+[data-fieldtype="tags"] a,
+#adminsettings fieldset h3 a:not([class=btn-icon]),
+.collapsibleregioncaption a:not(.btn-icon),
+.header-button-group .btn,
+td .commands a,
+.backlink a,
+.action-menu .dropdown-toggle,
+.feedback_mapped_courses .mdl-align a,
+.typesummary .helplinkpopup,
+#page-mod-glossary-view .commands a.icon,
+#page-mod-glossary-showentry .commands a.icon,
+.comment-area .fd a,
+.subscribelink a,
+.forumpost .link a,
+.reportlink a,
+#showall a,
+.printicon,
+.printicon.btn-action,
+.comment-link,
+.recipelink a,
+.midpad a,
+.addtomyinterests,
+.flagasinappropriate,
+.removefrommyinterests,
+.edittag,
+.bookprev,
+.booknext,
+.submitbtns .arrow_link,
+.edit_pages_box .addlinks a,
+.book_toc_numbered .action-list a,
+#page-mod-quiz-report .toggleincludeauto a,
+.paging-morelink a,
+.userpicture a:not(:first-child),
+table .btn,
+#page-user-profile .node_category .viewmore a,
+.path-user .node_category .viewmore a,
+.itemnav a,
+.section-navigation a
+.section-navigation a,
+.usp-search-btn,
+.notesgroup p a,
+.tag-backtoallitems a,
+.tool_dataprivacy a,
+.c-lang-menu .dropdown-toggle,
+.yui3-widget-buttons .yui3-button:not(.closebutton),
+.editquestion a,
+#theme_switch_link a,
+.commentlink a,
+.path-mod-quiz .othernav a,
+.exclusivemode,
+#page-admin-tool-usertours-configure .btn-action,
+.tour-actions a,
+.movecategory [role="button"],
+.movefield [role="button"],
+.export-actions a,
+.fp-dlg-butcancel,
+.o-standard-footer-html a,
+.userenrolment .col_role .addrole .assignrolelink,
+.btn-inverse,
+#page-mod-forum-index .subscription .helplink a,
+.qtype_multichoice_clearchoice a,
+.btn-lg,
+#scorm_toc_toggle_btn
+{
+  background-color: $btn-secondary-bg;
+  border: $btn-secondary-border-width solid $btn-secondary-border;
+  box-shadow: 0 2px 1px 0 $btn-secondary-shadow;
+
+  transition: $general-transition;
+
+  color: $btn-secondary-text;
+
+  a {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: $btn-secondary-bg-hover;
+    border-color: $btn-secondary-border-hover;
+    box-shadow: 0 1px 1px $btn-secondary-shadow, 0 2px 2px $btn-secondary-shadow, 0 4px 4px $btn-secondary-shadow, 0 6px 8px $btn-secondary-shadow, 0 8px 16px $btn-secondary-shadow;
+    color: $btn-secondary-text-hover;
+  }
+
+  &:focus {
+    box-shadow: inset 0 0 0 2px rgba($theme-color-3,.25);
+  }
+}
+
+    table a.btn-secondary {
+      color: $btn-secondary-text;
+    }
+
+    .editprofile span a {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    @include media-breakpoint-only(sm) {
+      #prev-activity-link,
+      #next-activity-link {
+        max-width: 100%;
+        display: block;
+      }
+    }
+
+    #page-mod-forum-index .subscription {
+      display: inline-flex;
+
+      .helplink {
+        margin: 10px 0 10px 10px;
+      }
+    }
+
+    .notesgroup p a,
+    .tour-actions a {
+      &:before {
+        display: none;
+      }
+    }
+
+    .tour-actions>ul>li {
+      height: 8em;
+    }
+
+    .addcomponent {
+      display: inline-flex;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .usertour a,
+    .tool_dataprivacy a,
+    .o-standard-footer-html a,
+    #theme_switch_link a {
+      margin-bottom: 10px;
+
+      @include media-breakpoint-only(sm) {
+        width: 100%;
+      }
+    }
+
+    .purgecaches a,
+    .s-footer .helplink a {
+      @include media-breakpoint-only(sm) {
+        width: 100%;
+      }
+    }
+
+    .editquestion {
+      a {
+        .icon {
+          margin-right: 0.5rem;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .bookprev {
+        float: left;
+
+        @include media-breakpoint-down(md) {
+        float: none;
+        }
+    }
+
+    #page-site-index .page-header-headings {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+
+    .page-header-headings + .header-button-group {
+      margin-left: 1rem;
+      @include media-breakpoint-only(sm) {
+        margin-left: 0;
+        display: block;
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+
+    .quickeditlink {
+      align-items: center;
+      line-height: 1;
+    }
+
+    .printicon.btn-action,
+    .printicon {
+      padding-left: 3rem!important;
+      background-image: none;
+      position: relative;
+
+      &:after {
+        @extend %fa-icon;
+        @extend .fas;
+        content: fa-content($fa-var-print);
+
+        font-size: 14px;
+        color: inherit;
+        opacity: 0.6;
+
+        position: absolute;
+        top: calc(50% - 7px);
+        left: 20px;
+     }
+
+      @include media-breakpoint-between(sm,md) {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+    }
+
+
+            @include media-breakpoint-between(sm,md) {
+              .glossarycontrol {
+                width: 100%;
+              }
+
+              #newentryform {
+                div {
+                  width: 100%;
+                }
+              }
+            }
+
+            .btn a {
+              &:hover {
+                text-decoration: none;
+              }
+            }
+
+
+            #showall a {
+              margin-top: 1rem;
+
+              &.hidden {
+                display: none;
+              }
+            }
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn-link,
+.cancel a {
+  font-weight: $font-weight-sm-bold;
+  text-decoration: none;
+  color: $btn-secondary-text;
+  background-color: transparent;
+  border-color: transparent;
+
+  @include hover {
+    color: $btn-secondary-text-hover;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    border-color: transparent;
+    box-shadow: inset 0 0 0 2px rgba($theme-color-3,.25);
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    cursor: not-allowed;
+  }
+
+  // No need for an active state here
+}
+
+
+//
+// Button Sizes
+//
+.btn-sm,
+.notesgroup p a,
+table .comment-link,
+.generaltable td .btn,
+.tool_dataprivacy-expand-all,
+#page-admin-roles-permissions .role_buttons input[type="button"],
+#page-admin-user-profile-index a[title="Edit"],
+#page-admin-user-profile-index a[title="Delete"],
+.card-text .footer a,
+#page-admin-roles-permissions .confirmation-buttons .btn,
+table a.btn-primary,
+.typesummary .helplinkpopup,
+.recipelink a,
+.addtomyinterests,
+.flagasinappropriate,
+.removefrommyinterests,
+.edittag,
+.edit_pages_box .addlinks a,
+.newlink a,
+.book_toc_numbered .action-list a,
+.forumpost .link a,
+.itemnav a,
+.table td .btn-link,
+.discussionsubscription a,
+[data-type="subscription-toggle"],
+.c-lang-menu .dropdown-toggle,
+.editquestion a,
+.questionflag.editable,
+.path-mod-quiz .othernav a,
+#page-admin-tool-oauth2-issuers .btn,
+#page-admin-tool-usertours-configure .btn-action,
+.movecategory [role="button"],
+.movefield [role="button"],
+.bookprev,
+.booknext,
+.bookexit,
+.reportlink a,
+.qtype_multichoice_clearchoice a,
+.editprofile span a,
+.userenrolment .col_role .addrole .assignrolelink,
+.unassignrolelink,
+.usertour a,
+.tool_dataprivacy a,
+.o-standard-footer-html a,
+#theme_switch_link a,
+.s-footer .helplink a,
+.region-main-settings-menu .action-menu .dropdown-toggle,
+.moreless-toggler,
+#scorm_toc_toggle_btn
+{
+  @include button-size($btn-padding-y-sm, 1rem, $font-size-xs!important, $btn-line-height-sm!important, $border-radius);
+
+  .icon {
+    font-size: $font-size-xs;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+.btn-xs,
+.grading-report .btn,
+td .commands a,
+.gradereport-grader-table td .btn,
+.gradereport-grader-table th .btn,
+.floater.heading.floating .btn,
+#participants td a[role=button],
+#page-course-management .btn-action
+{
+  @include button-size(.30rem, .45rem, 0.75rem, $btn-line-height-sm, $border-radius);
+
+  .icon {
+    font-size: $font-size-xs;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+}
+
+    a.action-icon {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    #previewcontrols {
+      .btn {
+        margin-right: 2px;
+      }
+    }
+
+    .qtype_multichoice_clearchoice a {
+      margin-top: 1rem;
+    }
+
+    .movecategory [role="button"],
+    .movefield [role="button"] {
+      margin-right: 10px;
+    }
+
+    .gradereport-grader-table {
+      td, th {
+          a {
+          margin: 0 0.5rem;
+
+          i {
+           margin: 0!important;
+           line-height: 1.2;
+          }
+        }
+      }
+    }
+
+    .editquestion {
+      i {
+        margin-right: 0.25rem;
+      }
+    }
+
+    .section-navigation {
+      .sectionname {
+        margin: 1rem;
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .rarrow {
+        margin-left: 0.5rem!important;
+      }
+
+      .larrow {
+        margin-right: 0.5rem!important;
+      }
+    }
+
+
+//
+// Block button
+//
+
+.btn-block,
+p.arrow_button input,
+#addcontrols input,
+#removecontrols input {
+  display: block;
+  width: 100%;
+
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: $btn-block-spacing-y;
+  }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type=reset],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+.discussion-nav {
+  .next-discussion a,
+  .prev-discussion a {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.discussion-nav .prev-discussion,
+.path-mod-forum .discussion-nav .next-discussion
+{
+  margin-right: 0.25rem;
+}
+
+input.form-submit, #id_addidnumbers {
+  float: left;
+}
+
+/* mod/forum/discuss.php */
+#page-mod-forum-discuss {
+  .singlebutton,
+  div.singleselect {
+    margin: 0!important;
+  }
+
+  .urlselect {
+    margin-right: 1rem;
+
+    @include media-breakpoint-between(sm,md) {
+      margin-right: 0!important;
+    }
+  }
+}
+
+//mods for links inside tables
+table {
+  a.btn-primary {
+    margin: 1.5px 0;
+    color: $white!important;
+  }
+}
+
+.btn-icon {
+  .icon.fa-question-circle {
+    color: inherit;
+  }
+}
+
+#userselector_options {
+  display: block;
+  margin: 2rem 0 0 0!important;
+  width: 100%;
+}
+
+.typesummary .helplinkpopup {
+  width: 100%;
+  text-align: left;
+}
+
+#page-mod-wiki-view {
+  .settings-menu {
+    form {
+      input {
+        display: inline-flex;
+        width: auto;
+      }
+    }
+  }
+
+
+      @include media-breakpoint-only(sm) {
+        .wikisearch {
+          text-align: center;
+          input {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+
+
+}
+
+.course-footer-nav {
+  .hr {
+    margin-bottom: 2.5rem;
+  }
+
+  .pull-right {
+    .btn {
+      text-align: right!important;
+    }
+  }
+
+  .pull-left {
+    .btn {
+      text-align: left!important;
+    }
+  }
+
+  .btn {
+    max-width: 280px;
+  }
+
+  form {
+    margin: 0!important;
+  }
+
+  div {
+    @include media-breakpoint-only(sm) {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+}
+
+  h3 {
+    a.btn-icon {
+      margin: 0.5rem;
+    }
+  }
+
+  .discussionsubscription {
+    a {
+      i {
+        margin-right: 0.5rem;
+        font-size: $font-size-sm;
+
+        height: auto;
+      }
+    }
+  }
+
+  .forumpost .options .link {
+    margin-top: 15px;
+    font-size: 12px;
+
+    text-align: left;
+
+    a {
+      margin: 0 10px 0 30px;
+
+      @include media-breakpoint-only(sm) {
+        margin: 0 10px 0 15px;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  /* two buttons next to each other. eg: admin/roles/override.php */
+  .submit_buttons {
+    [type="submit"] {
+      margin-right: 0.25rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .add-sections
+  {
+    .icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+
+  .c-custom-nav-btn {
+    padding: .85rem 1rem;
+
+    display: inline-flex;
+    align-items: center;
+
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    font-size: $font-size-sm;
+    font-weight: $font-weight-sm-bold;
+    color: $btn-secondary-text;
+    line-height: 1.2;
+
+    span,
+    .c-custom-nav-btn--text {
+      margin-left: 10px;
+      font-size: $font-size-xs;
+      line-height: 1.4;
+    }
+
+    @include media-breakpoint-only(sm) {
+      margin: 0;
+    }
+
+    #topBar5 & {
+      margin-right: 1rem;
+      @include media-breakpoint-only(sm) {
+        margin: 0;
+      }
+    }
+
+  }
+
+  @include media-breakpoint-only(sm) {
+    .c-lang-menu .dropdown-toggle {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+
+      .aabtn.cm-edit-action {
+        margin-left: 10px;
+        background-color: $gray-100;
+        border-radius: 30px;
+
+        width: 30px;
+        height: 30px;
+
+        display: inline-grid;
+        align-content: center;
+        justify-content: center;
+
+        transition: $general-transition;
+
+        &:hover {
+          background-color: $gray-200;
+        }
+
+        .icon {
+          margin: 0;
+          font-size: $font-size-xs;
+          color: $gray-900;
+        }
+      }
+
+      .btn-action {
+        padding: 5px;
+        color: $link-color;
+        font-size: inherit;
+
+        transition: $general-transition;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+
+      .section-navigation {
+        .sectionname {
+          margin: 9px 12px;
+          font-size: 1rem;
+          line-height: 2;
+
+          .format-grid & {
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 2.4;
+          }
+        }
+
+        select, .custom-select {
+          height: auto;
+          padding: 12px 1.9rem 12px 1.25rem;
+        }
+
+        .rarrow,
+        .larrow {
+          margin: 0!important;
+        }
+
+        .text {
+          display: none;
+        }
+
+        .mdl-right,
+        .mdl-left {
+          position: relative;
+        }
+
+        .mdl-left {
+          a {
+            padding: 14px 20px 14px 40px;
+
+            .format-grid & {
+              padding: 7px 20px 7px 40px;
+            }
+          }
+        }
+
+        .mdl-right {
+          a {
+            padding: 14px 40px 14px 20px;
+
+            .format-grid & {
+              padding: 7px 40px 7px 20px;
+            }
+          }
+        }
+
+        .mdl-right:hover {
+          .text {
+            padding: 5px 10px;
+            min-width: 100px;
+            width: max-content;
+            right: 50px;
+            top: calc(50% - 13px);
+
+            display: block;
+
+            position: absolute;
+            background-color: $gray-900;
+
+            border-radius: $border-radius;
+
+            color: $white;
+            font-size: 11px;
+            line-height: 1.5;
+          }
+        }
+
+        .mdl-left:hover {
+          .text {
+            padding: 5px 10px;
+            min-width: 100px;
+            width: max-content;
+            left: 50px;
+            top: calc(50% - 13px);
+
+            display: block;
+
+            position: absolute;
+            background-color: $gray-900;
+
+            border-radius: $border-radius;
+
+            color: $white;
+            font-size: 11px;
+            line-height: 1.5;
+          }
+        }
+
+      }
+
+
+      #page-admin-tool-usertours-configure {
+        .action-icon.btn-action {
+          display: inline-flex;
+          .icon {
+            margin: 0;
+          }
+        }
+      }
+
+      [data-role="deletecategory"] {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: $general-transition;
+
+        color: $red-600!important;
+        background-color: $red-100!important;
+
+        .icon {
+          font-size: 12px;
+        }
+
+        &:hover {
+          color: $red-200!important;
+          background-color: $red-600!important;
+        }
+      }
+
+      [data-action="delete-competency-link"],
+      table .menu-action {
+        a:not(.dropdown-toggle) {
+          .fa-trash {
+            width: 30px;
+            height: 30px;
+
+            border-radius: 30px;
+            font-size: 12px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: $general-transition;
+
+            color: $red-600!important;
+            background-color: $red-100!important;
+
+            &:hover {
+              color: $red-200!important;
+            background-color: $red-600!important;
+            }
+          }
+        }
+      }
+
+      .section-handle.moodle-core-dragdrop-draghandle {
+        width: 100%;
+        margin: 0 0 10px;
+      }
+
+      #page-admin-roles-permissions .allowlink,
+      #page-admin-roles-permissions .preventlink,
+      #page-admin-roles-permissions .preventlink .forbidden {
+        display: inline-block;
+        padding: $badge-padding-y $badge-padding-x;
+        margin: 2px;
+
+        background-color: $gray-100;
+        font-size: $badge-font-size;
+        font-weight: $badge-font-weight;
+        line-height: 1.2;
+        text-align: center;
+        color: $gray-900;
+
+        width: 30px;
+        height: 30px;
+
+        align-items: center;
+        justify-content: center;
+        @include border-radius($badge-border-radius);
+
+        .icon {
+          font-size: 0.75rem;
+        }
+
+        &.badge-link {
+          &:hover {
+            background-color: $gray-200;
+            color: $gray-900;
+          }
+        }
+      }
+
+      #page-admin-roles-permissions .prohibitlink {
+        display: inline-block;
+        padding: $badge-padding-y $badge-padding-x;
+        margin: 2px;
+
+        background-color: $theme-color-9;
+
+        font-size: $badge-font-size;
+        font-weight: $badge-font-weight;
+        line-height: 1.2;
+        text-align: center;
+        color: $theme-color-3;
+
+        width: 30px;
+        height: 30px;
+
+        align-items: center;
+        justify-content: center;
+        @include border-radius($badge-border-radius);
+
+        .icon {
+          font-size: 0.75rem;
+        }
+
+
+
+        &.badge-link {
+          &:hover {
+            background-color: $theme-color-8;
+            color: $theme-color-3;
+          }
+        }
+      }
+
+
+      #comments_delete {
+        display: block;
+      }
+
+      [data-action="delete-competency-link"] {
+        display: inline-flex!important;
+        align-items: center;
+        justify-content: center;
+
+        width: 30px;
+        height: 30px;
+
+        border-radius: 30px;
+
+        background-color: $red-100;
+
+        transition: $general-transition;
+
+        i {
+          font-size: $font-size-xs;
+          color: $red-600;
+        }
+
+        &:hover {
+          background-color: $red-600;
+          i { color: $red-200; }
+        }
+      }
+
+
+      .yui3-button {
+        &:hover {
+          background-image: none;
+        }
+      }
+
+      @include media-breakpoint-only(sm) {
+        .singlebutton.quizstartbuttondiv {
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+
+
+      .btn--activity-manual {
+        background-color: transparent;
+        border: none;
+
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+      }
+
+      .btn--disabled {
+        opacity: .5;
+      }
+
+
+      [data-groupname="buttonar"],
+      .rui-sticky-btns {
+        position: sticky;
+        bottom: 20px;
+        z-index: 999;
+      }

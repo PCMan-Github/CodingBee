@@ -1,0 +1,96 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/filemanager_fileselect
+
+    This template renders the window with file information/actions.
+
+    Example context (json):
+    {
+        "helpicon": "<a class='btn ..'><i class='icon fa fa-question-circle ..'></i></a>",
+        "licensehelpicon": {
+            "text": "<ul><li><a href='http://en.wikipedia.org/wiki/All_rights_reserved'>All rights reserved</a></li></ul>",
+            "alt": "Help with Choose license"
+        },
+        "columns": true
+    }
+}}
+<div class="filemanager fp-select">
+    <div class="fp-select-loading">
+        {{#pix}}i/loading_small{{/pix}}
+    </div>
+    <form class="form clearfix">
+        <div class="form-group row justify-content-end no-gutters">
+            <button class="fp-file-download badge badge-link badge-secondary m-1 border-0"><i class="fas fa-download mr-1"></i> {{#str}}download{{/str}}</button>
+            <button class="fp-file-delete badge badge-link badge-danger m-1 border-0"><i class="far fa-trash-alt mr-1"></i> {{#str}}delete{{/str}}</button>
+            <button class="fp-file-setmain badge badge-link badge-secondary m-1 border-0">{{#str}}setmainfile, repository{{/str}}</button>
+            <span class="fp-file-setmain-help col m-1">{{{helpicon}}}</span>
+            <button class="fp-file-zip badge badge-link badge-secondary m-1 border-0"><i class="fas fa-file-archive mr-1"></i> {{#str}}zip, editor{{/str}}</button>
+            <button class="fp-file-unzip badge badge-link badge-secondary m-1 border-0">{{#str}}unzip{{/str}}</button>
+        </div>
+
+                <div class="fp-saveas form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}name, repository{{/str}}</label>
+                    <div class="col-8"><input class="form-control" type="text"/></div>
+                </div>
+                <div class="fp-author form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}author, repository{{/str}}</label>
+                    <div class="col-8"><input class="form-control" type="text"/></div>
+
+                </div>
+                <div class="fp-license form-group row no-gutters">
+                    {{>core/filemanager_chooselicense}}
+                </div>
+                <div class="fp-path form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}path, repository{{/str}}</label>
+                    <div class="col-8">
+                        <select class="custom-select"></select>
+                    </div>
+                </div>
+                <div class="fp-original form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}original, repository{{/str}}</label>
+                    <div class="col-8">
+                        <span class="fp-originloading">{{#pix}}i/loading_small{{/pix}} {{#str}}loading, repository{{/str}}</span><span class="fp-value"></span>
+                    </div>
+                </div>
+                <div class="fp-reflist form-group row no-gutters">
+                    <label class="form-control-label col-4">{{#str}}referenceslist, repository{{/str}}</label>
+                    <div class="col-8">
+                        <p class="fp-refcount"></p>
+                        <span class="fp-reflistloading">{{#pix}}i/loading_small{{/pix}} {{#str}}loading, repository{{/str}}</span>
+                        <ul class="fp-value"></ul>
+                    </div>
+                </div>
+        <div class="fp-select-buttons form-group mb-0 d-sm-block d-md-flex w-100">
+            <button class="fp-file-update btn-primary btn m-r-1">{{#str}}update{{/str}}</button>
+            <button class="fp-file-cancel btn-secondary btn">{{#str}}cancel{{/str}}</button>
+        </div>
+    </form>
+    <hr />
+    <div class="fp-info clearfix d-inline-flex align-items-start col-12 p-0">
+        <div class="row no-gutters w-100">
+          <div class="fp-thumbnail col m-0"></div>
+          <div class="col m-0 px-4 py-3 alert alert-warning fp-fileinfo">
+              <div class="fp-datemodified"><p><strong>{{#str}}lastmodified, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+              <div class="fp-datecreated"><strong>{{#str}}datecreated, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+              <div class="fp-size"><strong>{{#str}}size, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+              <div class="fp-dimensions"><strong>{{#str}}dimensions, repository{{/str}}</strong><br><span class="fp-value"></span></div>
+          </div>
+        </div>
+
+    </div>
+</div>

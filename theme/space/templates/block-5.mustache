@@ -1,0 +1,74 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#FPTeam}}
+<div id="teamBlock" class="s-team s-special-box row no-gutters">
+  <div class="l-container row section-padding no-gutters justify-content-center">
+
+    <div class="{{FPTeamIntroProperties}} {{^FPTeamIntroProperties}}col-sm-11 col-md-8 col-lg-6 text-center{{/FPTeamIntroProperties}}">
+      {{#FPTeamSubHeading}}<h4 class="c-special-box-subtitle">{{{FPTeamSubHeading}}}</h4>{{/FPTeamSubHeading}}
+      {{#FPTeamHeading}}<h3 class="c-special-box-title">{{{FPTeamHeading}}}</h3>{{/FPTeamHeading}}
+      {{#FPTeamText}}<div class="lead">{{{FPTeamText}}}</div>{{/FPTeamText}}
+    </div>
+
+    <div class="{{#teamslider}}team-slider pb-5{{/teamslider}} c-team m-t-3 {{^teamslider}}col-12 row{{/teamslider}} justify-content-center">
+
+      {{#team}}
+      <div class="team-slide {{^teamslider}}col-sm-12 m-t-2{{teammemberperrow}}{{/teamslider}}">
+          {{#teamurl}}<a href="{{{teamurl}}}">{{/teamurl}}
+              {{#image}}<img src="{{{image}}}" alt="{{teamname}}" class="c-team-img"/>{{/image}}
+          {{#teamurl}}</a>{{/teamurl}}
+          {{#teamname}}<h4 class="c-team-title">{{{teamname}}}</h4>{{/teamname}}
+          {{#teamtext}}<div class="c-team-desc">{{{teamtext}}}</div>{{/teamtext}}
+          {{#teamcustomhtml}}<div class="c-team-social-icons">{{{teamcustomhtml}}}</div>{{/teamcustomhtml}}
+      </div>
+      {{/team}}
+
+    </div>
+
+    {{#FPTeamFooterContent}}<div class="c-team-footer-content w-100 mt-4">{{{FPTeamFooterContent}}}</div>{{/FPTeamFooterContent}}
+
+  </div>
+</div>
+{{#showfpblockteamhr}}<hr class="hr my-0" />{{/showfpblockteamhr}}
+
+{{#teamslider}}
+<script>
+  var slider = tns({
+    container: '.team-slider',
+    items: 1,
+    slideBy: 1,
+    mouseDrag: true,
+    controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    controls: true,
+    {{#sliderteamloop}}loop: true,{{/sliderteamloop}}
+    {{#sliderteamintervalenabled}}autoplayButtonOutput: false, autoplay: true, {{#sliderteaminterval}}autoplayTimeout: {{sliderteaminterval}},{{/sliderteaminterval}}{{/sliderteamintervalenabled}}
+    responsive: {
+      600: {
+        items: 2,
+        slideBy: 2,
+      },
+      1200: {
+        items: {{teamslidesperrow}},
+        slideBy: {{teamslidesperrow}},
+      }
+    }
+  });
+</script>
+{{/teamslider}}
+
+{{/FPTeam}}

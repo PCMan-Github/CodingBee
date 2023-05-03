@@ -1,0 +1,540 @@
+//
+// Base styles
+//
+
+.alert {
+  .rtl & {
+    text-align: right;
+  }
+
+  .btn {
+    margin: 0 10px;
+  }
+}
+
+.alert, .fdescription {
+    width: 100%;
+}
+
+.alert {
+  position: relative;
+  padding: $alert-padding-y 3.5rem $alert-padding-y $alert-padding-x;
+  margin: 0 0 1rem 0;
+  border: $alert-border-width solid transparent;
+
+  font-size: $font-size-sm;
+  text-align: left;
+
+  @include border-radius($alert-border-radius);
+
+  .rtl & {
+    padding: $alert-padding-y $alert-padding-x $alert-padding-y 3.5rem;
+  }
+
+  &.card-content {
+    align-items: center;
+  }
+
+  .singlebutton {
+    margin: 0!important;
+  }
+
+  .btn {
+    font-size: $font-size-xs;
+    padding: 0.5rem 1rem;
+  }
+
+  .icon {
+    padding: .25rem;
+    position: relative;
+
+    color: inherit;
+  }
+
+  a {
+    font-weight: $font-weight-sm-bold;
+  }
+
+  .btn-icon .icon.fa-question-circle {
+    color: inherit;
+  }
+
+  + .alert {
+    margin-top: 5px;
+  }
+}
+
+  .fdescription {
+    position: relative;
+    padding: 10px 20px;
+    margin: 1rem 0;
+    border: $alert-border-width solid transparent;
+  
+    font-size: $font-size-sm;
+    text-align: left;
+  
+    border-radius: $border-radius;
+  
+    .rtl & {
+      padding: $alert-padding-y $alert-padding-x $alert-padding-y 5rem ;
+    }
+  
+    &.card-content {
+      align-items: center;
+      display: inline-flex;
+    }
+  
+    .singlebutton {
+      margin: 0!important;
+    }
+  
+    .btn {
+      font-size: $font-size-xs;
+      padding: 0.5rem 1rem;
+    }
+  
+    .icon {
+      margin: 0 .5rem;
+      position: relative;
+  
+      color: inherit;
+    }
+  
+    a {
+      font-weight: $font-weight-bold;
+    }
+  
+    .btn-icon .icon.fa-question-circle {
+      color: inherit;
+    }
+  }
+
+  #relativedatesmode_warning {
+    display: inline-flex;
+
+    position: relative;
+    padding: $alert-padding-y $alert-padding-x;
+    border: $alert-border-width solid transparent;
+
+    font-size: $font-size-sm;
+    text-align: left;
+
+    color: #7f5e10;
+    background-color: $yellow-200;
+    box-shadow: 0 1px 0 0 $yellow-300;
+    border-radius: $border-radius;
+    font-size: $font-size-sm;
+
+    @include border-radius($alert-border-radius); 
+  }
+
+
+.form-control-static {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 10px 20px;
+
+  position: relative;
+
+
+  color: $gray-800;
+  background-color: $gray-100;
+  box-shadow: 0 1px 0 0 $gray-300;
+  
+  border-radius: $border-radius;
+  border: $alert-border-width solid transparent;
+
+  font-size: $font-size-xs;
+
+  img {
+    @extend .icon;
+    top: 0;
+  }
+
+  .icon {
+    margin: 0 .5rem;
+    position: relative;
+
+    color: inherit;
+  }
+}
+
+.tag-noresults {
+  margin-top: 2 * $spacer;
+
+  position: relative;
+  padding: $alert-padding-y 5rem $alert-padding-y $alert-padding-x;
+  margin-bottom: 2rem;
+  border: $alert-border-width solid transparent;
+
+  font-size: $font-size-sm;
+  text-align: left;
+
+  @include border-radius($alert-border-radius);
+  
+  @extend .alert-warning;
+}
+
+.fdescription {
+  width: 100%;
+  margin: 0.5rem 0;
+
+  font-size: $font-size-xs;
+  color: $yellow-900;
+  background-color: $yellow-200;
+  box-shadow: 0 1px 0 0 $yellow-300;
+  border-radius: $border-radius;
+
+  small {
+    color: $yellow-900!important;
+    opacity: 0.6;
+  }
+
+  img {
+    @extend .icon;
+    top: 0;
+  }
+}
+
+.fdescription.required {
+  color: $red-600;
+  background-color: $red-100;
+  box-shadow: 0 1px 0 0 darken($red-200, 4);
+
+  small {
+    color: $red-900!important;
+    opacity: 0.6;
+  }
+}
+
+.invalid-feedback, .notifyproblem {
+  padding: .5 * $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+
+  color: $red-600;
+  background-color: $red-100;
+
+  box-shadow: 0 1px 0 0 $red-100;
+  border-radius: $border-radius;
+}
+
+// Headings for larger alerts
+.alert-heading {
+  // Specified to prevent conflicts of changing $headings-color
+  color: inherit;
+}
+
+// Provide class for links that match alerts
+.alert-link {
+  font-weight: $alert-link-font-weight;
+}
+
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+  padding-right: ($close-font-size + $alert-padding-x * 2);
+}
+
+.alert {
+  .close {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    padding: 1.5rem;
+
+    background-color: transparent!important;
+    border: none;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.alert-sm {
+  padding: 10px 20px;
+  font-size: $font-size-xs;
+}
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+.alert-primary,
+.alert-info {
+  color: $theme-color-2;
+  background-color: $theme-color-9;
+  box-shadow: 0 1px 0 0 $theme-color-8;
+  border-radius: $border-radius;
+
+  hr {
+    border-top-color: $theme-color-7;
+  }
+
+  a, .text-muted {
+    color: $theme-color-3!important;
+  }
+
+  .alert-link {
+    color: $theme-color-3;
+  }
+
+  .close {
+    &:before {
+      color: $theme-color-1;
+    }
+  }
+}
+
+  #page-admin-tool-recyclebin-index {
+    .alert {
+      color: darken($theme-color-1, 10);
+      background-color: $theme-color-9;
+      box-shadow: 0 1px 0 0 $theme-color-8;
+      border-radius: $border-radius;
+    
+      hr {
+        border-top-color: $theme-color-7;
+      }
+    
+      a, .text-muted {
+        color: $theme-color-3!important;
+      }
+    
+      .alert-link {
+        color: $theme-color-3;
+      }
+    
+      .close {
+        &:before {
+          color: $theme-color-1;
+        }
+      }
+    }
+  }
+
+.alert-warning {
+  color: $yellow-900;
+  background-color: $yellow-200;
+  box-shadow: 0 1px 0 0 $yellow-300;
+  border-radius: $border-radius;
+
+  hr {
+    border-top-color: $yellow-300;
+  }
+
+  a, .text-muted {
+    color: $yellow-900!important;
+  }
+
+  .alert-link {
+    color: $yellow-900;
+  }
+
+  .close {
+    &:before {
+      color: $yellow-900;
+    }
+  }
+}
+
+.alert-secondary {
+  color: $gray-900;
+  background-color: $gray-200;
+  box-shadow: 0 1px 0 0 $gray-300;
+  border-radius: $border-radius;
+
+  hr {
+    border-top-color: $gray-300;
+  }
+
+  a, .text-muted {
+    color: $gray-900!important;
+  }
+
+  .alert-link {
+    color: $gray-900;
+  }
+
+  .close {
+    &:before {
+      color: $gray-900;
+    }
+  }
+}
+
+.alert-danger {
+  color: $red-800;
+  background-color: $red-100;
+  box-shadow: 0 1px 0 0 darken($red-100, 4);
+  border-radius: $border-radius;
+
+  hr {
+    border-top-color: darken($red-100, 4);
+  }
+
+  a, .text-muted {
+    color: $red-600!important;
+  }
+
+  .alert-link {
+    color: $red-600;
+  }
+
+  .close {
+    &:before {
+      color: $red-600;
+    }
+  }
+}
+
+.alert-success {
+  color: $green-900;
+  background-color: $green-100;
+  box-shadow: 0 1px 0 0 $green-200;
+  border-radius: $border-radius;
+
+  hr {
+    border-top-color: $green-400;
+  }
+
+  a, .text-muted {
+    color: $green-800!important;
+  }
+
+  .alert-link {
+    color: $green-800;
+  }  
+
+  .close {
+    &:before {
+      color: $green-900;
+    }
+  }
+}
+
+// Extend styles for some classes
+
+#page-admin-tool-spamcleaner-index {
+  [role="main"] .mdl-align p {
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+
+    position: relative;
+    padding: $alert-padding-y 5rem $alert-padding-y $alert-padding-x;
+    margin-bottom: 2rem;
+    border: $alert-border-width solid transparent;
+
+    font-size: $font-size-sm;
+    text-align: left;
+
+    @include border-radius($alert-border-radius);
+
+    @extend .alert-info;
+  }
+
+  #result .box {
+    margin-top: $spacer!important;
+    margin-bottom: 2 * $spacer!important;
+
+    position: relative;
+    padding: $alert-padding-y 5rem $alert-padding-y $alert-padding-x;
+    margin-bottom: 2rem;
+    border: $alert-border-width solid transparent;
+
+    font-size: $font-size-sm;
+    text-align: left;
+
+    @include border-radius($alert-border-radius);
+
+    @extend .alert-info;
+
+    text-align: left;
+  }
+}
+
+.alert-cookies {
+  .btn-icon {
+    position: absolute;
+  }
+}
+
+.quizinfo,
+#displayoptions .no-overflow,
+.submithelp,
+.loginfo,
+#page-admin-report-performance-index .generalbox.box,
+#page-grade-edit-settings-index .generalbox.box
+{
+  position: relative;
+  padding: $alert-padding-y 5rem $alert-padding-y $alert-padding-x;
+  margin-bottom: 2rem;
+  border: $alert-border-width solid transparent;
+
+  font-size: $font-size-sm;
+  text-align: left;
+
+  @include border-radius($alert-border-radius);
+
+  @extend .alert-info;
+}
+
+.submithelp,
+.loginfo {
+  margin-top: 2rem;
+}
+
+#page-admin-report-performance-index,
+#page-grade-edit-settings-index {
+  .generalbox.box {
+    text-align: left;
+  }
+}
+
+
+
+  //mod choice 
+  #page-mod-choice-view {
+
+    #notice, .expired {
+      position: relative;
+      padding: $alert-padding-y $alert-padding-x;
+      margin: 1rem 0;
+      border: $alert-border-width solid transparent;
+  
+      font-size: $font-size-sm;
+      text-align: left;
+  
+      border-radius: $border-radius;
+  
+      display: block;
+      text-align: center;
+  
+      .continuebutton {
+          margin-top: 0;
+      }
+    }
+  
+    #notice {
+      color: darken($theme-color-1, 10);
+      background-color: $theme-color-9;
+      box-shadow: 0 1px 0 0 $theme-color-8;
+    }
+  
+    .expired {
+      margin: 0;
+      
+      color: $red-800;
+      background-color: $red-100;
+      box-shadow: 0 1px 0 0 darken($red-100, 4);
+      border-radius: $border-radius;
+    }
+  
+  }
+

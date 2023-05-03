@@ -1,0 +1,1961 @@
+/* modules.less */
+
+// The home for small tweaks to modules that don't require
+// changes drastic enough to pull in the full module css
+// and replace it completely
+// Plus some misc. odds and ends
+
+.feedback_form .itemactions,
+.questionflag,
+#page-mod-feedback-show_entries .commands,
+#page-admin-user-profile-index a[title=Edit],
+#page-admin-user-profile-index a[title=Delete],
+.moodle-dialogue-bd .form-actions .btn,
+.moodle-dialogue-bd [data-region=link-buttons] .btn,
+#page-admin-roles-permissions .confirmation-buttons .btn
+{
+  @extend .pull-right;
+}
+
+select {
+    width: auto;
+}
+
+.path-mod-forum .discussion-nav {
+  margin: 0 0 20px;
+  padding: 5px;
+
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    .next-discussion {
+      padding: 0;
+
+        &:after {
+          position: relative;
+          right: -6px;
+        }
+    }
+
+    .prev-discussion {
+        padding: 0;
+
+        &:before {
+          position: relative;
+          left: -6px;
+        }
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Choice module
+
+.path-mod-choice {
+    .horizontal .choices .option {
+        display: inline-block;
+    }
+}
+
+.path-mod-feedback .feedback_form .col-form-label {
+    display: block !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.feedback_itemlist {
+  position: relative;
+}
+
+
+.feedback_form {
+  .itemname {
+    display: block;
+    padding-right: 2 * $spacer;
+  }
+
+  .itemactions {
+    padding: 0 2rem 0 2rem;
+  }
+}
+
+// Feedback module
+.path-mod-feedback .itemhandle i {
+    background-color: $white;
+    padding: 1rem 1.5rem;
+    border-radius: $border-radius;
+
+    color: $body-color;
+
+    border: 2px dashed #E4E8F0;
+    box-shadow: $btn-box-shadow;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.path-mod-feedback {
+  table.analysis {
+    border-top: 1px solid $border-color;
+  }
+
+  .feedback_itemlist {
+    padding: 1rem;
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+  }
+
+  div.feedback_is_dependent {
+    background-color: $theme-color-6;
+  }
+}
+
+#page-mod-feedback-show_nonrespondents {
+  .buttons {
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+  .clearer {
+    margin: 10px 0 0 0;
+
+    #page-mod-feedback-view & {
+      display: none;
+    }
+  }
+
+// Forum module
+.c-forum-edit-buttons {
+  &:empty {
+    display: none;
+  }
+
+  @include media-breakpoint-only(sm) {
+  border-left: none!important;
+  }
+}
+
+.path-mod-forum {
+
+  .indent {
+    margin-left: 60px;
+    @include media-breakpoint-only(sm) {
+    margin-left: 0;
+    }
+  }
+
+  .forumsearch {
+    margin-right: 0;
+
+    @include media-breakpoint-only(sm) {
+      input {
+        display: block;
+        width: 100%;
+
+        border-radius: $border-radius!important;
+      }
+
+      .input-group-prepend {
+        width: 100%;
+        display: block;
+        text-align: center;
+
+        .btn-icon {
+          margin: 20px!important
+        }
+      }
+
+      .input-group-append {
+        width: 100%;
+        button { border-radius: $border-radius!important; }
+      }
+    }
+
+    input,
+    .helptooltip {
+        margin: 0 3px;
+    }
+  }
+
+  .article .nav .nav-link + .nav-link {
+    border-left: none;
+  }
+}
+
+  #page-mod-forum-discuss .forumsearch {
+    margin-right: 0!important;
+    position: relative;
+    z-index: 0;
+  }
+
+.path-mod-forum .forumheaderlist,
+.path-mod-forum .forumheaderlist td {
+    border: none;
+}
+
+.path-mod-forum {
+    .forumheaderlist {
+        thead .header,
+        tbody .discussion td {
+            white-space: normal;
+            vertical-align: middle;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        thead .header {
+            white-space: normal;
+            vertical-align: middle;
+        }
+
+        thead .header.replies {
+            text-align: center;
+        }
+
+        thead .header.lastpost {
+            text-align: right;
+        }
+
+        thead .header th,
+        tbody .discussion td {
+            &.discussionsubscription {
+                width: 16px;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .discussion {
+            .replies,
+            .lastpost {
+                white-space: normal;
+            }
+
+            .discussionsubscription,
+            .replies {
+                text-align: center;
+            }
+
+            .topic,
+            .discussionsubscription,
+            .topic.starter,
+            .replies,
+            .lastpost {
+                vertical-align: middle;
+                min-width: 200px;
+            }
+        }
+    }
+
+    // Style for the forum subscription mode node.
+    .subscriptionmode {
+        color: $body-color-light;
+        padding-bottom: 1rem;
+    }
+
+    // Style for the currently selected subscription mode.
+    .activesetting {
+        color: $body-color-light;
+        font-weight: bold;
+    }
+}
+
+.next-discussion a,
+.prev-discussion a
+{
+  position: relative;
+
+  &:after {
+    @extend %fa-icon;
+    @extend .fas;
+
+    font-size: 16px;
+    color: inherit;
+    opacity: 0.6;
+
+    position: absolute;
+    top: calc(50% - 8px);
+  }
+
+}
+
+    .prev-discussion a {
+      padding: 8px 20px 8px 40px;
+
+      &:after {
+          content: fa-content($fa-var-caret-left);
+          left: 18px;
+        }
+    }
+
+    .next-discussion a {
+      padding: 8px 40px 8px 20px;
+
+      &:after {
+          content: fa-content($fa-var-caret-right);
+          right: 18px;
+        }
+    }
+
+
+.table-overflow {
+  overflow: auto;
+
+  @include media-breakpoint-between(sm,md) {
+    position: relative;
+    overflow-x: auto;
+    max-width: 100vw;
+  }
+
+
+
+  table {
+    min-width: max-content;
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-only(sm) {
+.forum-buttons {
+  .btn {
+    width: 100%;
+  }
+}
+}
+
+.forumpost {
+    border-radius: $border-radius;
+    border-color: $border-color;
+
+    display: block;
+    padding: 1.25rem 1.5rem 1rem;
+
+    .forum-post-rating {
+      background-color: $gray-100;
+
+      border-radius: $border-radius;
+      padding: 6px 20px;
+      font-size: $font-size-xs;
+
+      select, .custom-select {
+        padding-top: $custom-select-padding-y;
+        padding-bottom: $custom-select-padding-y;
+        font-size: $font-size-xs;
+      }
+
+      .icon {
+        margin: 0 0 0 15px;
+      }
+    }
+
+    &.unread {
+      border: 3px solid $theme-color-5;
+
+      .header {
+        background-color: transparent!important;
+        border-bottom: 0!important;
+        color: $theme-color-3;
+      }
+    }
+
+    .edited {
+      display: inline-block;
+      padding: $badge-padding-y $badge-padding-x;
+      margin: 1px 4px 1px 1px;
+      font-size: $badge-font-size!important;
+      font-weight: $badge-font-weight;
+      line-height: 1.2;
+      text-align: left;
+      @include border-radius($badge-border-radius);
+
+      @include media-breakpoint-only(sm) {
+      border-radius: $border-radius;
+      }
+
+      @extend .badge-light;
+    }
+
+    .picture {
+      a {
+        &:before {
+          display: none;
+        }
+      }
+
+      img {
+        &.userpicture {
+            margin-top: 10px;
+            @include media-breakpoint-only(sm) {
+              margin: 0
+            }
+        }
+      }
+    }
+
+    .subject {
+        font-weight: $font-weight-sm-bold;
+        font-size: 1.5rem;
+        color: $body-color;
+        padding: 10px 0 0;
+
+        a {
+          font-weight: $font-weight-sm-bold;
+          color: $body-color;
+        }
+
+
+        @include media-breakpoint-only(sm) {
+          font-size: 0.8rem;
+        }
+
+    }
+
+    .header {
+        margin-bottom: 3px;
+    }
+
+    .author {
+        font-size: $font-size-sm;
+        padding: 0 0 0.5rem;
+        margin-bottom: 0;
+        color: $gray-700;
+
+        @include media-breakpoint-only(sm) {
+          font-size: $font-size-xs;
+        }
+
+        a {
+          color: $body-color-secondary;
+        }
+    }
+
+    .post-word-count {
+      display: inline-block;
+
+      padding: 0.5rem 1rem;
+      margin: 1rem 0 0;
+
+
+      font-size: 0.75rem;
+      font-weight: $font-weight-bold;
+      font-style: normal;
+
+      background: $gray-400;
+      color: $body-color-secondary;
+
+      border-radius: $border-radius;
+
+    }
+
+    .options {
+      margin: 1rem -1rem 0!important;
+      padding: 0.5rem 1.25rem;
+
+      border-top: 1px solid $border-color;
+
+      .attachments {
+        margin: 1rem 0 0;
+        padding-left: 95px;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $border-color;
+      }
+
+      .commands {
+         margin: 0 1rem;
+         float: right;
+
+         color: $gray-400;
+
+         @include media-breakpoint-only(sm) {
+           margin: 0.5rem 0;
+           display: block;
+           float: none;
+           width: auto;
+           text-align: center;
+         }
+
+         a {
+           padding: 0 1.5rem;
+           margin: 1.5rem 0 0.5rem 0;
+
+           @include media-breakpoint-only(sm) {
+             display: block;
+             padding: 0;
+             margin: 1rem 0.5rem;
+           }
+
+           font-size: $font-size-sm;
+           font-weight: $font-weight-sm-bold;
+
+           color: $body-color-secondary;
+           border-left: none!important;
+
+           &:before {
+             display: none;
+           }
+         }
+     }
+    }
+
+
+    .tag_list {
+      margin: 1rem 0;
+      font-size: $font-size-xs;
+    }
+
+    .footer {
+      a {
+        margin: 0.5rem 1rem;
+        width: calc(100% - 2rem);
+      }
+    }
+
+
+    .content,
+    .topic {
+      padding: 0 2rem;
+      @include media-breakpoint-only(sm) {
+        padding: 0;
+      }
+    }
+
+    @include media-breakpoint-only(md) {
+      .content {
+        padding: 0;
+      }
+    }
+
+    .content {
+        .posting.fullpost {
+            margin-top: 0;
+            padding-left: 3rem;
+
+            @include media-breakpoint-between(sm,md) {
+              padding-left: 0;
+            }
+        }
+    }
+
+    .row {
+
+        .topic,
+        .content-mask,
+        .options {
+            margin-left: 43px;
+            @include media-breakpoint-only(sm) {
+              margin-left: 0;
+            }
+        }
+
+        &.side {
+            clear: both;
+        }
+    }
+
+    .commands {
+        margin: 2rem 0;
+        font-size: $font-size-xs;
+
+        a {
+          margin: 0 1rem;
+
+          &:first-of-type {
+            margin-left: 0;
+          }
+        }
+    }
+}
+
+  .forumpost-locked {
+    border: 2px dotted $red-200;
+    padding: 0.25rem;
+    margin: 0.25rem;
+  }
+
+[data-region-content="forum-post-core-subject"] {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-sm-bold;
+
+  color: $body-color-secondary;
+
+  a {
+    color: $body-color-secondary;
+
+    &:hover {
+      text-decoration: none;
+      color: $body-color;
+    }
+  }
+}
+
+.forum-post-footer {
+  font-size: $font-size-sm;
+
+  &:not(:empty) {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+  }
+}
+
+// Override hardcoded forum modules styling
+.forumsearch input[type=text] {
+    margin-bottom: 0;
+}
+
+@include media-breakpoint-between(sm,md) {
+  #page-mod-forum-discuss {
+    .form-inline .input-group {
+      width: 100%;
+    }
+  }
+}
+
+@include media-breakpoint-only(sm) {
+  #page-mod-forum-discuss .discussioncontrol.movediscussion {
+    padding-right: 0;
+  }
+}
+
+#page-mod-forum-discuss .discussioncontrols {
+    width: auto;
+    margin: 0;
+
+
+    @include media-breakpoint-only(sm) {
+      width: 100%;
+
+      .movediscussionoption {
+        .urlselect {
+          width: 100%;
+          margin: 0.25rem 0!important;
+        }
+      }
+    }
+
+    .form-inline input {
+        margin-top: -1px;
+    }
+}
+
+.discussion-container-adv {
+  @include media-breakpoint-only(sm) {
+    select, .btn {
+      width: 100%;
+      margin: .25rem 0!important;
+    }
+  }
+}
+
+#page-mod-forum-discuss .discussioncontrols .discussioncontrol {
+  &.pindiscussion {
+      float: right;
+  }
+
+  &.pindiscussion,
+  &.displaymode {
+    @include media-breakpoint-only(sm) {
+      float: none;
+      width: 100%;
+      padding-right: 0!important
+    }
+  }
+}
+
+@include media-breakpoint-between(sm,md) {
+  #page-mod-forum-discuss {
+    .discussionname {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.maincalendar .calendarmonth td,
+.maincalendar .calendarmonth th {
+    border: 1px dotted $table-border-color;
+}
+
+.path-grade-report-grader h1 {
+    text-align: inherit;
+}
+
+#page-mod-chat-gui_basic input#message {
+    max-width: 100%;
+}
+
+#page-mod-data-view #singleimage {
+    width: auto;
+}
+
+.template_heading {
+    margin-top: 10px;
+}
+
+.breadcrumb-button {
+    margin-top: 4px;
+}
+
+.breadcrumb-button .singlebutton {
+    float: left;
+    margin-left: 4px;
+}
+
+.ie .row-fluid .desktop-first-column {
+    margin-left: 0;
+}
+
+.langmenu form {
+    margin: 0;
+}
+// contributed by Paul Hibbitts, see http://msdn.microsoft@mixin com/en-us/library/ie/jj583807(v=vs.85).aspx
+div#dock {
+    display: none;
+}
+
+// Choice module
+
+// Lesson module
+
+/** General styles (scope: all of lesson) **/
+.path-mod-lesson .invisiblefieldset.fieldsetfix {
+    display: block;
+}
+.path-mod-lesson .answeroption .checkbox label p {
+    display: inline;
+}
+.path-mod-lesson .form-inline label.form-check-label {
+    display: inline-block;
+}
+#page-mod-lesson-view .branchbuttoncontainer .singlebutton button[type="submit"] {
+    white-space: normal;
+}
+
+/* mod lesson */
+#page-mod-lesson-view {
+    .fcontainer .no-overflow {
+      margin-bottom: 2rem;
+    }
+}
+
+.path-mod-lesson .generaltable td {
+    vertical-align: middle;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+
+    .dimmed {
+      font-weight: $font-weight-bold;
+      margin-bottom: 0.5rem;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+    .highlight {
+        display: inline-block;
+        margin-left: 0.25rem;
+    }
+    input[type="checkbox"] {
+        display: block;
+    }
+}
+
+.path-mod-wiki .wiki_headingtitle,
+.path-mod-wiki .midpad,
+.path-mod-wiki .wiki_headingtime {
+    text-align: inherit;
+}
+
+.path-mod-wiki .wiki_contentbox {
+    width: 100%;
+}
+
+// Survey module
+
+.path-mod-survey {
+    .surveytable {
+        > tbody > tr:nth-of-type(odd) {
+            background-color: $table-bg;
+        }
+
+        > tbody > tr:nth-of-type(even) {
+            background-color: $table-bg-accent;
+        }
+
+        .rblock label {
+            text-align: center;
+        }
+    }
+
+}
+
+.nav .caret {
+    margin-left: 4px;
+}
+
+// Dividers
+.nav {
+    .divider {
+        overflow: hidden;
+        width: 0;
+    }
+}
+
+// Usermenu
+.userloggedinas,
+.userswitchedrole,
+.loginfailures {
+    .usermenu {
+        .usertext {
+            float: left;
+            text-align: right;
+            margin-right: $spacer / 2;
+            height: 35px;
+            line-height: 1.5;
+
+            .rtl & {
+              margin-right: 0;
+              margin-left: $spacer / 2;
+            }
+
+            .meta {
+                display: block;
+                font-size: 9px;
+                color: $gray-700;
+            }
+        }
+        .avatar {
+            img {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.userloggedinas .usermenu {
+    .userbutton .avatars {
+        position: relative;
+        display: inline-block;
+        .avatar {
+            &.current {
+                display: inline-block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                img {
+                    vertical-align: baseline;
+                }
+            }
+            img {
+                width: inherit;
+                height: inherit;
+            }
+        }
+        .realuser {
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+        }
+    }
+}
+
+// Quiz module
+.path-mod-quiz .mod-quiz-edit-content {
+    // Force the quiz edit page to always be large enough to prevent scrolling when accessing the menu.
+    margin-bottom: auto;
+}
+
+#page-mod-quiz-mod #id_reviewoptionshdr .col-md-3,
+#page-mod-quiz-mod #id_reviewoptionshdr .col-md-9 {
+    width: auto;
+    max-width: none;
+    text-align: left;
+}
+#page-mod-quiz-mod #id_reviewoptionshdr .form-group {
+    width: 20rem;
+    display: inline-block;
+    min-height: 12rem;
+}
+
+#page-mod-quiz-mod #id_reviewoptionshdr .btn-link {
+    line-height: 1.5;
+    vertical-align: bottom;
+}
+#page-mod-quiz-mod #id_reviewoptionshdr .form-inline {
+    float: left;
+    clear: left;
+}
+#page-mod-quiz-mod #id_reviewoptionshdr .form-check {
+    margin: 7px 0;
+    width: 90%;
+    height: 22px;
+    justify-content: flex-start;
+}
+
+// Question navigation block.
+#page-mod-quiz-summary .submitbtns {
+  text-align: center;
+
+  .btn {
+    @include media-breakpoint-only(sm) {
+    width: 100%;
+    }
+  }
+}
+
+.path-mod-quiz #mod_quiz_navblock {
+    .qnbutton {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+        color: $gray-900;
+
+        background-color: $white;
+        background-image: none;
+
+        height: 44px;
+        width: 42px;
+        border-radius: $border-radius;
+        border: 2px solid $border-color;
+        overflow: hidden;
+        margin: 1px;
+    }
+
+    span.qnbutton {
+        cursor: default;
+        background-color: $input-bg-disabled;
+        color: $gray;
+    }
+
+    a.qnbutton:hover,
+    a.qnbutton:active,
+    a.qnbutton:focus {
+        text-decoration: underline;
+    }
+
+    .qnbutton .thispageholder {
+        border: 0!important;
+        border-radius: $border-radius;
+        z-index: 1;
+
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+    }
+
+    .qnbutton.thispage .thispageholder {
+        border-width: 3px;
+    }
+
+    .allquestionsononepage .qnbutton.thispage .thispageholder {
+        border-width: 1px;
+    }
+
+    .qnbutton.flagged .thispageholder {
+        background: transparent url([[pix:theme|mod/quiz/flag-on]]) 23px 2px no-repeat;
+    }
+
+    .qnbutton .trafficlight {
+        border: 0;
+        background: $card-bg none center / 10px no-repeat scroll;
+        height: 20px;
+        margin-top: 20px;
+        border-radius: 0 0 3px 3px;
+    }
+
+    .qnbutton.notyetanswered .trafficlight,
+    .qnbutton.invalidanswer .trafficlight {
+        background-color: $card-bg;
+    }
+
+    .qnbutton.invalidanswer .trafficlight {
+        background-image: url([[pix:theme|mod/quiz/warningtriangle]]);
+    }
+
+    .qnbutton.correct .trafficlight {
+        background-image: url([[pix:theme|mod/quiz/checkmark]]);
+        background-color: $state-success-text!important;
+    }
+
+    .qnbutton.blocked .trafficlight {
+        background-image: url([[pix:core|t/locked]]);
+        background-color: $input-bg-disabled!important;
+    }
+
+    .qnbutton.notanswered .trafficlight,
+    .qnbutton.incorrect .trafficlight {
+        background-color: $state-danger-text!important;
+    }
+
+    .qnbutton.partiallycorrect .trafficlight {
+        background-image: url([[pix:theme|mod/quiz/whitecircle]]);
+        background-color: $state-warning-text!important;
+    }
+
+    .qnbutton.complete .trafficlight,
+    .qnbutton.answersaved .trafficlight,
+    .qnbutton.requiresgrading .trafficlight {
+        background-color: $gray-light!important;
+    }
+}
+
+
+#page-mod-quiz-edit ul.slots li.section li.activity .instancemaxmarkcontainer form input {
+    height: 1.4em;
+    vertical-align: middle;
+}
+
+#page-mod-quiz-edit ul.slots li.section li.activity .instancemaxmarkcontainer {
+    padding: 0;
+    margin: 0 0.4em;
+
+    background-color: $theme-color-9;
+    color: $theme-color-3;
+
+    display: inline-flex;
+    align-items: center;
+    border-radius: $border-radius;
+
+    font-size: $font-size-sm;
+    font-weight: $font-weight-sm-bold;
+}
+
+#page-mod-quiz-attempt #connection-ok, #page-mod-quiz-attempt #connection-error {
+  top: 10px;
+
+  padding: 1rem;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+
+  box-shadow: none;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Assign.
+.path-mod-assign [data-region="grade-actions-panel"] {
+  height: 73px;
+  background-color: $white;
+  z-index: 1;
+}
+
+.path-mod-assign [data-region="grade-actions-panel"] [data-region="grade-actions"] .collapse-buttons {
+    top: auto;
+}
+
+.path-mod-assign div.fileuploadsubmissiontime {
+  margin: 9px;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-sm-bold;
+}
+
+.path-mod-assign div.fileuploadsubmission {
+  img, a {
+    display: inline-flex;
+  }
+}
+
+.path-mod-assign.jsenabled .expandsummaryicon {
+  margin: 0.5rem 0 0.5rem 0!important;
+  display: inline-flex!important;
+}
+
+.submissionsummarytable  {
+  .no-overflow {
+    line-height: 1.5;
+  }
+}
+
+// This section removes the responsiveness from the form in the grading panel
+$popout-header-font-size: 1.5 * $font-size-base;
+// This can't be calculated from modal-title-padding because we are mixing px and rem units.
+$popout-header-height: 4rem;
+
+.path-mod-assign #page-content [data-region="grade-panel"] .mform:not(.unresponsive) .fcontainer .fitem.popout .felement {
+  overflow-y: scroll;
+  max-height: 80vh;
+  position: relative;
+}
+
+.path-mod-assign [data-region="grade-panel"] {
+    padding-top: $spacer;
+    top: 163px;
+    background-color: $white;
+}
+.path-mod-assign [data-region="grade-panel"] .fitem > .col-md-3,
+.path-mod-assign [data-region="grade-panel"] .fitem > .col-md-9 {
+    width: 100%;
+    padding: 0;
+    max-width: 100%;
+    flex: none;
+}
+.path-mod-assign [data-region="grade-panel"] fieldset,
+.path-mod-assign [data-region="grade-panel"] .fitem.row {
+    margin: 0;
+}
+
+.path-mod-assign [data-region="grade-panel"] .fitem > .col-md-3 > .pull-xs-right {
+    float: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.path-mod-assign [data-region="grade-panel"] .mform .fitem.has-popout .felement {
+    width: 100%;
+}
+
+.path-mod-assign [data-region="grade-panel"] .mform .fitem .felement {
+    width: auto;
+}
+
+// Now styles for the popout sections.
+
+.path-mod-assign [data-region="grade-panel"] .popout {
+    background-color: $modal-content-bg;
+}
+
+.path-mod-assign [data-region="grade-panel"] .fitem.has-popout {
+    padding:0;
+    @include border-radius($card-border-radius);
+    margin-top: 0;
+    margin-bottom: $spacer;
+
+}
+.path-mod-assign [data-region="grade-panel"] .has-popout .col-md-3 {
+    border-bottom: $hr-border-width solid $hr-border-color;
+    margin-bottom: $spacer;
+}
+
+.path-mod-assign [data-region="grade-panel"] .popout {
+  padding: 1rem;
+}
+
+.path-mod-assign [data-region="grade-panel"] .fitem.popout {
+  top: 30px;
+  height: max-content;
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+.path-mod-assign [data-region="grade-panel"] .popout > .col-md-3 {
+    @extend .modal-header;
+    font-size: $popout-header-font-size;
+}
+
+.path-mod-assign [data-region="grade-panel"] .popout [data-region="popout-button"] {
+    padding-top: 0;
+}
+
+.path-mod-assign #page-content [data-region="grade-panel"] [data-region="popout-button"] {
+  color: $body-color;
+}
+
+.path-mod-assign #page-content .form-control-static {
+  width: 100%;
+}
+
+  .form-control-static {
+    &:empty {
+      display: none;
+    }
+  }
+
+// Now style the fixed header elements.
+
+.path-mod-assign [data-region="assignment-info"] {
+    overflow-y: hidden;
+}
+
+.path-mod-assign [data-region="grading-navigation"] {
+    padding: 6px;
+}
+
+.path-mod-assign [data-region="grade-actions"] {
+    padding: 10px;
+    text-align: left;
+}
+
+.path-mod-assign [data-region="user-info"] a {
+  color: $body-color;
+  line-height: 1;
+}
+
+.path-mod-assign [data-region="user-info"] .img-rounded {
+    margin-top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-right: 1rem;
+}
+
+.path-mod-assign .fcontainer {
+  padding-top: 0;
+}
+
+.path-mod-assign [data-region="grading-navigation-panel"] {
+    height: 130px;
+}
+
+.path-mod-assign [data-region="grading-navigation"] [data-region="input-field"] input {
+    width: auto;
+    display: inline-block;
+}
+
+[data-region="user-count"] {
+  min-width: 120px;
+}
+
+/**
+ * Assign feedback.
+ */
+.assignfeedback_editpdf_widget * {
+    box-sizing: content-box;
+}
+
+.assignfeedback_editpdf_widget button {
+    box-sizing: border-box;
+}
+
+.assignfeedback_editpdf_widget .commentcolourbutton img {
+    border-width: 0;
+}
+
+.assignfeedback_editpdf_widget .label {
+    @extend .tag;
+    @extend .tag-info;
+}
+
+.assignfeedback_editpdf_menu {
+    padding: 0;
+}
+
+.path-mod-assign [data-region="grade-panel"] .gradingform_guide .remark .commentchooser {
+    float: none;
+}
+.path-mod-assign [data-region="grade-panel"] .gradingform_guide .markingguideremark {
+    width: 100%;
+}
+.path-mod-assign [data-region="grade-panel"] .mform .fitem .felement[data-fieldtype="grading"] {
+    padding: 0;
+}
+.path-mod-assign [data-region="grade-panel"] .showmarkerdesc,
+.path-mod-assign [data-region="grade-panel"] .showstudentdesc {
+    background-color: $card-bg;
+}
+
+/**
+ * Mod LTI.
+ */
+.path-admin-mod-lti {
+    .btn .loader img,
+    #tool-list-loader-container .loader img {
+        height: auto;
+    }
+}
+
+.path-mod-assign [data-region="user-selector"] {
+  [data-action="previous-user"],
+  [data-action="next-user"] {
+    margin-top: -2px;
+    padding: 7px;
+    color: $body-color-secondary;
+  }
+
+  .alignment {
+   width: auto;
+   float: none;
+   margin-top: 0;
+ }
+
+}
+
+.path-mod-assign [data-region="configure-filters"] {
+  margin-top: 54px;
+
+  label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0.25rem 1rem;
+  }
+}
+
+.path-mod-assign div.submissiongraded {
+  background-color: $theme-color-5;
+}
+
+.path-mod-assign td.earlysubmission, .path-mod-assign div.earlysubmission {
+  background-color: $gray-100;
+}
+
+.path-mod-assign [data-region="grade-panel"] h3 {
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+#page-mod-assign-grader {
+  .form-group .col-md-3 {
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.path-mod-assign [data-region="grade-panel"] #id_gradeheader {
+  input, select {
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-only(sm) {
+  #page-mod-data-view {
+    .datapreferences, .search_none {
+
+      .boxaligncenter {
+        background-color: $theme-color-6;
+        padding: 0 1rem 0.5rem;
+        border-radius: $border-radius;
+
+        margin: 0 auto;
+
+        tr {
+          width: 250px;
+
+          select {
+            width: 246px;
+          }
+        }
+      }
+
+      label,
+      input,
+      select {
+        width: 100%;
+        display: block;
+      }
+
+      input,
+      select {
+        margin-bottom: .75rem;
+        margin-left: 0;
+      }
+
+      #advancedcheckbox,
+      [for=advancedcheckbox] {
+        display: inline-flex;
+        width: auto;
+      }
+
+      .accesshide {
+        display: inline;
+      }
+    }
+  }
+}
+
+.confirmation-buttons {
+  margin-top: 1rem;
+
+  .btn {
+    width: 100%;
+    margin-bottom: 0.25rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.resultgraph {
+  img {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+/*database module*/
+@include media-breakpoint-only(sm) {
+  .path-mod-data-field {
+    .fieldadd select,
+    .sortdefault select {
+      margin: 0 0 0.25rem 0;
+      width: 100%;
+    }
+
+    .btn.m-l-1 {
+      margin: 0;
+    }
+  }
+}
+
+
+.forumpost .content {
+  @include media-breakpoint-only(sm) {
+    padding: 0;
+  }
+
+  .posting {
+     @include media-breakpoint-only(sm) {
+       font-size: 0.8rem;
+     }
+   }
+}
+
+/* search courses module on the front page */
+@include media-breakpoint-only(sm) {
+  #shortsearchbox {
+    width: 100%;
+  }
+}
+
+.attachments {
+  margin-top: 2rem;
+  padding: $spacer;
+  margin-bottom: $spacer;
+
+  background-color: $gray-100;
+  border-radius: $border-radius;
+}
+
+.discussion-settings-menu {
+  .dropdown-toggle {
+    padding: .7rem 1rem;
+  }
+}
+
+@include media-breakpoint-only(sm) {
+  .movediscussion {
+    select {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.path-mod-forum :target>.forumpost:before {
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+
+  border-radius: $border-radius;
+  background: $theme-color-3;
+}
+
+// Make filter popover content scrollable if needed.
+.filter-scrollable {
+  overflow-y: auto;
+  max-height: 25em;
+  margin-bottom: 1em;
+}
+
+// Required to fit a date mform into a filter popover.
+.filter-dates-popover {
+  width: 100%;
+  max-width: 41.5em;
+
+  .mform {
+      margin-left: -3em;
+  }
+}
+
+
+$author-image-width: 70px;
+$author-image-margin: 24px;
+$author-image-width-sm: 30px;
+$author-image-margin-sm: 8px;
+$grading-drawer-width: 430px !default;
+$grading-animation-duration: .3s !default;
+$grading-icon-button-size: 56px !default;
+$grading-search-button-padding-left: calc(#{map-get($spacers, 2)} + 8px) !default;
+$grading-search-input-padding-left: calc(#{map-get($spacers, 2)} + #{map-get($spacers, 2)} + #{$grading-icon-button-size - ($input-border-width * 2)}) !default; /* stylelint-disable-line max-line-length */
+$grading-search-input-padding-right: calc(#{map-get($spacers, 2)} + #{$grading-icon-button-size}) !default;
+$grading-nav-bar-active-drawer-button-bottom: calc(#{map-get($spacers, 2) * -1} - 1px) !default;
+$grading-content-show-content-button-padding-left: calc(#{map-get($spacers, 2) * 2} + 45px) !default;
+
+
+@keyframes collapseSearchButton {
+  from {
+      width: 100%;
+      height: $input-height-lg;
+      border-radius: 0;
+      background-color: $input-bg;
+      border-color: $input-border-color;
+      padding-left: $grading-search-button-padding-left;
+      padding-top: $input-padding-y-lg;
+      padding-bottom: $input-padding-y-lg;
+      line-height: $input-line-height-lg;
+      right: 0;
+  }
+  to {
+      height: $grading-icon-button-size;
+      width: $grading-icon-button-size;
+      border-radius: $grading-icon-button-size / 2;
+      background-color: $gray-200;
+  }
+}
+
+.path-mod-forum .unified-grader {
+  .navbar {
+      max-height: none;
+      z-index: 1;
+  }
+
+  .body-container {
+      &.hidden {
+          display: none !important; /* stylelint-disable-line declaration-no-important */
+      }
+  }
+
+  .userpicture {
+      height: 50px;
+      width: 50px;
+  }
+
+  .grader-grading-panel {
+      position: absolute;
+      z-index: 0;
+      width: $grading-drawer-width;
+
+      &.hidden {
+          right: ($grading-drawer-width * -1);
+      }
+
+      .grading-icon {
+          width: $grading-icon-button-size;
+      }
+
+      .user-picker-container {
+          .user-full-name {
+              margin-left: 1rem;
+              max-width: 240px;
+              font-size: $font-size-sm;
+          }
+
+          .page-link {
+              display: flex;
+              text-align: center;
+              align-items: center;
+              justify-content: center;
+          }
+      }
+
+      .header-container {
+          height: 65px;
+          position: relative;
+          overflow: hidden;
+
+          .info-container {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              width: 100%;
+              height: 100%;
+              padding: map-get($spacers, 2);
+              padding-right: calc(#{$grading-icon-button-size} + #{map-get($spacers, 2)});
+              opacity: 1;
+              visibility: visible;
+              transition: left $grading-animation-duration ease-in-out;
+              z-index: 1;
+          }
+
+          .toggle-search-button {
+              &.expand {
+                background-color: $input-bg;
+                border-color: $input-border-color;
+                padding-left: $grading-search-button-padding-left;
+                padding-top: $input-padding-y-lg;
+                padding-bottom: $input-padding-y-lg;
+                line-height: $input-line-height-lg;
+                right: 0;
+              }
+
+              &.collapse {
+                  display: block;
+              }
+          }
+
+          .user-search-container {
+              overflow: hidden;
+              position: absolute;
+              top: 50%;
+              right: 0;
+              transform: translateY(-50%);
+              z-index: 2;
+              width: 100%;
+              height: 100% !important; /* stylelint-disable-line declaration-no-important */
+              padding: map-get($spacers, 2);
+
+              .search-input-container {
+                  position: relative;
+                  overflow: visible;
+                  flex-wrap: nowrap;
+
+                  input {
+                      padding-left: $grading-search-input-padding-left;
+                      padding-right: $grading-search-input-padding-right;
+                      opacity: 1;
+                      visibility: visible;
+                      transition:
+                          opacity 0s linear $grading-animation-duration,
+                          visibility 0s linear;
+                  }
+
+                  .search-icon {
+                      position: absolute;
+                      top: 50%;
+                      left: map-get($spacers, 2);
+                      transform: translateY(-50%);
+                      color: $input-color;
+                      height: $grading-icon-button-size;
+                      width: $grading-icon-button-size - ($input-border-width * 2);
+                      background-color: transparent;
+
+                      opacity: 1;
+                      visibility: visible;
+                      transition:
+                          opacity 0s linear $grading-animation-duration,
+                          visibility 0s linear $grading-animation-duration;
+
+                          .icon {
+                            font-size: $font-size-sm;
+                          }
+                  }
+
+                  .toggle-search-button {
+                      position: absolute;
+                      top: 50%;
+                      right: map-get($spacers, 2);
+                      transform: translateY(-50%);
+                      z-index: 1;
+                      color: inherit;
+                      text-align: left;
+                      padding: 10px;
+                      transition: right 0s linear $grading-animation-duration;
+
+                      .expanded-icon {
+                          opacity: 1;
+                          visibility: visible;
+                          max-width: 50px;
+                          max-height: 50px;
+                          transition:
+                              opacity 0s linear $grading-animation-duration,
+                              max-height 0s linear $grading-animation-duration,
+                              max-width 0s linear $grading-animation-duration,
+                              visibility 0s linear $grading-animation-duration;
+                      }
+
+                      .collapsed-icon {
+                          opacity: 0;
+                          visibility: hidden;
+                          max-height: 0;
+                          max-width: 0;
+                          overflow: hidden;
+                          transition:
+                              opacity 0s linear $grading-animation-duration,
+                              max-height 0s linear $grading-animation-duration,
+                              max-width 0s linear $grading-animation-duration,
+                              visibility 0s linear $grading-animation-duration;
+                      }
+                  }
+              }
+
+              &.collapsed {
+                  width: calc(#{$grading-icon-button-size} + #{map-get($spacers, 2)} + #{map-get($spacers, 2)});
+                  transition: width $grading-animation-duration ease-in-out;
+
+                  .search-input-container {
+                      flex-wrap: nowrap;
+
+                      input,
+                      .search-icon {
+                          opacity: 0;
+                          visibility: hidden;
+                          transition:
+                              opacity 0s linear,
+                              visibility 0s linear;
+                      }
+
+                      input {
+                          padding-left: 0;
+                          padding-right: 0;
+                      }
+
+                      .toggle-search-button {
+                          .expanded-icon {
+                              opacity: 0;
+                              visibility: hidden;
+                              max-height: 0;
+                              max-width: 0;
+                              overflow: hidden;
+                              transition:
+                                  opacity 0s linear,
+                                  max-height 0s linear,
+                                  max-width 0s linear,
+                                  visibility 0s linear;
+                          }
+
+                          .collapsed-icon {
+                              opacity: 1;
+                              visibility: visible;
+                              max-width: 50px;
+                              max-height: 50px;
+                              transition:
+                                  opacity 0s linear,
+                                  max-height 0s linear,
+                                  max-width 0s linear,
+                                  visibility 0s linear;
+                          }
+                      }
+                  }
+              }
+          }
+
+          .user-search-container:not(.collapsed) + .info-container {
+              opacity: 0;
+              visibility: hidden;
+              left: calc(100% * -1);
+              transition:
+                  left $grading-animation-duration ease-in-out,
+                  opacity 0s linear $grading-animation-duration,
+                  visibility 0s linear $grading-animation-duration,
+                  padding 0s linear $grading-animation-duration;
+          }
+      }
+  }
+
+  .grader-module-content {
+      overflow-y: auto;
+      margin-right: $grading-drawer-width;
+      @include transition(margin-right .2s ease-in-out);
+  }
+
+  .drawer-button {
+      position: relative;
+
+      &.active::after {
+          content: "";
+          position: absolute;
+          bottom: $grading-nav-bar-active-drawer-button-bottom;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: map-get($theme-colors, 'primary');
+      }
+
+      .icon {
+          font-size: 20px;
+          height: 20px;
+          width: 20px;
+      }
+  }
+
+  .grader-module-content-display {
+      .discussion-container {
+          &:last-of-type {
+              > hr {
+                  display: none;
+              }
+          }
+
+          .posts-container {
+              &:last-of-type {
+                  > hr {
+                      display: none;
+                  }
+              }
+
+              .parent-container {
+                  position: relative;
+
+                  .show-content-button {
+                      z-index: 1;
+
+                      &:not(.collapsed) {
+                          display: none;
+                      }
+                  }
+
+                  .content {
+                      display: block;
+                      height: auto !important; /* stylelint-disable-line declaration-no-important */
+
+                      .header {
+                          transition: margin-bottom $grading-animation-duration ease-in-out;
+
+                          div + div {
+                              opacity: 1;
+                              visibility: visible;
+                              max-height: none;
+                              transition:
+                                  opacity $grading-animation-duration linear,
+                                  visibility 0s linear;
+                          }
+                      }
+
+                      .body-content-container {
+                          opacity: 1;
+                          visibility: visible;
+                          max-height: none;
+                          transition:
+                              opacity $grading-animation-duration linear,
+                              visibility 0s linear;
+                      }
+
+                      .forum-post-core {
+                          opacity: 1;
+                          visibility: visible;
+                          max-height: none;
+                          transition:
+                              opacity $grading-animation-duration linear,
+                              visibility 0s linear;
+                      }
+                  }
+
+                  .show-content-button.collapsed + .content {
+                      display: none;
+
+                      .header {
+                          margin-bottom: 0 !important; /* stylelint-disable-line declaration-no-important */
+
+                          div + div {
+                              opacity: 0;
+                              visibility: hidden;
+                              max-height: 0;
+                          }
+                      }
+
+                      .body-content-container {
+                          opacity: 0;
+                          visibility: hidden;
+                          max-height: 0;
+                      }
+
+                      .forum-post-core {
+                          opacity: 0;
+                          visibility: hidden;
+                          max-height: 0;
+                      }
+                  }
+
+                  .show-content-button.collapsed:hover + .content,
+                  .show-content-button.collapsed:focus + .content {
+                      opacity: 1;
+                  }
+              }
+          }
+      }
+
+      .no-post-container {
+          .icon {
+              height: 250px;
+              width: 250px;
+              margin-right: 0;
+          }
+      }
+
+      .nested-v2-display-mode {
+          .discussion-container {
+              .posts-container {
+                  .parent-container {
+                      .show-content-button {
+                          padding-left: $author-image-width + $author-image-margin;
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  .no-search-results-container {
+      .icon {
+          height: 250px;
+          width: 250px;
+          margin-right: 0;
+      }
+  }
+
+  .nested-v2-display-mode {
+      .view-context-button {
+          margin-left: $author-image-width + $author-image-margin;
+          border-radius: $border-radius-lg;
+      }
+
+      .parent-container {
+          .author-image-container {
+              position: relative;
+
+              &:after {
+                  position: absolute;
+                  top: calc(#{$author-image-width} + #{map-get($spacers, 2)});
+                  content: "";
+                  background-color: $gray-200;
+                  width: 2px;
+                  height: calc(100% - #{$author-image-width} + #{map-get($spacers, 2)});
+              }
+          }
+      }
+
+      .parent-container + .post-container {
+          .author-image-container {
+              img {
+                  width: $author-image-width-sm !important; /* stylelint-disable-line declaration-no-important */
+              }
+          }
+      }
+  }
+}
+
+.path-mod-forum .unified-grader .nested-v2-display-mode,
+.path-mod-forum .modal .nested-v2-display-mode {
+  .post-subject {
+      display: none;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .path-mod-forum .unified-grader {
+      .grader-grading-panel {
+          width: 100%;
+      }
+  }
+}
+
+.grade-grade-box {
+  background-color: $gray-100;
+  padding: 1rem;
+  border-radius: $border-radius;
+
+  label {
+    margin: 0.5rem 0;
+  }
+}
+
+.grade-notifications-box {
+  background-color: $theme-color-9;
+  padding: 1rem;
+  border-radius: $border-radius;
+}
+
+.grade-form {
+  .form-check {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .pull-right {
+    font-size: $font-size-xs;
+  }
+}
+// End styling for mod_forum.

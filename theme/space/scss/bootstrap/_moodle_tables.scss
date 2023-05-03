@@ -1,0 +1,524 @@
+
+.cap-desc {
+  font-weight: $font-weight-bold;
+}
+
+
+#page-admin-roles-permissions {
+  .preventlink, .forbidden {
+    margin-right: 5px!important;
+    margin-bottom: 8px!important;
+    display: inline-flex!important;
+  }
+
+  .allowlink, .prohibitlink {
+    margin-right: 5px!important;
+    margin-bottom: 5px!important;
+    display: inline-flex!important;
+  }
+
+  .preventlink {
+    margin-bottom: 0;
+  }
+
+  .allowed {
+    display: block!important;
+  }
+
+  .allowed {
+    margin-bottom: 0.5rem;
+    min-width: 200px;
+  }
+
+  .allowmore {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+#defineroletable .header, .rolecap .header {
+  background-color: $table-head-bg;
+  border-bottom: 1px solid $table-border-color;
+  color: $table-color!important;
+  font-weight: $font-weight-bold;
+}
+
+#defineroletable {
+  .cap-desc a {
+    font-weight: $font-weight-bold;
+    color: $table-color;
+  }
+}
+
+
+
+.risk {
+  .btn {
+    img {
+      width: 18px;
+      height: auto;
+    }
+  }
+}
+
+/* reset YUI styles */
+.yui3-skin-sam {
+  .yui3-datatable-table {
+    font-family: inherit;
+  }
+}
+
+
+/* Grades - Tech-enabled Learning - User report */
+#page-course-user {
+  .column-itemname {
+    .icon {
+      margin-right: 6px!important;
+
+      display: inline-flex;
+    }
+  }
+
+  .gradeitemheader {
+    line-height: 1.5;
+  }
+}
+
+
+/* Dashboard - My courses - Course - Grades - Single view */
+#page-grade-report-singleview-index {
+
+  #page-content h2:first-of-type, [role="main"] h2:first-of-type {
+    margin-bottom: 0;
+  }
+
+  [role="main"] {
+    .cell {
+      .form-control {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/* mod for enrol/manual/manage.php */
+.roleassigntable {
+  td {
+    vertical-align: top;
+  }
+}
+
+.enroloptions {
+  select {
+    width: 100%;
+  }
+
+  p {
+    margin: $spacer 0;
+  }
+}
+
+.surveytable {
+  width: 100%!important;
+}
+
+
+.scale_options {
+  margin-top: 0.5rem;
+  font-size: $font-size-xs;
+  color: $body-color-light;
+}
+
+      /* file manager */
+      table.ygtvtable {
+        width: 100%;
+      }
+
+
+      .no-overflow {
+        overflow-x: auto;
+
+        .path-mod-page & {
+          overflow-x: inherit;
+        }
+
+        table {
+          min-width: max-content;
+        }
+      }
+
+      .otherusersdesc {
+        margin-bottom: 2rem;
+      }
+
+.path-grade-report-singleview div.reporttable {
+  overflow-x: scroll;
+}
+
+
+#page-grade-report-singleview-index {
+  .generaltable th .icon {
+    width: auto;
+    margin-right: 1rem!important;
+  }
+}
+
+
+#page-admin-roles-permissions {
+  .generalbox.capbox {
+    overflow-x: auto;
+
+    #permissions {
+      min-width: 100%;
+      width: max-content;
+
+      tbody {
+        th, td {
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+}
+
+
+#page-admin-plugins,
+#page-admin-filters
+{
+  [role="main"] {
+    overflow: auto;
+
+    .generaltable {
+      min-width: max-content;
+    }
+  }
+}
+
+#completion-progress {
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  th[scope="row"],
+  .completion-sortchoice {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+}
+
+#page-report-progress-index #completion-progress th,
+#page-report-progress-index #completion-progress td {
+  vertical-align: top!important;
+  min-width: 120px;
+  width: 120px;
+
+  a {
+    display: block;
+  }
+}
+
+#page-report-progress-index .rotated-text {
+  display: block;
+  font-size: $font-size-xs;
+  transform: none;
+  white-space: normal;
+}
+
+#page-report-progress-index .rotated-text-container {
+  display: block;
+  width: 100px;
+}
+
+.completion-header {
+  min-width: 100px;
+  max-width: 100px;
+
+  a {
+    display: flow-root;
+  }
+}
+
+#completion-progress-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+#page-report-progress-index .modicon {
+  .icon {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.completion-expired .completion-expected {
+  margin-top: 15px;
+}
+
+#page-mod-assign-grading {
+  overflow-x: hidden;
+
+  .path-mod-assign #page, .path-mod-assign #page-content {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .no-overflow {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+
+    table {
+      min-width: max-content;
+      width: 100%;
+    }
+  }
+
+  table td {
+    vertical-align: middle;
+
+    p {
+      max-width: 300px;
+      font-size: $font-size-xs;
+      line-height: 1.3;
+    }
+
+  }
+
+}
+
+  #page-mod-assign-grading {
+    .path-mod-assign #page, .path-mod-assign #page-content {
+      position: relative;
+      overflow-x: hidden;
+    }
+  }
+
+  #printablediv { overflow-x: auto; }
+
+  [data-region="plan-competencies"] {
+    margin-top: 2rem!important;
+  }
+
+
+  #page-report-completion-index {
+
+    [role="main"] {
+      overflow-x: auto;
+    }
+
+    table#completion-progress {
+      width: 100%;
+    }
+
+    .export-actions {
+      margin: 0;
+      padding: 0;
+      display: inline-flex;
+
+      li {
+        margin-right: 10px;
+      }
+
+      a {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+  #uuresults {
+    display: block;
+    overflow-x: scroll;
+  }
+
+  #showentryanontable,
+  .gradereport_history
+  {
+    min-width: max-content;
+
+    td {
+      a {
+        display: block;
+        max-width: 300px;
+      }
+
+      p {
+        max-width: 300px;
+
+        font-size: $font-size-xs;
+      }
+    }
+  }
+
+  // e.g SCORM tables
+  table#attempts {
+    min-width: max-content;
+  }
+
+  table {
+    .disabled {
+      opacity: 0.7;
+
+      td {
+        background-color: $gray-100;
+      }
+    }
+  }
+
+  #page-admin-tool-task-scheduledtasks {
+    [role="main"] {
+      overflow-x: auto;
+    }
+
+    .admintable {
+      min-width: max-content;
+    }
+  }
+
+
+  // Unistall button
+  .table-unistall-btn {
+      display: inline-block;
+      padding: .5rem 1rem .5rem 2.5rem;
+      margin: 1px 4px 1px 1px;
+
+      background-color: $red-100;
+      color: $red-700;
+
+      font-size: $badge-font-size;
+      font-weight: $badge-font-weight;
+      line-height: 1.2;
+      text-align: center;
+      @include border-radius($badge-border-radius);
+      position: relative;
+
+      &:after {
+        @extend %fa-icon;
+        @extend .fas;
+
+        position: absolute;
+        top: calc(50% - 6px);
+        left: 17px;
+
+        content: fa-content($fa-var-trash);
+
+        font-size: 12px;
+        color: inherit;
+      }
+
+      transition: $general-transition;
+
+      &:hover {
+        color: $red-800;
+        background-color: $red-100;
+      }
+  }
+
+  #assignfeedbackplugins,
+  #assignsubmissionplugins,
+  #toolplugins,
+  #modules,
+  #manageauthtable
+  {
+    .c2, .c5, .c6 {
+      text-align: center!important;
+    }
+  }
+
+
+  #assignsubmissionplugins,
+  #assignfeedbackplugins,
+  #modules,
+  #filterssetting
+  {
+    .c5 {
+     a {
+      @extend .table-unistall-btn;
+     }
+    }
+  }
+
+  #commentstable {
+    .c3 {
+      a {
+       @extend .table-unistall-btn;
+      }
+     }
+  }
+
+  #manageauthtable {
+    .c6 {
+      a {
+       @extend .table-unistall-btn;
+      }
+     }
+  }
+
+  #toolplugins {
+    .c2 {
+     a {
+      @extend .table-unistall-btn;
+     }
+    }
+  }
+
+
+
+  #commentstable {
+    .c0 {
+      width: 160px;
+    }
+
+    .c1 {
+      width: 200px;
+    }
+  }
+
+
+  #core-search-areas {
+    .c5 {
+      .icon {
+        font-size: 12px;
+      }
+
+      a {
+        display: inline-flex;
+      }
+    }
+  }
+
+  #outlinetable {
+    .icon {
+      width: 30px;
+      margin-right: .5rem;
+    }
+
+    .section {
+      h3 {
+        margin: 2rem 0 0
+      }
+    }
+  }
+
+  .tool_policy-user_agreement-actions {
+    a {
+      display: inline-flex;
+      align-items: center;
+
+      padding: $badge-padding-y $badge-padding-x;
+      font-size: $badge-font-size;
+      font-weight: $badge-font-weight;
+      vertical-align: baseline;
+      border-radius: $badge-border-radius;
+      transition: $general-transition;
+      @extend .badge-link;
+      @extend .badge-light
+    }
+  }

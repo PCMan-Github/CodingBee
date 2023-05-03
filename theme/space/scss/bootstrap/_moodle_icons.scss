@@ -1,0 +1,128 @@
+// The only class we need for icons is .icon
+// Standardize the size, padding and alignment for all icons in Moodle.
+
+// Size of default icons.
+$icon-width: 18px;
+$icon-height: 18px;
+// Size of big icons.
+$icon-big-width: 64px;
+$icon-big-height: 64px;
+
+img.icon {
+  width: $icon-width;
+  height: auto;
+}
+
+.icon {
+    /* width: $icon-width;
+    height: $icon-height; */
+    font-size: 18px;
+    vertical-align: middle;
+    box-sizing: content-box;
+
+    a & {
+      cursor: pointer;
+    }
+
+    &.spacer {
+        margin-right: 0;
+    }
+
+    &.iconsize-big {
+        width: $icon-big-width;
+        height: $icon-big-height;
+        font-size: $icon-big-height!important;
+        margin: 0.25rem;
+    }
+}
+
+    .iconhelp {
+      margin-right: .5rem;
+    }
+
+    //e.g Courses Modules Icons
+    .iconlarge {
+      width: 50px;
+      height: 50px;
+    }
+
+    .block-timeline {
+      img.icon {
+        width: 50px;
+        height: 50px;
+
+        .sidebar-widgets & {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+.navbar-dark a .icon {
+    color: $navbar-dark-color !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.alert .fa-exclamation-triangle {
+  top: -2px;
+  position: relative;
+}
+
+.action-menu-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.action-menu-item a:first-of-type > .icon {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+// YUI 2 Tree View icons must not have a margin left.
+.ygtvcell .icon {
+    margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+
+// In the navigation, tree icons should not have margins.
+.block_navigation,
+.block_settings {
+    .tree_item .icon {
+        margin-left: 0;
+    }
+}
+
+.block_navigation {
+  .icon {
+    font-size: 14px;
+  }
+}
+
+.icon[title=required] {
+  margin-top: -2px;
+}
+
+abbr[title=Required] svg {
+  margin-top: -9px;
+}
+
+[data-action=toggle-drawer] .icon {
+    margin: 0;
+}
+
+// Apply in special cases where the default icons styles does not work properly. Eg file picker buttons.
+.icon-no-spacing a > .icon {
+    margin: 0;
+}
+
+.icon-large > .icon {
+    width: ($icon-width * 2);
+    height: ($icon-height * 2);
+}
+
+.form-control-static img {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-no-margin .icon {
+  margin: 0;
+}

@@ -1,0 +1,186 @@
+<div class="topbar-backdrop hidden"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  //The first argument are the elements to which the plugin shall be initialized
+  //The second argument has to be at least a empty object or a object with your desired options
+  OverlayScrollbars(document.querySelectorAll('#nav-drawer'),
+  {scrollbars :
+      {
+        visibility       : "auto",
+        autoHide         : "l",
+        autoHideDelay    : 800,
+        dragScrolling    : true,
+        clickScrolling   : false,
+        touchSupport     : true
+      }
+  });
+  OverlayScrollbars(document.querySelectorAll('.region-main-settings-menu .dropdown-menu, .course-contacts-ext-content, .dropdown-scrollable, .sidebar-accordion-body'),
+  {scrollbars :
+      {
+        visibility       : "auto",
+        autoHide         : "never",
+        autoHideDelay    : 800,
+        dragScrolling    : true,
+        clickScrolling   : false,
+        touchSupport     : true
+      }
+  });
+  OverlayScrollbars(document.querySelectorAll('{{#showcoursecarddescheight}}.s-courses .course-box-content-desc,{{/showcoursecarddescheight}} .form-description pre, .accordion-nav-content'),
+  {scrollbars :
+      {
+        visibility       : "auto",
+        dragScrolling    : true,
+        clickScrolling   : false,
+        touchSupport     : true
+      }
+  });
+});
+
+{{#showcoursecarddescheight}}
+$(".course_category_tree").on("click", "[data-toggle='collapse'], .collapseexpand, .content .subcategories .category .info, .course_category_tree .category.with_children>.info>.categoryname, .category.with_children:not(.collapsed), .category.with_children" ,function(){
+  OverlayScrollbars(document.querySelectorAll('.course-contacts-ext-content, .course-box-content-desc'),
+  {scrollbars :
+      {
+        visibility       : "auto",
+        autoHide         : "never",
+        autoHideDelay    : 800,
+        dragScrolling    : true,
+        clickScrolling   : false,
+        touchSupport     : true
+      }
+  });
+});
+{{/showcoursecarddescheight}}
+
+var h = window.innerHeight;
+var navbar = document.getElementById("topBarContainer");
+var navbarH = navbar.offsetHeight;
+var settingsBtn = document.getElementById("settingsMenu");
+var sticky = navbar.offsetTop + {{#topBarOffsetTop}}{{topBarOffsetTop}}{{/topBarOffsetTop}}{{^topBarOffsetTop}}300{{/topBarOffsetTop}};
+
+window.onscroll = function() {stickyNav()};
+function stickyNav() {
+  if (h > 3 * {{#topBarOffsetTop}}{{topBarOffsetTop}}{{/topBarOffsetTop}}{{^topBarOffsetTop}}300{{/topBarOffsetTop}}) {
+    if (window.pageYOffset > sticky) {
+      navbar.classList.add("sticky-nav");
+      settingsBtn.classList.add("sticky");
+      settingsBtn.style.top = 10 + navbarH + "px";
+    } else {
+      navbar.classList.remove("sticky-nav");
+      settingsBtn.classList.remove("sticky");
+      settingsBtn.style.top = "-15px";
+    }
+  }
+}
+
+
+</script>
+
+{{#js}}
+require(['jquery'], function($) {
+
+  var searchbar = $("#searchField"),
+      searchbox = $(".search-box"),
+      searchbarToggle = $("#searchBtn"),
+      searchbarClose = $("#searchBtnClose");
+
+  searchbarToggle.on("click", function(e) {
+     e.preventDefault();
+     searchbar.toggleClass("show");
+     searchbox.toggleClass("active");
+  });
+
+  searchbarClose.on("click", function(e) {
+     searchbar.removeClass("show");
+     searchbox.removeClass("active");
+  });
+
+  var mobileTopBar = $(".s-top-container"),
+      mobileTopBarBtn = $("#showMobileTopBar");
+      mobileTopBarToggle = $("#mobileTopBarBtn, #mobileTopBarCloseBtn, .topbar-backdrop");
+
+  mobileTopBarBtn.on("click", function(e) {
+     e.preventDefault();
+     mobileTopBar.toggleClass("show");
+     mobileTopBarToggle.toggleClass("hidden");
+  });
+
+  var sidebar = $("#nav-drawer"),
+      sidebarToggle = $(".sidebar-btn, .sidebar-btn--close");
+      pageWrapper = $("#page-wrapper, #page-footer .c-container");
+      topBarWrapper = $(".s-top");
+
+  /*
+   * Bootstrap Cookie Alert by Wruczek
+   * https://github.com/Wruczek/Bootstrap-Cookie-Alert
+   * Released under MIT license
+   */
+  (function () {
+      "use strict";
+
+      var customAlert = document.querySelector("#customAlert");
+      var closeCustomAlert = document.querySelector("#customAlertClose");
+
+      if (!customAlert) {
+         return;
+      }
+
+      customAlert.offsetHeight; // Force browser to trigger reflow (https://stackoverflow.com/a/39451131)
+
+      // Show the alert if we cant find the "closeCustomAlert" cookie
+      if (!getCookie("closeCustomAlert")) {
+          customAlert.classList.add("show");
+      }
+
+      // When clicking on the agree button, create a 1 year
+      // cookie to remember user's choice and close the banner
+      closeCustomAlert.addEventListener("click", function () {
+          setCookie("closeCustomAlert", true, 1);
+          customAlert.classList.remove("show");
+      });
+
+      // Cookie functions from w3schools
+      function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+          var expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) === ' ') {
+                  c = c.substring(1);
+              }
+              if (c.indexOf(name) === 0) {
+                  return c.substring(name.length, c.length);
+              }
+          }
+          return "";
+      }
+  })();
+
+
+});
+
+{{/js}}
+
+<script src="{{siteurl}}/theme/space/addons/bootstrapnavbar/bootstrap-4-navbar.min.js"></script>
+
+{{#herovideoenabled}}
+<script src="{{siteurl}}/theme/space/addons/vidbg/vidbg.js"></script>
+<script>
+var instance = new vidbg('.c-hero-container--video', {
+  mp4: '{{{ herovideomp4 }}}',
+  webm: '{{{ herovideowebm }}}',
+  poster: '{{{ heroimg }}}',
+})
+</script>
+{{/herovideoenabled}}
+
+{{{ additionalfooterhtml }}}

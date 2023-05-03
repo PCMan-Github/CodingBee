@@ -1,0 +1,183 @@
+.pagelayout-login .card-title h2 img {
+    max-width: 100%;
+    max-height: 100px;
+}
+
+.pagelayout-login {
+  @include media-breakpoint-up(md) {
+  .card-content {
+    margin: 2rem auto;
+  }
+  }
+
+  .modal-header h4 {
+    text-align: left;
+    padding: 0 0 1.5rem 0;
+  }
+}
+
+.login-box {
+  margin: 60px auto;
+  padding: 2rem;
+
+  background-color: $body-bg;
+  border-radius: $border-radius;
+  width: 100%;
+  max-width: 700px;
+
+  @include media-breakpoint-only(sm) {
+  margin-top: 0;
+  }
+
+  #page-login-index & {
+  max-width: 500px;
+
+  @include media-breakpoint-only(md) {
+  max-width: 400px;
+  }
+
+  @include media-breakpoint-only(sm) {
+  max-width: 100%;
+  }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 2rem!important;
+  }
+
+  @include media-breakpoint-only(sm) {
+    padding: 0 1rem 1rem;
+  }
+
+
+  h2 {
+    margin: 2rem 0;
+  }
+
+  #fitem_id_submitbutton {
+    .col-md-3 {
+      display: none;
+    }
+  }
+
+  .login-box-header {
+    padding: 2 * $spacer;
+    margin: 0!important;
+
+    font-size: $font-size-lg!important;
+    font-weight: $font-weight-sm-bold!important;
+
+    img {
+      width: auto;
+      height: auto;
+      max-width: 300px;
+
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .form-control {
+    width: 100%;
+    position: relative;
+
+    #page-login-index & {
+      padding-left: 50px;
+    }
+
+  }
+
+  .username-input-box,
+  .password-input-box {
+    position: relative;
+  }
+
+  .username-input-box {
+    &:after {
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-user);
+
+      font-size: 14px;
+      color: inherit;
+      opacity: 0.5;
+
+      position: absolute;
+      top: calc(50% - 7px);
+      left: 20px;
+    }
+  }
+
+  .password-input-box {
+    &:after {
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-key);
+
+      font-size: 14px;
+      color: inherit;
+      opacity: 0.5;
+
+      position: absolute;
+      top: calc(50% - 7px);
+      left: 20px;
+    }
+  }
+
+  .login-msg {
+    font-size: $font-size-sm;
+  }
+}
+
+  .login-box-large {
+    max-width: 700px;
+  }
+
+
+  .login-left,
+  .login-right {
+    .login-box {
+      min-height: 100vh;
+      max-height: 100%;
+
+      border-radius: 0;
+
+      @include media-breakpoint-only(md) {
+        margin: 60px 0 0;
+      }
+    }
+  }
+
+  .login-left {
+    .login-box {
+      margin: 0;
+    }
+  }
+
+  .login-right {
+    .login-box {
+      margin: 0 0 0 auto;
+    }
+  }
+
+
+@include media-breakpoint-only(md) {
+  #page-login-signup {
+
+    [data-groupname="buttonar"] {
+      .form-group {
+        display: block;
+        width: 100%;
+        margin: 0.25rem 0;
+      }
+    }
+
+  }
+}
+
+
+.potentialidp:only-child {
+  flex: 0 0 100%;
+  max-width: 100%;
+}

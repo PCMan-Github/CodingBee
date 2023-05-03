@@ -1,0 +1,550 @@
+/* user.less */
+.userprofile {
+
+    .page-context-header {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+
+        margin-bottom: 40px;
+        padding: 1rem;
+
+        background-color: $card-bg;
+        color: $card-text;
+
+        border-radius: $border-radius;
+    }
+
+    .page-header-image {
+        display: inline-flex;
+    }
+
+    .page-header-headings {
+        display: inline-flex;
+        width: calc(100% - 120px);
+        max-width: calc(100% - 120px);
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    .header-button-group {
+        margin: 0 10px;
+
+        .btn {
+            margin-bottom: 5px;
+            width: max-content;
+        }
+    }
+
+    .fullprofilelink {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .description {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+        @extend .lead;
+    }
+
+    .profile_tree {
+        column-count: 2;
+        column-gap: 30px;
+
+        @include media-breakpoint-between(sm,md) {
+            column-count: 1;
+            column-gap: 0;
+        }
+
+        section {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 30px;
+            padding: 1rem;
+
+            @include media-breakpoint-only(sm) {
+            padding: 0;
+            }
+
+            dt {
+                font-weight: $font-weight-sm-bold;
+                font-size: $font-size-xs;
+                opacity: 0.6;
+            }
+
+
+            &:nth-child(1) {
+                padding: 1rem 1rem 0.5rem;
+                background-color: $theme-color-9;
+                border-radius: $border-radius;
+
+                @include media-breakpoint-only(sm) {
+                padding: 0;
+                }
+            }
+
+            a {
+                color: $body-color;
+            }
+
+            a:hover {
+                color: $link-hover-color;
+            }
+
+            h3 {
+                font-size: $font-size-sm;
+                margin-bottom: $spacer;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+
+.userprofile dl.list {
+    // Copied from dl.row.
+    > dd + dt {
+        clear: left;
+    }
+}
+
+.user-box {
+    margin: 8px;
+    width: 115px;
+    height: 160px;
+    text-align: center;
+    float: left;
+    clear: none;
+}
+
+#page-user-profile .node_category,
+.path-user .node_category {
+    ul {
+        margin: 0;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-top: 5px;
+
+        a {
+          color: $body-color-secondary;
+
+          .icon-post {
+              display: none;
+          }
+
+          &:hover {
+            color: $link-hover-color;
+          }
+
+        }
+    }
+
+    .editprofile {
+            a:hover {
+                &:before {
+                    display: none;
+                }
+            }
+    }
+
+    .viewmore {
+      margin-top: 2rem;
+
+      a {
+        &:before {
+          display: none;
+        }
+      }
+    }
+}
+
+.ajax-contact-button {
+    box-sizing: border-box;
+    position: relative;
+
+    &.loading {
+        .loading-icon {
+            display: block;
+        }
+    }
+
+    .loading-icon {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+
+        .icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.userlist #showall {
+    margin: 10px 0;
+}
+
+.userlist .buttons {
+  .btn-icon {
+    margin: 0 1rem;
+
+    position: relative;
+    top: 3px;
+  }
+
+  label {
+    margin-left: 2 * $spacer;
+  }
+}
+
+.userlist .buttons label {
+    padding: 0 3px;
+}
+
+.userlist table#participants {
+    min-width: 100%;
+    width: max-content;
+    max-width: max-content;
+}
+
+.userlist table#participants td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.userlist table#participants th {
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.userlist {
+    table.controls {
+        width: 100%;
+
+        tr {
+            vertical-align: top;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .groupselector {
+            margin-bottom: 0;
+            margin-top: 0;
+
+            label {
+                display: block;
+            }
+        }
+    }
+}
+
+.userinfobox {
+    width: 100%;
+    border: 1px solid;
+    border-collapse: separate;
+    padding: 10px;
+}
+
+.userinfobox .left,
+.userinfobox .side {
+    width: 100px;
+    vertical-align: top;
+}
+
+.userinfobox .userpicture {
+    width: 100px;
+    height: 100px;
+}
+
+.userinfobox .content {
+    vertical-align: top;
+}
+
+.userinfobox .links {
+    width: 100px;
+    padding: 5px;
+    vertical-align: bottom;
+}
+
+.userinfobox .links a {
+    display: block;
+}
+
+.userinfobox .list td {
+    padding: 3px;
+}
+
+.userinfobox .username {
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.userinfobox td.label {
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+.group-edit {
+    position: absolute;
+    right: 10px;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+
+        padding: $badge-padding-y $badge-padding-x;
+        font-size: $badge-font-size;
+        font-weight: $badge-font-weight;
+        vertical-align: baseline;
+        border-radius: $badge-border-radius;
+        transition: $general-transition;
+        @extend .badge-light;
+        @extend .badge-link;
+    }
+}
+
+.group-image {
+    display: block;
+    float: left;
+    margin-right: 1em;
+
+    .grouppicture {
+        border-radius: 50%;
+    }
+}
+
+.groupinfobox .left {
+    padding: 10px;
+    width: 100px;
+    vertical-align: top;
+}
+
+.course-participation #showall {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#user-policy .noticebox {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 250px;
+}
+
+#user-policy #policyframe {
+    width: 100%;
+    height: 100%;
+}
+
+.iplookup #map {
+    margin: auto;
+}
+
+.userselector select {
+    width: 100%;
+}
+
+.userselector div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.userselector div label {
+    margin-right: 0.3em;
+    display: inline-flex;
+    align-items: center;
+}
+
+#userselector_options_sizer {
+  margin: 0;
+  div {
+    margin: 0;
+  }
+}
+
+/* Next style does not work in all browsers but looks nicer when it does */
+.userselector .userselector-infobelow {
+    font-size: 0.8em;
+}
+
+#userselector_options {
+  margin: 0;
+  .collapsibleregioncaption {
+      font-weight: $font-weight-sm-bold;
+  }
+
+  p {
+      margin: 0.2em 0;
+      text-align: left;
+  }
+}
+
+/** user full profile */
+#page-user-profile {
+    .settings-menu {
+      @include media-breakpoint-between(sm,md) {
+      margin: 1rem 0;
+      display: block!important;
+
+        .btn {
+            margin: .25rem 0;
+        }
+
+        .singlebutton {
+            margin: 0;
+        }
+      }
+    }
+
+
+      ul.badges {
+
+        li {
+          padding-top: 0.5rem;
+          width: 100%;
+          border-radius: $border-radius;
+          background-color: $white;
+        }
+
+        a {
+          width: calc(100% - 20px);
+          margin: 0 10px;
+
+          display: inline-flex;
+          align-items: center;
+
+          &:before {
+            display: none;
+          }
+
+          .badge-image {
+            width: 40px;
+            height: auto;
+          }
+
+          .badge-name {
+            margin-left: 0.5rem;
+
+            font-weight: $font-weight-sm-bold;
+            color: $body-color;
+            text-align: left;
+            line-height: 1.3;
+          }
+        }
+      }
+
+}
+
+#page-user-profile .messagebox {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+/** user course profile */
+#page-course-view-weeks .messagebox {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profileeditor {
+    > .singleselect {
+        margin: 0 0.5em 0 0;
+    }
+
+    > .singlebutton {
+        display: inline-block;
+        margin: 0 0 0 0.5em;
+
+        div,
+        input {
+            margin: 0;
+        }
+    }
+}
+
+// Remove the little cog from participants page because we are putting a cog menu there.
+.userlist h3 a.action-icon {
+    display: none;
+}
+
+#page-enrol-users .popover {
+    max-width: none;
+}
+
+.user-enroller-panel {
+    width: 600px;
+}
+
+.quickediticon {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: $general-transition;
+
+  color: $gray-800!important;
+  background-color: $gray-100!important;
+
+  .icon {
+    font-size: 12px;
+  }
+
+  &:hover {
+      background-color: $gray-300;
+  }
+}
+
+#page-admin-tool-usertours-configure {
+    .no-overflow table {
+        min-width: max-content;
+    }
+}
+
+// Remove the little cog from participants page because we are putting a cog menu there.
+.userlist h3 .action-icon {
+    display: none;
+}
+
+#page-enrol-users .popover {
+    max-width: none;
+}
+
+.user-enroller-panel {
+    width: 600px;
+}
+
+[data-filterverbfor],
+[data-filterregion="filter"]:last-child [data-filterregion="joinadverb"] {
+    display: none;
+}
+
+[data-filterverb="0"] [data-filterverbfor="0"],
+[data-filterverb="1"] [data-filterverbfor="1"],
+[data-filterverb="2"] [data-filterverbfor="2"] {
+    display: block;
+}
+

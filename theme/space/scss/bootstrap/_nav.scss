@@ -1,0 +1,244 @@
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s or `<ul>`s.
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 1rem 0.6rem;
+  position: relative;
+
+  font-size: 0.9rem;
+  font-weight: $font-weight-sm-bold;
+  color: $body-color;
+  line-height: 1.5;
+  border-radius: $border-radius;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  transition: all 350ms ease;
+
+  .nav-tabs & {
+    padding: 1rem;
+  }
+  .moodle-dialogue-base & {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-sm-bold!important;
+
+    @include media-breakpoint-only(sm) {
+    padding: 10px 0!important;
+    font-size: $font-size-xs;
+    }
+  }
+
+  .s-top & {
+    &:hover {
+      background-color: $top-bar-link-hover-bg;
+    }
+  }
+
+  &:hover {
+    color: $body-color;
+
+    .c-custom-main-nav & {
+      background-color: transparent!important;
+      color: $link-color;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  // Disabled state lightens text
+  &.disabled {
+    color: $nav-link-disabled-color;
+  }
+}
+
+.dropdown-toggle {
+  padding-right: 1.75rem!important;
+
+  position: relative;
+
+  &:after {
+    @extend %fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-caret-down);
+
+    font-size: 12px;
+    color: inherit;
+    opacity: 0.6;
+
+    position: absolute;
+    top: calc(50% - 6px);
+    right: 10px;
+
+    transition: $general-transition;
+  }
+
+}
+
+
+//
+// Tabs
+//
+
+.nav-tabs-container {
+  @include media-breakpoint-between(sm,md) {
+    overflow-x: auto;
+  }
+}
+
+.nav-tabs {
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+  font-size: $font-size-base;
+
+  @include media-breakpoint-between(sm,md) {
+    width: max-content;
+    font-size: $font-size-sm;
+  }
+
+  .rtl & {
+    text-align: right;
+  }
+
+  .nav-item {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: -1px;
+  }
+
+  .nav-link {
+
+    font-weight: 400!important;
+
+    &:hover {
+      color: $link-color;
+      border-radius: 0;
+    }
+
+
+    &.disabled {
+      color: $nav-link-disabled-color;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .nav-link.active {
+    color: $link-color!important;
+
+    &:before {
+      width: 100%;
+    }
+  }
+
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+  }
+}
+
+.nav-tabs-sm {
+  font-size: $font-size-sm;
+}
+
+
+//
+// Justified variants
+//
+
+.nav-fill {
+  .nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.nav-justified {
+  .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+
+// Tabbable tabs
+//
+// Hide tabbable panes to start, show them when `.active`
+
+.tab-pane {
+  .col-3 {
+    a {
+      position: relative;
+
+      &:after {
+        content: '';
+        background-image: url([[pix:theme|fp/arrow-alt-circle-right-regular]]);
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        width: 20px;
+        height: 20px;
+        right: -20px;
+        top: 1px;
+        position: absolute;
+      }
+
+    }
+  }
+}
+
+#linkcourseadmin [role="tabpanel"] h4 {
+    a {
+      position: relative;
+
+      &:after {
+        content: '';
+        background-image: url([[pix:theme|fp/arrow-alt-circle-right-regular]]);
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        width: 20px;
+        height: 20px;
+        right: -20px;
+        top: 1px;
+        position: absolute;
+      }
+
+    }
+}
+
+.tab-content {
+
+  .form-description {
+    a {
+        font-weight: $font-weight-bold;
+    }
+  }
+
+  a {
+    color: $body-color;
+  }
+
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}

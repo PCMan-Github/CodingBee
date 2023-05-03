@@ -1,0 +1,85 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#fpblock12}}
+<div id="block12" class="s-block-12 l-container s-special-box section-padding row no-gutters justify-content-sm-center justify-content-lg-between">
+
+  {{#showfpblock12intro}}
+  <div class="{{fpblock12introclass}} {{^fpblock12introclass}}col-sm-11 col-md-8 col-lg-6 m-auto text-center{{/fpblock12introclass}}">
+    {{#fpblock12title}}<h3 class="c-special-box-title mt-0">{{{fpblock12title}}}</h3>{{/fpblock12title}}
+    {{#fpblock12content}}<div class="lead mb-3"">{{{fpblock12content}}}</div>{{/fpblock12content}}
+  </div>
+  {{/showfpblock12intro}}
+
+  <div class="c-testimonials-item-grid mt-5 py-0 row col-12 no-gutters justify-content-sm-center justify-content-md-start">
+
+    <div class="{{^fpblock12grid}}testimonials-slider{{/fpblock12grid}} c-testimonials-item-grid-content {{#fpblock12grid}}masonry w-100{{/fpblock12grid}} d-block position-relative">
+      {{#block12}}
+      <div class="{{#fpblock12grid}}brick{{/fpblock12grid}}">
+        <div class="c-testimonials-item">
+
+              {{#fpblock12html}}<div class="c-testimonials-html">{{{fpblock12html}}}</div>{{/fpblock12html}}
+              {{#fpblock12first}}<div class="c-testimonials-content">{{{fpblock12first}}}</div>{{/fpblock12first}}
+              
+              <div class="d-inline-flex align-items-center">
+                <div class="d-inline-flex">
+                  {{#image}}<div class="c-testimonials-img-box"><img src="{{{image}}}" alt="" class="c-testimonials-img"/></div>{{/image}}
+                </div>
+
+                <div>
+                  {{#fpblock12second}}<div class="c-testimonials-author d-block">{{{fpblock12second}}}</div>{{/fpblock12second}}
+                  {{#fpblock12third}}<div class="c-testimonials-source d-block">{{{fpblock12third}}}</div>{{/fpblock12third}}
+                </div>
+              </div>
+
+        </div>
+      </div>
+      {{/block12}}
+    </div>
+  </div><!-- Courses list end -->
+
+  {{#block12footercontent}}<div class="c-block12-footer-content w-100 mt-4">{{{block12footercontent}}}</div>{{/block12footercontent}}
+
+</div>
+{{#showfpblock12hr}}<hr class="hr my-0" />{{/showfpblock12hr}}
+
+{{^fpblock12grid}}
+<script>
+  var slider = tns({
+    container: '.testimonials-slider',
+    items: 1,
+    slideBy: 1,
+    mouseDrag: true,
+    controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    loop: false,
+    controls: true,
+    responsive: {
+      768: {
+        items: 2,
+        slideBy: 2,
+      },
+      1200: {
+        items: {{fpblock12slidesperrow}},
+        slideBy: {{fpblock12slidesperrow}},
+      }
+    }
+  });
+</script>
+{{/fpblock12grid}}
+
+{{/fpblock12}}
+
+

@@ -1,0 +1,266 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+
+//
+// Color system
+//
+
+// stylelint-disable
+$white:    #fff !default;
+$gray-100: #F8F8F8 !default;
+$gray-200: #E8E8E8 !default;
+$gray-300: #D3D3D3 !default;
+$gray-400: #B6B6B6 !default;
+$gray-500: #9B9B9B !default;
+$gray-600: #7D7D7D !default;
+$gray-700: #5F5F5F !default;
+$gray-800: #424242 !default;
+$gray-900: #212121 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+$grays: map-merge((
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+), $grays);
+
+$blue-900:    #032574 !default;
+$blue-800:    #00309F !default;
+$blue-700:    #0642CD !default;
+$blue-600:    #406CD2 !default;
+$blue-500:    #6E8EDA !default;
+$blue-400:    #94ADE7 !default;
+$blue-300:    #BACDF7 !default;
+$blue-200:    #D4DEF8 !default;
+$blue-100:    #F0F4FE !default;
+
+$red-900:       #8F0043 !default;
+$red-800:       #AB003B !default;
+$red-700:       #E11027 !default;
+$red-600:       #F01E1E !default;
+$red-500:       #F55D68 !default;
+$red-400:       #f66671 !default;
+$red-300:       #f89299 !default;
+$red-200:       #fbbdc2 !default;
+$red-100:       #fee9eb !default;
+
+$yellow-900:    #A57903 !default;
+$yellow-800:    #E5A802 !default;
+$yellow-700:    #FFC015 !default;
+$yellow-600:    #ffc62c !default;
+$yellow-500:    #ffcd44 !default;
+$yellow-400:    #ffd973 !default;
+$yellow-300:    #ffe6a1 !default;
+$yellow-200:    #fff2d0 !default;
+$yellow-100:    #fff9e8 !default;
+
+$orange-900:    #FB6C02 !default;
+
+$green-900:     #006138 !default;
+$green-800:     #089358 !default;
+$green-700:     #10C277 !default;
+$green-600:     #39D593 !default;
+$green-500:     #70daad !default;
+$green-400:     #9fe7c9 !default;
+$green-300:     #b7edd6 !default;
+$green-200:     #cff3e4 !default;
+$green-100:     #e7f9f1 !default;
+
+$purple-900:    #54428E !default;
+$purple-800:    #7A68B6 !default;
+$purple-500:    #D0C6F0 !default;
+$purple-200:    #EEE9FF !default;
+
+$colors: () !default;
+
+$primary:       $blue-700 !default;
+$secondary:     $white !default;
+$success:       $green-700 !default;
+$info:          $blue-100 !default;
+$warning:       $yellow-400 !default;
+$danger:        $red-600 !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+), $theme-colors);
+// stylelint-enable
+
+$border-color:                $gray-200 !default;
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:      8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900 !default;
+$yiq-text-light: $white !default;
+
+
+// Presets
+$theme-color-1:    $blue-900 !default;
+$theme-color-2:    $blue-800 !default;
+$theme-color-3:    $blue-700 !default;
+$theme-color-4:    $blue-600 !default;
+$theme-color-5:    $blue-500 !default;
+$theme-color-6:    $blue-400 !default;
+$theme-color-7:    $blue-300 !default;
+$theme-color-8:    $blue-200 !default;
+$theme-color-9:    $blue-100 !default;
+
+$body-bg:                   $white !default;
+$body-color:                $gray-900 !default;
+$body-color-secondary:      $gray-800 !default;
+$body-color-light:          $gray-500 !default;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                $theme-color-3 !default;
+$link-decoration:           none !default;
+$link-hover-color:          darken($link-color, 15%) !default;
+$link-hover-decoration:     underline !default;
+
+// Dropdowns
+$dropdown-bg:                       $gray-900 !default;
+$dropdown-shadow:                   $gray-900 !default;
+$dropdown-text:                     $gray-100 !default;
+$dropdown-divider-bg:               $gray-800 !default;
+$dropdown-box-shadow:               #000 !default;
+$dropdown-link-color:               $gray-100 !default;
+$dropdown-link-hover-color:         $gray-100 !default;
+$dropdown-link-hover-bg:            $gray-700 !default;
+$dropdown-link-active-color:        $gray-100 !default;
+$dropdown-link-active-bg:           $gray-700 !default;
+$dropdown-link-disabled-color:      $gray-600 !default;
+$dropdown-header-color:             $gray-400 !default;
+
+
+// Top Bar
+$top-bar-bg:                       $body-bg !default;
+$top-bar-bg-secondary:             $gray-100 !default;
+$top-bar-bg-secondary-text:        $gray-700 !default;
+$top-bar-border:                   $border-color !default;
+$top-bar-link:                     $body-color-light !default;
+$top-bar-link-hover:               $link-color !default;
+$top-bar-link-hover-bg:            $gray-100 !default;
+$top-bar-icons:                    $body-color-light !default;
+$top-bar-icons-bg-hover:           $gray-100 !default;
+$top-bar-text:                     $body-color-secondary !default;
+
+// Dropdowns light
+$dropdown-light-bg:                       lighten($top-bar-bg, 5) !default;
+$dropdown-light-bg-secondary:             $gray-100 !default;
+$dropdown-light-text:                     $top-bar-text !default;
+$dropdown-light-box-shadow:               0px 15px 51px 0px rgba(#000, 0.21) !default;
+$dropdown-light-link-color:               $top-bar-link!default;
+$dropdown-light-link-hover-color:         $top-bar-link-hover !default;
+$dropdown-light-link-hover-bg:            $top-bar-link-hover-bg !default;
+$dropdown-light-link-disabled-color:      $gray-300 !default;
+$dropdown-light-header-color:             $top-bar-text !default;
+$dropdown-light-border:                   $top-bar-border!default;
+
+
+//Buttons
+$btn-primary-bg:                    $theme-color-3!default;
+$btn-primary-bg-hover:              $theme-color-2!default;
+$btn-primary-border:                $theme-color-3!default;
+$btn-primary-border-hover:          $theme-color-2!default;
+$btn-primary-text:                  $white!default;
+$btn-primary-text-hover:            $white!default;
+$btn-primary-shadow:              rgba(7,66,205,.3)!default;
+
+$btn-secondary-bg:                $white!default;
+$btn-secondary-bg-hover:          $white!default;
+$btn-secondary-border:            #E4E8F0!default;
+$btn-secondary-border-hover:      #E4E8F0!default;
+$btn-secondary-text:              $gray-800!default;
+$btn-secondary-text-hover:        $gray-800!default;
+$btn-secondary-shadow:            rgba(0,0,0,.05)!default;
+
+$btn-reset-bg: $red-600!default;
+$btn-reset-bg-hover: $red-700!default;
+$btn-reset-border: $red-600!default;
+$btn-reset-border-hover: $red-700!default;
+$btn-reset-text: $white!default;
+$btn-reset-text-hover: $white!default;
+$btn-reset-shadow: $red-700!default;
+
+$btn-special-bg: $purple-900!default;
+$btn-special-bg-hover: $purple-800!default;
+$btn-special-border: $purple-900!default;
+$btn-special-border-hover: $purple-800!default;
+$btn-special-text: $white!default;
+$btn-special-text-hover: $white!default;
+$btn-special-shadow: $purple-900!default;
+
+//Pagination
+$pagination-color:                  $btn-secondary-text!default;
+$pagination-bg:                     $btn-secondary-bg !default;
+$pagination-border-color:           $btn-secondary-border !default;
+$pagination-hover-color:            $btn-secondary-bg-hover !default;
+$pagination-hover-bg:               $btn-secondary-bg-hover !default;
+$pagination-hover-border-color:     $btn-secondary-text-hover !default;
+$pagination-active-color:           $btn-primary-text !default;
+$pagination-active-bg:              $btn-primary-bg !default;
+$pagination-active-border-color:    $btn-primary-bg !default;
+$pagination-disabled-color:         $gray-300 !default;
+$pagination-disabled-bg:            $gray-100 !default;
+$pagination-disabled-border-color:  $gray-100 !default;
+
+
+//Drawer
+$drawer-nav-item-icon-opacity: 0.9 !default;
+$drawer-bg: #161616 !default;
+$drawer-nav-box-bg: #000000 !default;
+$drawer-nav-box-shadow: #000000 !default;
+$drawer-nav-item-active: #161616 !default;
+$drawer-nav-item-hover: #5F78FB !default;
+$drawer-nav-item-text-color: #939393 !default;
+$drawer-nav-item-text-color-active: #ffffff!default;
+$drawer-nav-item-text-color-hover: #ffffff !default;
+$drawer-nav-item-icon: #ffffff !default;
+$drawer-nav-item-icon-hover: #ffffff !default;
+$drawer-nav-item-icon-active: #ffffff !default;
+$drawer-heading: #5f5f5f !default;
+$drawer-text: #939393 !default;
+$drawer-hr: #282828 !default;
+$drawer-link: #939393 !default;
+$drawer-link-hover: #fff !default;
+$drawer-link-hover-bg: $drawer-nav-box-bg !default;
+
+//Footer
+$footer-bg: $body-bg!default;
+$footer-text-color: $body-color!default;
+$footer-navigation-heading: $body-color!default;
+$footer-navigation-border: $border-color!default;
+$footer-navigation-link-color: $body-color-secondary!default;
+$footer-navigation-link-color-hover: $link-color!default;
+
+
+//Hero
+$hero-gradient-1: $white!default;
+$hero-gradient-2: $gray-400!default;
+$hero-color: $white!default;

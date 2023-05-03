@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>vendor</location>
+        <name>Xendit PHP SDK</name>
+        <version>2.11</version>
+        <license>MIT</license>
+        <licenseversion>1.0</licenseversion>
+    </library>
+</libraries>

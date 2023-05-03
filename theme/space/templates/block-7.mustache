@@ -1,0 +1,69 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#FPLogos}}
+<div id="logosBlock" class="s-logos">
+
+  <div class="s-block-7 l-container s-special-box row section-padding no-gutters justify-content-center align-items-center">
+    {{#ShowFPLogosIntro}}
+    <div class="{{FPLogosIntroProperties}} {{^FPLogosIntroProperties}}col-sm-11 col-md-8 col-lg-6 m-auto text-center{{/FPLogosIntroProperties}}">
+      {{#FPLogosSubHeading}}<h4 class="c-special-box-subtitle">{{{FPLogosSubHeading}}}</h4>{{/FPLogosSubHeading}}
+      {{#FPLogosHeading}}<h3 class="c-special-box-title">{{{FPLogosHeading}}}</h3>{{/FPLogosHeading}}
+      {{#FPLogosText}}<div class="lead mb-3">{{{FPLogosText}}}</div>{{/FPLogosText}}
+    </div>
+    {{/ShowFPLogosIntro}}
+    <div class="{{#logosslider}}logos-slider pb-5{{/logosslider}} {{^logosslider}}col-12 row justify-content-center align-items-center{{/logosslider}} text-center mt-4">
+      {{#logos}}
+      <div class="c-logos-item col-sm-6 {{logosno}} text-center p-3 my-2">
+          {{#logosurl}}<a href="{{logosurl}}" target="_blank">{{/logosurl}}
+              {{#image}}<img src="{{{image}}}" alt="{{logosname}}" class="c-logos-img"/>{{/image}}
+          {{#logosurl}}</a>{{/logosurl}}
+      </div>
+      {{/logos}}
+    </div>
+
+    {{#FPLogosFooterContent}}<div class="c-logos-footer-content w-100 mt-4">{{{FPLogosFooterContent}}}</div>{{/FPLogosFooterContent}}
+
+  </div>
+</div>
+{{#showfpblock7hr}}<hr class="hr my-0" />{{/showfpblock7hr}}
+
+{{#logosslider}}
+<script>
+  var slider = tns({
+    container: '.logos-slider',
+    items: 1,
+    slideBy: 1,
+    mouseDrag: true,
+    controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    loop: false,
+    controls: true,
+    responsive: {
+      600: {
+        items: 3,
+        slideBy: 3,
+      },
+      1200: {
+        items: {{logosslidesperrow}},
+        slideBy: {{logosslidesperrow}},
+      }
+    }
+  });
+</script>
+{{/logosslider}}
+
+{{/FPLogos}}

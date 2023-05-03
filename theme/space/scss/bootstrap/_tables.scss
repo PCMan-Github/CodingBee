@@ -1,0 +1,628 @@
+//
+// Basic Bootstrap table
+//
+
+
+.table,
+.generaltable,
+.grading-report,
+#defineroletable,
+.rolecap,
+.admintable,
+.gradereport-grader-table,
+.page-report-competency-index .table,
+.flexible,
+.forumheaderlist,
+.formsettingheading table,
+.filemanager .yui3-datatable table,
+#page-report-outline-user [id="region-main"] table,
+#page-blocks-completionstatus-details [role="main"] table.generalbox,
+.generaltable,
+.userenrolment,
+.mod_index,
+.criteria,
+table.collection,
+#categoryquestions
+{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $spacer;
+  background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+
+  table-layout: auto;
+
+  tr {
+    transition: $general-transition;
+
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+
+  th,
+  td {
+    width: auto;
+    padding: $table-cell-padding-sm $table-cell-padding!important;
+    vertical-align: middle!important;
+    border-bottom: $table-border-width solid $table-border-color!important;
+
+    font-size: $font-size-sm!important;
+
+    border-radius: 0!important;
+    text-align: left!important;
+    color: $body-color!important;
+
+
+    .btn {
+        margin: 3px;
+    }
+
+    .commands {
+      &:empty {
+        margin: 0;
+      }
+    }
+  }
+
+  thead th, th {
+    background-color: $table-head-bg;
+    border-bottom: 2px solid $table-border-color;
+    color: $table-head-color;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-sm-bold;
+
+    .icon {
+      margin-right: 16px;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+
+    .gradeitemheader {
+      margin: 0;
+      padding: 0;
+
+      .itemicon {
+        width: 30px;
+        height: auto;
+        margin-left: 0;
+      }
+    }
+
+  }
+
+  th {
+    a {
+      margin: 0!important;
+      display: inline-flex;
+      align-items: center;
+      color: inherit;
+    }
+  }
+
+  td {
+    background-color: $table-bg;
+
+    a, span {
+      font-weight: $font-weight-sm-bold;
+    }
+
+    .icon.spacer {
+      display: none;
+    }
+
+
+    a:not(.dropdown-item) {
+      margin: 2px;
+      display: initial;
+      color: $link-color;
+
+      &:hover {
+        color: $link-hover-color;
+        text-decoration: none;
+      }
+
+    }
+
+    .icon.fa-thumbtack {
+      width: 30px;
+      height: 30px;
+
+      color: $green-700;
+      background-color: $green-100;
+      border-radius: 30px;
+      font-size: 12px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: $general-transition;
+
+      &.fa-eye {
+        color: $green-200!important;
+        background-color: $green-700!important;
+      }
+
+      &.text-danger {
+        background-color: $red-100!important;
+      }
+
+    }
+
+    > a {
+      .icon.fa-fw {
+        width: 30px;
+        height: 30px;
+
+        color: $body-color;
+        background-color: $gray-100;
+        border-radius: 30px;
+        font-size: 12px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: $general-transition;
+
+        &.fa-eye {
+          color: $green-200!important;
+          background-color: $green-700!important;
+        }
+
+        &.text-danger {
+          background-color: $red-100!important;
+        }
+
+      }
+
+      &:hover .icon {
+        background-color: $theme-color-9;
+        color: $theme-color-3;
+        text-decoration: none;
+
+        &.text-danger {
+          color: $red-200!important;
+          background-color: $red-600!important;
+        }
+
+        &.fa-eye {
+          color: $green-700!important;
+          background-color: $green-300!important;
+        }
+      }
+
+    }
+
+    .singleselect,
+    select {
+      margin: 0;
+    }
+  }
+
+        .license-status {
+          .fa-lock {
+            width: 30px;
+            height: 30px;
+
+            color: $body-color;
+            background-color: $gray-100;
+            border-radius: 30px;
+            font-size: 12px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: $general-transition;
+
+            color: $red-200!important;
+            background-color: $red-600!important;
+          }
+        }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+    font-weight: $font-weight-normal;
+    color: $table-color;
+  }
+
+  .table {
+    background-color: $table-bg;
+  }
+
+  img.userpicture {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+    .badge-unread {
+      display: inline-flex!important;
+    }
+
+
+    table {
+      .aabtn {
+        transition: $general-transition;
+
+        &:hover {
+          i { background-color: $gray-200; }
+        }
+
+        i {
+          margin: 0;
+
+          width: 30px;
+          height: 30px;
+
+          color: $body-color!important;
+          background-color: $gray-100;
+          border-radius: 30px;
+
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          font-size: 12px;
+        }
+
+      }
+    }
+
+    h3 + .generaltable {
+      margin-top: 2rem;
+    }
+
+
+//
+// Condensed table w/ half padding
+//
+
+.table-sm {
+  th,
+  td {
+    padding: $table-cell-padding-sm;
+  }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: (2 * $table-border-width);
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-accent-bg;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-hover-bg;
+    }
+  }
+  tbody tr:hover > th {
+    background-color: $table-hover-bg;
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+@each $color, $value in $theme-colors {
+  @include table-row-variant($color, theme-color-level($color, -9));
+}
+
+@include table-row-variant(active, $table-active-bg);
+
+
+// Dark styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+// stylelint-disable-next-line no-duplicate-selectors
+.table {
+  .thead-dark {
+    th {
+      color: $table-dark-color;
+      background-color: $table-dark-bg;
+      border-color: $table-dark-border-color;
+    }
+  }
+
+  .thead-light {
+    th {
+      color: $table-head-color;
+      background-color: $table-head-bg;
+      border-color: $table-border-color;
+    }
+  }
+}
+
+.table-dark {
+  color: $table-dark-color;
+  background-color: $table-dark-bg;
+
+  th,
+  td,
+  thead th {
+    border-color: $table-dark-border-color;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $table-dark-accent-bg;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
+      @include hover {
+        background-color: $table-dark-hover-bg;
+      }
+    }
+  }
+}
+
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+.table-responsive {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+
+        // Prevent double border on horizontal scroll due to use of `display: block;`
+        > .table-bordered {
+          border: 0;
+        }
+      }
+    }
+  }
+}
+
+/* table mods */
+table {
+  td {
+    .commentscontainer,
+    .ygtvitem {
+      min-width: 400px;
+    }
+  }
+
+  .comment-message {
+    .picture {
+        display: none;
+    }
+  }
+}
+
+/* assign */
+.path-mod-assign .gradingtable .c0 {
+  vertical-align: middle;
+
+  div.selectall {
+   display: inline-flex;
+   vertical-align: middle;
+  }
+
+}
+
+    .resettable {
+      margin-bottom: 1rem;
+    }
+
+
+    #page-course-view-topics {
+
+      @include media-breakpoint-only(sm) {
+        .userlist {
+          .no-overflow {
+            overflow-x: initial;
+          }
+        }
+      }
+
+      .generaltable {
+
+        td {
+          label {
+            width: 100%!important;
+            display: block!important;
+            margin: 0.5rem 0!important;
+          }
+
+          [role=button] {
+            margin: 0.15rem 0;
+          }
+        }
+
+      }
+
+    }
+
+    .path-mod-workshop .grading-report th {
+      min-width: 600px;
+
+      a {
+        width: auto!important;
+      }
+    }
+
+    .path-mod-workshop .grading-report th.c3,
+    .path-mod-workshop .grading-report th.c5 {
+      min-width: 400px;
+    }
+
+    .submissionsummarytable {
+      overflow-x: scroll;
+    }
+
+
+    .user-enrol-details {
+      width: 100%;
+    }
+
+
+    @include media-breakpoint-between(sm,md) {
+      #page-mod-forum-view {
+        [role="main"] .no-overflow table {
+          min-width: max-content;
+        }
+      }
+    }
+
+    #page-admin-tool-analytics-index {
+      .box {
+        overflow-x: auto;
+      }
+    }
+
+
+    // Administration / Plugins / Web services
+    .wsoverview {
+      .step {
+        min-width: 250px;
+      }
+    }
+
+    #webservicetokens {
+      margin-top: 2rem;
+      min-width: 1900px;
+
+      .missingcaps {
+        font-size: $font-size-xs;
+        color: $red-600;
+      }
+
+      .c1 {
+        max-width: 500px;
+      }
+
+      td {
+        vertical-align: top!important;
+      }
+    }
+
+
+    /// admin/repository.php
+    #repositoriessetting {
+      td {
+        padding: 0 10px!important;
+
+        select {
+          margin: 0!important;
+          padding: 7px 30px 7px 10px;
+          font-size: 12px;
+        }
+
+        br {
+          display: none;
+        }
+      }
+    }
+
+    .userlist table#participants .c3 {
+      .inplaceeditable.inplaceeditable-autocomplete {
+        a {
+          min-width: 30px;
+          height: 30px;
+
+          color: $body-color;
+          background-color: $gray-100;
+          border-radius: 30px;
+
+
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: $general-transition;
+
+          .icon {
+            font-size: 12px;
+          }
+
+          &.aalink {
+            padding-left: 1rem;
+
+            .quickediticon {
+              margin-left: 10px;
+            }
+          }
+
+          &:hover {
+            background-color: $gray-200;
+          }
+        }
+      }
+
+    }
+
+
+    #tool-policy-managedocs-wrapper {
+      small {
+        color: $body-color-light;
+      }
+
+      .dropdown-toggle {
+        padding: 8px 30px 8px 20px!important;
+        font-size: $font-size-xs;
+        color: $btn-secondary-text;
+      }
+    }
+
+    #page-admin-tool-policy-acceptances {
+
+      .colselect  {
+        width: max-content;
+      }
+
+    }

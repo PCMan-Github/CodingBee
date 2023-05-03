@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>flag-on</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flag-on" fill="#EA0000" fill-rule="nonzero">
+            <path d="M1.70710678,1.70710678 L11.2928932,11.2928932 C11.6834175,11.6834175 12.3165825,11.6834175 12.7071068,11.2928932 C12.8946432,11.1053568 13,10.8510029 13,10.5857864 L13,1 C13,0.44771525 12.5522847,-1.01453063e-16 12,0 L2.41421356,0 C1.86192881,7.67586877e-16 1.41421356,0.44771525 1.41421356,1 C1.41421356,1.26521649 1.5195704,1.5195704 1.70710678,1.70710678 Z" id="path3006"></path>
+        </g>
+    </g>
+</svg>

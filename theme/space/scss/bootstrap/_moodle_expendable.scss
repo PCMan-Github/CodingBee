@@ -1,0 +1,36 @@
+table#explaincaps,
+table#defineroletable,
+table.grading-report,
+table#listdirectories,
+table.rolecaps,
+table.userenrolment,
+form#movecourses table,
+#page-admin-course-index .editcourse,
+.forumheaderlist,
+table.flexible,
+.generaltable {
+    @extend .table-striped;
+}
+
+table {
+    caption {
+        font-size: $h3-font-size;
+        font-weight: $font-weight-sm-bold;
+        text-align: left;
+        caption-side: top;
+    }
+}
+
+table.grading-report,
+.forumheaderlist,
+.generaltable,
+table.flexible,
+.category_subcategories,
+table#modules,
+table#permissions {
+    @extend .table-hover;
+}
+
+.grading-report .btn {
+  margin: 0.25rem;
+}

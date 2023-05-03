@@ -1,0 +1,19 @@
+
+{{!
+    Custom nav
+}}
+
+<button class="c-custom-nav-btn btn-secondary" data-toggle="dropdown">
+  {{{CustomNavIcon}}}
+</button>
+<div class="c-custom-nav dropdown-menu {{#topbarstyle1}}dropdown-menu-right{{/topbarstyle1}}{{#topbarstyle2}}dropdown-menu-right{{/topbarstyle2}}{{#topbarstyle3}}dropdown-menu-left{{/topbarstyle3}}{{#topbarstyle4}}dropdown-menu-right{{/topbarstyle4}}{{#topbarstyle5}}dropdown-menu-left{{/topbarstyle5}}">
+
+    {{{CustomNavHTML}}}
+
+    {{#ExtraCustomNavHTML}}
+    <div class="c-custom-nav-extra">
+      {{{ExtraCustomNavHTML}}}
+    </div>
+    {{/ExtraCustomNavHTML}}
+
+</div>

@@ -1,0 +1,456 @@
+// The dropdown wrapper (`<div>`)
+
+
+  .section {
+    .dropdown-toggle {
+      padding: .35rem 1.7rem .35rem .75rem;
+      font-size: $font-size-xs;
+    }
+  }
+
+
+  .dropdown-right {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    .list-group & {
+      top: calc(50% - 20px);
+    }
+  }
+
+
+
+  .dropdown-divider-author {
+    .showusername & {
+      display: none;
+    }
+  }
+
+// The dropdown menu
+.dropdown-author {
+  max-width: 200px;
+  padding: 5px;
+  margin: 0 auto;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-sm-bold;
+  color: $dropdown-text;
+  text-align: center;
+  white-space: normal;
+
+  .showusername & {
+    display: none;
+
+    @include media-breakpoint-only(sm) {
+    display: block;
+    }
+  }
+
+  @include media-breakpoint-only(sm) {
+    max-width: 100%;
+  }
+
+  .meta.viewingas,
+  .meta.role {
+    position: relative;
+    display: block;
+    background-color: $green-200;
+    padding: 9px 14px;
+    margin: 5px 0 0;
+
+    border-radius: $border-radius;
+
+    font-size: $font-size-xs;
+    line-height: 1.3;
+    color: $green-800;
+    text-align: center;
+  }
+
+  .meta.loginfailures {
+    position: relative;
+    display: block;
+    background-color: $yellow-100;
+    padding: 9px 4px 9px 40px;
+    margin: 5px 0 0;
+
+    border-radius: $border-radius;
+
+    font-size: $font-size-xs;
+    line-height: 1.3;
+    color: $yellow-800;
+    text-align: left;
+
+    &:before {
+      @extend %fa-icon;
+      @extend .fas;
+
+      content: fa-content($fa-var-exclamation-triangle);
+
+      font-size: 14px;
+      color: $yellow-800;
+      opacity: 0.6;
+
+      position: absolute;
+      top: calc(50% - 7px);
+      left: 14px;
+    }
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 220px;
+  width: auto;
+  z-index: 100000; //top bar has 2
+  display: none; // none by default, but block on "open" of the menu
+  padding: 0.5 * $spacer!important;
+  border-radius: $border-radius;
+
+  margin: $dropdown-spacer 0 0; // override default ul
+  font-size: 0.75rem; // Redeclare because nesting can cause inheritance issues
+
+  color: $dropdown-text;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  list-style: none;
+  background-color: $dropdown-bg;
+  box-shadow: 2px 11px 54px 0 rgba($dropdown-shadow,.6);
+
+  .c-lang-menu & {
+    min-width: 180px;
+    width: 180px;
+  }
+
+  .currentlink  {
+    display: block;
+
+    margin: 10px 15px 0!important;
+    padding: 0;
+
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+  }
+
+    a,
+    .card a,
+    .btn {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: $dropdown-link-color;
+
+      transition: $general-transition;
+
+      .c-lang-menu & {
+        padding: 0.4rem 0.5rem;
+      }
+
+      &:hover {
+        background-color: $dropdown-link-hover-bg!important;
+        border-radius: $border-radius;
+        color: $dropdown-link-hover-color!important;
+        text-decoration: none;
+
+        .icon {
+          color: $dropdown-link-hover-color!important;
+          opacity: 0.8;
+        }
+      }
+
+      &.active {
+        background-color: $dropdown-link-active-bg;
+        border-radius: $border-radius;
+        color: $dropdown-link-active-color;
+        text-decoration: none;
+
+        .icon {
+          color: $dropdown-link-active-color;
+          opacity: 0.8;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($dropdown-text, 0.15);
+      }
+
+      &:before {
+        display: none;
+      }
+
+      .icon {
+        margin: 0 10px 0 -5px!important;
+        color: $dropdown-text;
+        font-size: $font-size-sm;
+        opacity: 0.6;
+      }
+
+    }
+
+    .dropdown-title {
+      margin: 0 10px 10px;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-sm-bold;
+
+      color: $body-color-light;
+    }
+
+  .dropdown-item {
+    display: block;
+    color: $dropdown-link-color;
+    text-align: left;
+    font-size: $font-size-xs!important;
+
+    white-space: normal;
+
+    @include media-breakpoint-only(sm) {
+    max-width: 100%;
+    }
+
+    &:hover {
+      color: $dropdown-link-hover-color!important; // force styles for tables
+
+      .icon {
+        color: $dropdown-link-hover-color;
+      }
+    }
+
+    a {
+      font-size: $font-size-xs!important;
+      border: none;
+      background-color: transparent;
+    }
+
+    .icon {
+      width: 20px;
+      display: inline-flex;
+      align-self: center;
+      margin: 0 7px 0 0!important;
+      color: $dropdown-link-color;
+      opacity: 0.7;
+    }
+
+    .menu-action-text {
+      display: inline-flex;
+      width: calc(100% - 35px);
+    }
+
+  }
+
+}
+
+    .active-dropdown {
+      color: $dropdown-link-hover-color!important; // force styles for tables
+      @include gradient-bg($dropdown-link-hover-bg);
+
+      .icon {
+        color: $dropdown-link-hover-color;
+      }
+    }
+
+    // Top menu - sub menus
+    .dropdown-menu-light {
+      padding: 20px 20px!important;
+      min-width: 270px;
+      width: max-content;
+
+      border-radius: $border-radius;
+      background-color: $dropdown-light-bg;
+
+      box-shadow: $dropdown-light-box-shadow;
+
+      .dropdown-divider {
+        margin: 20px -20px;
+        border-color: $dropdown-light-border;
+      }
+
+      .dropdown-item {
+        width: 100%;
+        padding: 7px 9px;
+        position: relative;
+
+        font-size: 0.85rem;
+
+        color: $dropdown-light-text;
+
+        &:hover {
+          color: $dropdown-light-link-hover-color!important;
+          background-color: $dropdown-light-link-hover-bg;
+        }
+
+        strong {
+          color: $dropdown-light-text;
+        }
+
+        span {
+          color: lighten($dropdown-light-text, 10);
+          font-size: $font-size-xs;
+        }
+
+        .icon {
+          display: inline-flex;
+          width: 40px;
+          height: 40px;
+        }
+
+        .menu-action-text {
+          display: inline-flex;
+          width: calc(100% - 30px);
+          line-height: 1.5;
+        }
+
+      }
+    }
+
+
+      [data-title*="logout"] {
+        background-color: $red-600;
+        border-radius: $border-radius;
+
+        font-weight: $font-weight-sm-bold;
+
+        text-decoration: none;
+
+        &:hover {
+          background-color: darken($red-600, 10)!important;
+        }
+
+        span {
+          color: $red-100!important;
+        }
+
+        .icon {
+          color: $red-100!important;
+          opacity: 0.6;
+        }
+      }
+
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Just add .dropup after the standard .dropdown class and you're set.
+.dropup {
+  .dropdown-menu {
+    margin-top: 0;
+    margin-bottom: $dropdown-spacer;
+  }
+
+  .dropdown-toggle {
+    @include caret(up);
+  }
+}
+
+.dropright {
+  .dropdown-menu {
+    margin-top: 0;
+    margin-left: $dropdown-spacer;
+  }
+
+  .dropdown-toggle {
+    @include caret(right);
+    &::after {
+      vertical-align: 0;
+    }
+  }
+}
+
+.dropleft {
+  .dropdown-menu {
+    margin-top: 0;
+    margin-right: $dropdown-spacer;
+  }
+
+  .dropdown-toggle {
+    @include caret(left);
+    &::before {
+      vertical-align: 0;
+    }
+  }
+}
+
+// Dividers (basically an `<hr>`) within the dropdown
+.dropdown-divider {
+  margin: 0.5rem -0.5rem;
+  height: 0;
+  overflow: hidden;
+  border-top: 1px solid $dropdown-divider-bg;
+}
+
+// Links, buttons, and more within the dropdown menu
+//
+// `<button>`-specific styles are denoted with `// For <button>s`
+.dropdown-item a {
+  display: block!important;
+
+  clear: both!important;
+  font-weight: $font-weight-sm-bold!important;
+  color: $dropdown-link-color!important;
+  text-align: inherit; // For `<button>`s
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+  background-color: transparent; // For `<button>`s
+  border: 0; // For `<button>`s
+  border-radius: $border-radius;
+  box-shadow: none;
+
+  transition: $general-transition;
+
+  max-width: 280px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: $dropdown-link-hover-color!important;
+    box-shadow: none;
+    text-decoration: none;
+    @include gradient-bg($dropdown-link-hover-bg);
+  }
+
+  &.active,
+  &:active {
+    color: $dropdown-link-active-color;
+    text-decoration: none;
+    @include gradient-bg($dropdown-link-active-bg);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $dropdown-link-disabled-color;
+    background-color: transparent;
+    // Remove CSS gradients if they're enabled
+    @if $enable-gradients {
+      background-image: none;
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+  }
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu.list-group {
+  margin-top: 0.25rem;
+  width: max-content;
+}
+
+// Dropdown section headers
+.dropdown-header {
+  display: block;
+  padding: $dropdown-padding-y 1rem;
+  margin-bottom: 0; // for use with heading elements
+  font-size: 0.75rem;
+  font-weight: $font-weight-sm-bold;
+  color: $dropdown-header-color;
+  white-space: nowrap; // as with > li > a
+}
+
+.editor_atto_menu .dropdown-menu>li>a {
+  margin: 0!important;
+  border-radius: $border-radius;
+}

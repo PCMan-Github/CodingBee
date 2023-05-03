@@ -1,0 +1,197 @@
+.pagination {
+  display: inline-flex;
+  @include list-unstyled();
+  @include border-radius();
+
+  margin-bottom: 2rem!important;
+
+  background: $pagination-bg;
+  border: 1px solid $pagination-border-color;
+  box-shadow: $box-shadow-sm;
+
+  li {
+    margin-bottom: 0!important;
+  }
+
+  &.pagination-letter {
+    margin-bottom: 0.5rem!important
+  }
+
+  .icon {
+    font-size: $font-size-xs;
+  }
+}
+
+.pagination-list {
+  list-style: none;
+  display: inline-flex;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  background-color: transparent;
+  padding: $pagination-padding-x $pagination-padding-y;
+  margin-left: -$pagination-border-width;
+  font-weight: $font-weight-sm-bold;
+  line-height: $pagination-line-height;
+  color: $pagination-color;
+
+  border-radius: $border-radius;
+
+  .pagination-letter & {
+    padding: $pagination-padding-x;
+  }
+
+  &:before {
+    display: none;
+  }
+
+  // Opinionated: add "hand" cursor to non-disabled .page-link elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+}
+
+.page-item {
+
+  border-right: 1px solid $pagination-border-color;
+
+  &:hover {
+    background-color: $gray-100;
+  }
+
+  &:first-child {
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+
+  &:last-child {
+    border-radius: 0 $border-radius $border-radius 0;
+    border-right: none;
+  }
+
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+    }
+  }
+
+  &.active .page-link {
+    z-index: 1;
+    color: $pagination-active-color!important;
+    background-color: $pagination-active-bg;
+    border-color: $pagination-active-border-color;
+  }
+
+  &.disabled .page-link {
+    color: $pagination-disabled-color;
+    pointer-events: none;
+    // Opinionated: remove the "hand" cursor set previously for .page-link
+    cursor: auto;
+    background-color: $pagination-disabled-bg;
+    border-color: $pagination-disabled-border-color;
+  }
+}
+
+[data-region="paging-bar"] {
+  display: inline-flex;
+}
+
+.listing-pagination,
+.paging {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+
+  font-size: $font-size-xs!important;
+
+  p {
+    @extend .row;
+    @extend .no-gutters;
+
+    text-align: center;
+    align-items: center;
+
+    font-size: $font-size-xs!important;
+    line-height: 1.5!important;
+  }
+
+  a, b {
+    width: auto;
+    margin: 0 0.15rem;
+
+    display: block;
+    background-color: transparent;
+    padding: 9px 14px;
+    margin-left: -1px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: $body-color;
+    border-radius: $border-radius;
+
+    &.active-page {
+      color: $gray-400;
+      background-color: $gray-100;
+    }
+
+    &:hover {
+      color: $blue-500;
+      background-color: $blue-100;
+
+      text-decoration: none;
+    }
+  }
+
+  b {
+    color: $gray-700;
+  }
+
+  br {
+    display: none;
+  }
+}
+
+  .listing-pagination {
+    margin: 0.5rem 0;
+  }
+
+
+
+  #frontpage-course-list,
+  #frontpage-available-course-list {
+    .paging {
+      display: flow-root;
+      width: 250px;
+      margin: 0 auto;
+      padding: 0;
+
+      @include media-breakpoint-between(sm,md) {
+        width: 100%;
+      }
+
+      a {
+        display: block;
+        padding: $btn-padding-y $btn-padding-x;
+
+        font-size: $btn-font-size;
+        font-weight: $btn-font-weight;
+        line-height: 180%;
+        color: $btn-secondary-text;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+#page-mod-data-view {
+  .pagination {
+    margin-top: 2rem!important;
+  }
+}
+
+.paging-morelink {
+  display: block;
+  margin: 1rem 0;
+}

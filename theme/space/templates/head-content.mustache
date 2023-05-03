@@ -1,0 +1,95 @@
+    {{#showauthorinfo}}
+    <!-- * * * * * * *
+
+      Theme: SPACE Moodle Theme
+      Author: Rosea Themes
+      Version: 1.13.2
+
+      Copyright © 2018 - 2021
+
+    * * * * * * * -->
+    {{/showauthorinfo}}
+
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+
+    {{^CustomWebFont}}<link href="{{#googlefonturl}}{{{googlefonturl}}}{{/googlefonturl}}{{^googlefonturl}}https://fonts.googleapis.com/css?family=Poppins:300,400,500,700{{/googlefonturl}}" rel="stylesheet">{{/CustomWebFont}}
+    {{#CustomWebFont}}
+      {{{ CustomWebFontHTML }}}
+    {{/CustomWebFont}}
+
+    {{#additionalcustomfont}}
+    {{{ CustomWebFontHTML }}}
+    {{/additionalcustomfont}}
+
+    {{#isslider}}
+    <script src="{{siteurl}}/theme/space/addons/tinyslider/tiny-slider.js"></script>
+    <link rel="stylesheet" href="{{siteurl}}/theme/space/addons/tinyslider/tiny-slider.css">
+    {{/isslider}}
+
+    <script src="{{siteurl}}/theme/space/addons/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+    {{{ output.standard_head_html }}}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{#morefonts}}
+    <style type="text/css">
+    {{#fonts}}
+    [lang="{{langcode}}"] body {
+        font-family: {{{additionalfontname}}};
+    }
+    {{/fonts}}
+    </style>
+    {{/morefonts}}
+
+
+    {{#CustomWebFontSH}}
+    <style type="text/css">
+    @font-face {
+        font-family: {{{googlefontname}}};
+        src: url('{{#customfontlighteot}}{{.}}{{/customfontlighteot}}');
+        src: url('{{#customfontlighteot}}{{.}}{{/customfontlighteot}}?#iefix') format('embedded-opentype'),
+            url('{{#customfontlightwoff2}}{{.}}{{/customfontlightwoff2}}') format('woff2'),
+            url('{{#customfontlightwoff}}{{.}}{{/customfontlightwoff}}') format('woff'),
+            url('{{#customfontlightttf}}{{.}}{{/customfontlightttf}}') format('truetype'),
+            url('{{#customfontlightsvg}}{{.}}{{/customfontlightsvg}}#{{#customfontlightname}}{{.}}{{/customfontlightname}}') format('svg');
+        font-weight: 300;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: {{{googlefontname}}};
+        src: url('{{#customfontregulareot}}{{.}}{{/customfontregulareot}}');
+        src: url('{{#customfontregulareot}}{{.}}{{/customfontregulareot}}?#iefix') format('embedded-opentype'),
+            url('{{#customfontregularwoff2}}{{.}}{{/customfontregularwoff2}}') format('woff2'),
+            url('{{#customfontregularwoff}}{{.}}{{/customfontregularwoff}}') format('woff'),
+            url('{{#customfontregularttf}}{{.}}{{/customfontregularttf}}') format('truetype'),
+            url('{{#customfontregularsvg}}{{.}}{{/customfontregularsvg}}#{{#customfontregularname}}{{.}}{{/customfontregularname}}') format('svg');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: {{{googlefontname}}};
+        src: url('{{#customfontmediumeot}}{{.}}{{/customfontmediumeot}}');
+        src: url('{{#customfontmediumeot}}{{.}}{{/customfontmediumeot}}?#iefix') format('embedded-opentype'),
+            url('{{#customfontmediumwoff2}}{{.}}{{/customfontmediumwoff2}}') format('woff2'),
+            url('{{#customfontmediumwoff}}{{.}}{{/customfontmediumwoff}}') format('woff'),
+            url('{{#customfontmediumttf}}{{.}}{{/customfontmediumttf}}') format('truetype'),
+            url('{{#customfontmediumsvg}}{{.}}{{/customfontmediumsvg}}#{{#customfontmediumname}}{{.}}{{/customfontmediumname}}') format('svg');
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: {{{googlefontname}}};
+        src: url('{{#customfontboldeot}}{{.}}{{/customfontboldeot}}');
+        src: url('{{#customfontboldeot}}{{.}}{{/customfontboldeot}}?#iefix') format('embedded-opentype'),
+            url('{{#customfontboldwoff2}}{{.}}{{/customfontboldwoff2}}') format('woff2'),
+            url('{{#customfontboldwoff}}{{.}}{{/customfontboldwoff}}') format('woff'),
+            url('{{#customfontboldttf}}{{.}}{{/customfontboldttf}}') format('truetype'),
+            url('{{#customfontboldsvg}}{{.}}{{/customfontboldsvg}}#{{#customfontboldname}}{{.}}{{/customfontboldname}}') format('svg');
+        font-weight: 700;
+        font-style: normal;
+    }
+    </style>
+    {{/CustomWebFontSH}}

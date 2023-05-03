@@ -1,0 +1,216 @@
+// Base class
+//
+// Requires one of the contextual, color modifier classes for `color` and
+// `background-color`.
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $badge-padding-y $badge-padding-x;
+  margin: 1px 4px 1px 1px;
+  font-size: $badge-font-size!important;
+  font-weight: $badge-font-weight;
+  line-height: 1.2;
+  text-align: left;
+  @include border-radius($badge-border-radius);
+
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+
+  .icon {
+    font-size: 0.85rem;
+    margin-right: 0.25rem;
+  }
+
+  img {
+    margin-right: 0.5rem!important;
+  }
+
+  p {
+    white-space: normal;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  .btn-icon {
+    width: 26px;
+    padding: 0 5px;
+    margin-left: 0.25rem;
+  }
+
+  span {
+    margin-right: 0.5rem;
+  }
+}
+
+.badge-link {
+  cursor: pointer;
+  transition: $general-transition;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:before {
+    display: none;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}
+
+// Quick fix for badges in buttons
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+// Pill badges
+//
+// Make them extra rounded with a modifier to replace v3's badges.
+
+.badge-pill {
+  padding-right: $badge-pill-padding-x;
+  padding-left: $badge-pill-padding-x;
+  @include border-radius($badge-pill-border-radius);
+}
+
+// Colors
+//
+// Contextual variations (linked badges get darker on :hover).
+.badge-primary {
+  background-color: $theme-color-3;
+  color: $theme-color-9;
+
+  &.badge-link {
+    &:hover {
+      background-color: $theme-color-4;
+      color: $theme-color-9;
+    }
+  }
+}
+
+.badge-notice,
+.badge-secondary {
+  background-color: $theme-color-9;
+  color: $theme-color-3;
+
+  &.badge-link {
+    &:hover {
+      background-color: $theme-color-8;
+      color: $theme-color-3;
+    }
+  }
+}
+
+.badge-success,
+.label-success {
+  background-color: $green-200!important;
+  color: $green-800!important;
+
+  &.badge-link {
+    &:hover {
+      background-color: $green-100!important;
+      color: $green-800!important;
+    }
+  }
+}
+
+.badge-danger,
+.label-important {
+  background-color: $red-600;
+  color: $red-100;
+
+  &.badge-link {
+    &:hover {
+      background-color: $red-700;
+      color: $red-100;
+    }
+  }
+}
+
+.badge-warning,
+.label-warning {
+  background-color: $yellow-200;
+  color: $yellow-900;
+
+  &.badge-link {
+    &:hover {
+      background-color: $yellow-300;
+      color: $yellow-900;
+    }
+  }
+}
+
+.badge-info,
+.label-info,
+.label-default {
+  background-color: $green-700;
+  color: $green-100!important;
+
+  &.badge-link {
+    &:hover {
+      background-color: $green-800;
+      color: $green-100!important;
+    }
+  }
+}
+
+.badge-light {
+  background-color: $gray-100;
+  color: $gray-900;
+
+  &.badge-link {
+    &:hover {
+      background-color: $gray-200;
+      color: $gray-900;
+    }
+  }
+}
+
+.badge-dark {
+  background-color: $gray-900;
+  color: $white;
+}
+
+.badge-icon {
+  padding-left: 35px;
+  position: relative;
+
+  &:after {
+    @extend %fa-icon;
+    @extend .fas;
+
+    position: absolute;
+    top: calc(50% - 6px);
+    left: 12px;
+
+    font-size: 12px;
+    color: inherit;
+    opacity: 0.6;
+  }
+}
+
+.badge-icon--permalink {
+  &:after {
+   content: fa-content($fa-var-link);
+  }
+}
+
+.badge-icon--edit {
+  &:after {
+    content: fa-content($fa-var-pen);
+  }
+}
+
+.badge-icon--delete {
+  &:after {
+    content: fa-content($fa-var-trash-alt);
+  }
+}

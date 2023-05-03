@@ -1,0 +1,261 @@
+$font-size-xs: 0.75rem !default;
+$font-size-root: 0.75rem;
+
+$zindex-navbar-fixed: 1030 !default;
+$tag-padding-y: .25rem !default;
+
+/* stylelint-disable function-url-scheme-blacklist */
+$form-icon-success: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%235cb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E") !default;
+$form-icon-warning: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23f0ad4e' d='M4.4 5.324h-.8v-2.46h.8zm0 1.42h-.8V5.89h.8zM3.76.63L.04 7.075c-.115.2.016.425.26.426h7.397c.242 0 .372-.226.258-.426C6.726 4.924 5.47 2.79 4.253.63c-.113-.174-.39-.174-.494 0z'/%3E%3C/svg%3E") !default;
+$form-icon-danger: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E") !default;
+/* stylelint-enable function-url-scheme-blacklist */
+
+$input-bg-disabled: $input-disabled-bg;
+$table-sm-cell-padding: $table-cell-padding-sm;
+$popover-arrow-outer-width: 6px !default;
+$modal-title-padding: $modal-header-padding;
+$pagination-hover-border: $pagination-hover-border-color;
+$pagination-active-border: $pagination-active-border-color;
+
+$primary: $theme-color-3 !default;
+$secondary: $gray-600 !default;
+$success: $green-700 !default;
+$info: $gray-100 !default;
+$warning: $orange-900 !default;
+$danger: $red-900 !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+$brand-primary: $primary;
+$brand-success: $success;
+$brand-info: $info;
+$brand-warning: $warning;
+$brand-danger: $danger;
+
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+
+$gray-dark: $gray-900;
+$gray: $gray-700;
+$gray-light: $gray-600;
+$gray-lighter: $gray-300;
+$gray-lightest: $gray-100;
+
+$table-bg-hover: $table-hover-bg;
+$table-bg-accent: $table-accent-bg;
+
+$tag-default-bg: $gray-light !default;
+$tag-primary-bg: $theme-color-3 !default;
+$tag-success-bg: $green-700 !default;
+$tag-info-bg: $theme-color-9 !default;
+$tag-warning-bg: $yellow-200 !default;
+$tag-danger-bg: $red-600 !default;
+
+$state-success-text: $success;
+$state-success-bg: theme-color-level("success", -10) !default;
+$state-success-border: theme-color-level("success", -9) !default;
+
+$state-info-text: $info;
+$state-info-bg: theme-color-level("info", -10) !default;
+$state-info-border: theme-color-level("info", -9) !default;
+
+$state-warning-text: $warning;
+$state-warning-bg: theme-color-level("warning", -10) !default;
+$state-warning-border: theme-color-level("warning", -10) !default;
+
+$state-danger-text: $danger;
+$state-danger-bg: theme-color-level("danger", -10) !default;
+$state-danger-border: theme-color-level("danger", -9) !default;
+
+@mixin form-control-validation($color) {
+    // Color the label and help text
+    .form-control-feedback,
+    .form-control-label,
+    .form-check-label,
+    .form-check-inline,
+    .custom-control {
+        color: $color;
+    }
+    // Set the border and box shadow on specific inputs to match
+    .form-control {
+        border-color: $color;
+    }
+
+    // Set validation states also for addons
+    .input-group-addon {
+        color: $color;
+        border-color: $color;
+        background-color: lighten($color, 40%);
+    }
+    // Optional feedback icon
+    .form-control-feedback {
+        color: $color;
+    }
+}
+
+$tag-padding-x: .5em !default;
+$tag-padding-y: .25em !default;
+$tag-font-size: 0.75rem !default;
+$tag-color: #fff !default;
+$tag-font-weight: $font-weight-sm-bold !default;
+
+.tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    font-size: $tag-font-size!important;
+    font-weight: $tag-font-weight;
+    line-height: 1;
+    color: $tag-color;
+    text-align: center;
+    vertical-align: baseline;
+    @include border-radius();
+
+    // Empty tags collapse automatically
+    &:empty {
+        display: none;
+    }
+
+    .ishidden & {
+      margin: 5px 0!important;
+    }
+}
+
+.form-control-success,
+.form-control-warning,
+.form-control-danger {
+    padding-right: ($input-padding-x * 3);
+    background-repeat: no-repeat;
+    background-position: center right ($input-height / 4);
+    background-size: ($input-height / 2) ($input-height / 2);
+}
+
+// .form-check-input {
+//     position: static;
+// }
+
+@mixin tag-variant($color) {
+    background-color: $color;
+
+    &[href] {
+        @include hover-focus {
+            background-color: darken($color, 10%);
+        }
+    }
+}
+
+.tag-default {
+    @include tag-variant($tag-default-bg);
+    font-size: $font-size-sm;
+}
+
+.tag-primary {
+    @include tag-variant($tag-primary-bg);
+    font-size: $font-size-sm;
+}
+
+.tag-success {
+    @include tag-variant($tag-success-bg);
+    font-size: $font-size-sm;
+}
+
+.tag-info {
+    @include tag-variant($tag-info-bg);
+    color: $theme-color-3;
+    font-size: $font-size-sm;
+
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: $border-radius;
+
+      margin: 0 10px;
+    }
+}
+
+.tag-light {
+  @include tag-variant($tag-info-bg);
+  font-size: $font-size-sm;
+  color: $theme-color-3;
+
+  img {
+    width: 20px;
+    height: 20px;
+    border-radius: $border-radius;
+
+    margin: 0 10px;
+  }
+}
+
+.tag-warning {
+    @include tag-variant($tag-warning-bg);
+    font-size: $font-size-sm;
+    color: $yellow-800;
+}
+
+.tag-danger {
+    @include tag-variant($tag-danger-bg);
+    font-size: $font-size-sm;
+}
+
+@mixin pull-left() {
+    @include float-left();
+}
+
+@mixin pull-right() {
+    @include float-right();
+}
+
+// Adding compatibility for m-side-* classes.
+// stylelint-disable
+$spacer: 1rem !default;
+$bs4aspacers: () !default;
+$bs4aspacers: map-merge((
+  0: 0,
+  1: ($spacer * 1),
+  2: ($spacer * 2),
+  3: ($spacer * 3)
+), $bs4aspacers);
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in $bs4aspacers {
+
+    .#{$abbrev}-a-#{$size} { #{$prop}: $length !important; }
+    .#{$abbrev}-t-#{$size},
+    .#{$abbrev}-y-#{$size} {
+      #{$prop}-top: $length !important;
+    }
+    .#{$abbrev}-r-#{$size},
+    .#{$abbrev}-x-#{$size} {
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}-b-#{$size},
+    .#{$abbrev}-y-#{$size} {
+      #{$prop}-bottom: $length !important;
+    }
+    .#{$abbrev}-l-#{$size},
+    .#{$abbrev}-x-#{$size} {
+      #{$prop}-left: $length !important;
+    }
+  }
+}
+
+// Adding compatibility for col-xs-* classes.
+@for $i from 1 through $grid-columns {
+  .col-xs-#{$i} {
+    @extend .col-#{$i};
+  }
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+input[disabled] {
+    cursor: not-allowed;
+}
+
+.row-fluid {
+  @include make-row();
+}
