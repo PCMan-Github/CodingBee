@@ -1,0 +1,62 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_message/manage
+
+
+    Example context (json):
+    {
+      
+    }
+}}
+<H3>Coupon List </H3>
+<input type="button" class="btn btn-primary" value="Add New Coupon" onclick="location.href='index.php'">
+<hr>
+<table class="table table-bordered table-striped" id="table1">
+<thead>
+<tr>
+    <th>Coupon Code </th>
+    <th>Coupon Name</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Percentage</th>
+    <th>Coupon Limit</th>
+    <th>Start Date</th>
+    <th>Expired Date</th>
+    <th>Category Course</th>
+    <th>Actions</th>
+
+</tr>
+</thead>
+    <tbody>
+        {{#coupons}}
+            <tr>
+                <td style="width: 5%">{{couponcode}}</td>
+                <td style="width: 15%">{{couponname}}</td>
+                <td style="width: 15%">{{description}}</td>
+                <td style="width: 5%">Rp.{{amount}} </td>
+                <td style="width: 5%">{{percentage}}%</td>
+                <td style="width: 5%">{{couponlimit}} </td>
+                <td style="width: 10%">{{startdate}}</td>
+                <td style="width: 10%">{{enddate}}</td>
+                <td style="width: 10%">{{name}}</td>
+                <td style="width: 10%">
+                    <a onclick="return confirm('Are you sure you want to delete?');" href="listcoupon.php?id={{id}}&action=delete"><p>Delete</p></a>
+            </tr>
+        {{/coupons}}
+    </tbody>
+</table>

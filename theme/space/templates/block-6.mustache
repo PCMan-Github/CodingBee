@@ -1,0 +1,43 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#FPHTMLCustomCategoryBlock}}
+<div id="customCategoryBlock" class="s-block-6 l-container s-courses-list row no-gutters section-padding justify-content-sm-center justify-content-lg-start px-sm-1 px-md-5">
+
+  <div class="col-sm-11 col-lg-4 m-b-3">
+
+    <div class="special-heading text-left">
+      {{{FPHTMLCustomCategoryIcon}}}
+      {{#FPHTMLCustomCategoryHeading}}<h3 class="title">{{{FPHTMLCustomCategoryHeading}}}</h3>{{/FPHTMLCustomCategoryHeading}}
+      {{#FPHTMLCustomCategoryContent}}<div class="mt-3 mb-3 pr-sm-0 pr-lg-4 lead text-left">{{{FPHTMLCustomCategoryContent}}}</div>{{/FPHTMLCustomCategoryContent}}
+      {{#FPHTMLCustomCategoryBlockHTML3}}{{{FPHTMLCustomCategoryBlockHTML3}}}{{/FPHTMLCustomCategoryBlockHTML3}}
+    </div>
+
+  </div>
+
+  <div class="col-sm-11 col-lg row no-gutters pl-sm-0 pl-lg-4 justify-content-sm-center">
+
+    <div class="col-sm-12 col-md text-left">
+      {{{FPHTMLCustomCategoryBlockHTML1}}}
+    </div>
+    <div class="col-sm-12 col-md text-left">
+      {{{FPHTMLCustomCategoryBlockHTML2}}}
+    </div>
+
+  </div>
+</div>
+{{#showfpblock6hr}}<hr class="hr my-0" />{{/showfpblock6hr}}
+{{/FPHTMLCustomCategoryBlock}}

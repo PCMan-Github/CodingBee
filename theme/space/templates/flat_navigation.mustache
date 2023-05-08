@@ -1,0 +1,115 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_space/flat_navigation
+
+    Display the flat navigation for the space theme
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * flatnavigation - array of flat_navigation_nodes
+      * showdivider - boolean
+      * action - string
+      * isactive - boolean
+      * get_indent - integer
+      * is_section - boolean
+      * text - HTML
+
+    Example context (json):
+    {
+        "flatnavigation" : [
+            {
+                "showdivider": false,
+                "action": "#",
+                "isactive": true,
+                "get_indent": 1,
+                "is_section": false,
+                "text": "First"
+            },{
+                "showdivider": true,
+                "action": "#",
+                "isactive": false,
+                "get_indent": 0,
+                "is_section": true,
+                "text": "Last &amp; Second"
+            }
+        ]
+    }
+}}
+<nav class="c-flat-nav mt-0 m-b-1 list-group" aria-label="{{firstcollectionlabel}}">
+  <ul class="m-1 p-0">
+  {{# flatnavigation }}
+      {{#showdivider}}
+          </ul>
+        </nav>
+        <nav class="c-nav mt-0 m-b-1 list-group" aria-label="{{get_collectionlabel}}">
+          <ul class="m-0 p-0">
+      {{/showdivider}}
+      {{#action}}
+        <li>
+            <a class="list-group-item list-group-item-action {{#isactive}}active{{/isactive}} {{#classes}}{{.}} {{/classes}}" href="{{{action}}}" data-key="{{key}}" data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}" {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
+                <div class="c-nav-item-container">
+                {{#icon.pix}}
+                <span class="nav-icon">
+                    {{#pix}}{{{icon.pix}}}, {{{icon.component}}}, {{{icon.alt}}}{{/pix}}
+                </span>
+                {{/icon.pix}}
+                <span class="text m-l-{{get_indent}}">{{{text}}}</span>
+                </div>
+            </a>
+        </li>
+      {{/action}}
+      {{^action}}
+              <li class="sidebar-accordion list-group-item p-0 my-1" data-key="{{key}}">
+                  <button class="accordion btn btn-accordion has-arrow w-100 d-block {{^showmycourses}}collapsed{{/showmycourses}} mt-2" id="accordionNav-{{key}}" data-toggle="collapse" data-target="#accordionNavC-{{key}}" aria-expanded="{{^showmycourses}}false{{/showmycourses}}{{#showmycourses}}true{{/showmycourses}}" aria-controls="accordionNavC">
+
+                      <i class="icon fas fa-align-left"></i>
+                      <span class="text">{{{text}}}</span>
+                      <i class="accordion-icon fas fa-caret-down"></i>
+
+                  </button>
+                  
+                  <ul id="accordionNavC-{{key}}" class="sidebar-accordion-body m-0 p-1 {{^showmycourses}}collapse{{/showmycourses}}{{#showmycourses}}show{{/showmycourses}}" data-parent="#accordionNav-{{key}}">
+                      {{#children}}
+                          {{^is_section}}
+                              <li class="{{#isactive}}active{{/isactive}}" data-key="{{key}}">
+                                <div class="list-group-item {{#classes}}{{.}} {{/classes}}" data-key="{{key}}" data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}" {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
+                                  <a class="{{#isactive}}active{{/isactive}}" href="{{{action}}}">
+                                    <div class="c-nav-item-container">
+                                      {{#icon.pix}}
+                                      <span class="nav-icon">
+                                          {{#pix}}{{{icon.pix}}}, {{{icon.component}}}, {{{icon.alt}}}{{/pix}}
+                                      </span>
+                                      {{/icon.pix}}
+                                      <span class="text">{{{text}}}</span>
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                          {{/is_section}}
+                      {{/children}}
+                  </ul>
+              </li>
+      {{/action}}
+  {{/ flatnavigation }}
+  </ul>
+</nav>

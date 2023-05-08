@@ -1,0 +1,70 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page navbar.
+}}
+
+  <div id="topBarContainer" class="topBar6 s-top s-top--sidebar justify-content-center {{#ShowTopBarUserName}}showusername{{/ShowTopBarUserName}} {{#customtopnavhtml}}topbar-customtopnav{{/customtopnavhtml}} {{#TopBarText}}topbar-text{{/TopBarText}} {{^TopBarText}}topbar-withouttext{{/TopBarText}} {{#output.render_lang_menu}}topbar-lang{{/output.render_lang_menu}}">
+
+    {{> theme_space/navbar-mobile }}
+
+    <div class="s-top-container">
+      <div id="navBar" class="c-container row no-gutters justify-content-start align-items-center">
+
+        {{> theme_space/navbar-btn }}
+
+        {{#customlogotopbar}}
+        <div class="logo d-sm-none d-lg-inline pr-lg-1 mr-lg-2">
+            <a href="{{#customrooturl}}{{customrooturl}}{{/customrooturl}}{{^customrooturl}}{{{ config.wwwroot }}}{{/customrooturl}}"><img src="{{customlogotopbar}}" alt="{{sitename}}" /></a>
+        </div>
+        {{/customlogotopbar}}
+        {{#ShowCustomNav}}<div class="c-custom-nav-container c-menu-sep mr-lg-4 pr-lg-1">{{> theme_space/custom-nav }}</div>{{/ShowCustomNav}}
+        {{#TopBarText}}<div class="c-top-text px-sm-3 px-lg-0 text-sm-center text-lg-left">{{{TopBarText}}}</div>{{/TopBarText}}
+
+        <div class="c-nav-user nav ml-sm-0 ml-lg-auto align-items-center justify-content-sm-end justify-content-lg-center">
+
+            {{#output.render_lang_menu}}<div class="c-lang-menu c-menu-sep ml-lg-2 mr-lg-3">{{{ output.render_lang_menu }}}</div>{{/output.render_lang_menu}}
+
+            <div class="search-box d-block">
+            {{{ output.search_box }}}
+            </div>
+
+            <!-- navbar_plugin_output -->
+            <div class="top-icons-nav c-menu-sep mr-lg-3">{{{ output.navbar_plugin_output }}}</div>
+
+            <!-- user_menu -->
+            <div class="c-user-menu mr-sm-3 mr-md-0">
+                {{{ output.user_menu }}}
+            </div>
+
+        </div>
+        <!-- search_box -->
+      </div>
+
+      {{#customtopnavhtml}}
+      <div class="c-top-nav border-top mt-2 pt-1">
+        <div class="c-container">
+          <div class="s-custom-main-nav text-sm-center text-lg-left">
+            <div class="c-custom-main-nav">
+              {{{customtopnavhtml}}}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/customtopnavhtml}}
+    </div>
+  </div>

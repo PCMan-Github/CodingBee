@@ -1,0 +1,94 @@
+.rui-course-nav-container {
+    width: $wrapper-md;
+    padding: 0 .3rem;
+    margin-top: $page-padding-global;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  
+    background-color: $gray-100;
+    border-radius: $border-radius;
+    font-weight: $font-weight-bold;
+    font-size: 0.813rem; //13px
+  
+    .theme-dark & {
+      color: $dm-gray-900;
+      background-color: $dm-gray-100;
+    }
+  
+    @include media-breakpoint-down(sm) {
+      overflow-x: auto;
+  
+      .header-links {
+        width: max-content;
+      }
+    }
+
+    .header-link-item {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      padding: .55rem .75rem;
+      margin: 5px 0;
+  
+      border-radius: $border-radius;
+      color: $gray-700;
+  
+      .theme-dark & {
+        color: $dm-gray-700;
+      }
+  
+      .header-link-item-icon {
+        margin-right: .35rem;
+        opacity: .7;
+      }
+  
+      &:before {
+        content: '';
+        position: absolute;
+  
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+  
+        border: 2px solid $primary-color-400;
+        border-radius: $border-radius;
+  
+        transition: $transition-base;
+  
+        opacity: 0;
+  
+        .theme-dark & {
+          border-color: $primary-color-400;
+        }
+      }
+  
+      &:hover {
+        background-color: $primary-color-100;
+        color: $primary-color-600;
+        text-decoration: none;
+  
+        .theme-dark & {
+          background-color: transparent;
+          color: $primary-color-400;
+        }
+  
+        &:before {
+          opacity: 1;
+        }
+      }
+  
+      &.active {
+        background-color: $white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  
+        .theme-dark & {background-color: $dm-gray-300;}
+      }
+  
+    }
+  }

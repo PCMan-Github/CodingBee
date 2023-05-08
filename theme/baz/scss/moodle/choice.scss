@@ -1,0 +1,23 @@
+//---- Choice
+//---- Module Activity
+
+#page-mod-choice-view {
+    .main-content {
+        /* wrapper-md */
+        margin-left: auto;
+        margin-right: auto;
+        width: $wrapper-md;
+
+        @include media-breakpoint-between(xs,md) {
+            width: 100%;
+        }
+        /* end wrapper-md */
+    }
+
+    #notice {
+        p {
+            @extend .alert;
+            @extend .alert-warning;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+// Some - backwards compatibility for BS2. We may have plugins and user content targeted for BS2.
+
+// Some things just got renamed.
+.img-responsive {
+    @extend .img-fluid;
+}
+
+.text-error {
+    @extend .text-danger;
+}
+
+// Floats.
+.pull-left {
+    @include pull-left();
+}
+
+.pull-right {
+    @include pull-right();
+}

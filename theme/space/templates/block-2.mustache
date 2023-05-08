@@ -1,0 +1,48 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#FPHTMLBlock2}}
+
+<div id="block2" class="s-block-2 l-container s-special-box section-padding row no-gutters justify-content-sm-center justify-content-lg-between">
+ {{#ShowFPBlock2Intro}}
+  <div class="{{FPHTMLBlock2IntroProperties}} {{^FPHTMLBlock2IntroProperties}}col-sm-11 col-md-8 col-lg-6 m-auto text-center{{/FPHTMLBlock2IntroProperties}}">
+    {{#FPBlock2Title}}<h3 class="c-special-box-title">{{{FPBlock2Title}}}</h3>{{/FPBlock2Title}}
+    {{#FPBlock2Content}}<div class="lead mb-3">{{{FPBlock2Content}}}</div>{{/FPBlock2Content}}
+  </div>
+ {{/ShowFPBlock2Intro}}
+
+  <div class="col-12 row no-gutters justify-content-between py-0 px-1">
+    {{#block2}}
+    <div id="block2-{{{FPHTMLBlock2Count}}}" class="{{FPHTMLBlock2ItemProperties}} {{^FPHTMLBlock2ItemProperties}}col-sm-12 col-md-6{{/FPHTMLBlock2ItemProperties}}">
+      <div {{^FPHTMLBlock2ItemBlockProperties}}class="my-5 p-sm-3 p-md-5"{{/FPHTMLBlock2ItemBlockProperties}} {{{FPHTMLBlock2ItemBlockProperties}}}>
+        {{#image}}<img src="{{{image}}}" alt="{{FPHTMLBlock2Heading}}" class="img-fluid"/>{{/image}}
+        {{#FPHTMLBlock2SubHeading}}<h4 class="c-special-box-subtitle mt-4">{{{FPHTMLBlock2SubHeading}}}</h4>{{/FPHTMLBlock2SubHeading}}
+        {{#FPHTMLBlock2Heading}}<h3 class="h3 c-block2-title">{{{FPHTMLBlock2Heading}}}</h3>{{/FPHTMLBlock2Heading}}
+        {{#FPHTMLBlock2Text}}<div class="c-special-box-desc">{{{FPHTMLBlock2Text}}}</div>{{/FPHTMLBlock2Text}}
+        {{#FPHTMLBlock2URL}}<a href="{{FPHTMLBlock2URL}}" class="m-t-2 btn btn-primary">{{{FPHTMLBlock2Label}}}</a>{{/FPHTMLBlock2URL}}
+      </div>
+    </div>
+    {{/block2}}
+  </div>
+
+  {{#FPBlock2FooterContent}}<div class="c-block2-footer-content w-100 mt-4">{{{FPBlock2FooterContent}}}</div>{{/FPBlock2FooterContent}}
+
+</div>
+
+{{#showfpblock2hr}}<hr class="hr my-0" />{{/showfpblock2hr}}
+
+{{/FPHTMLBlock2}}

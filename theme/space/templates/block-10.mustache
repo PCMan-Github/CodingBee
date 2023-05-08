@@ -1,0 +1,62 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#fpblock10}}
+<div id="block10" class="s-block-10 l-container s-special-box section-padding col-12 row no-gutters justify-content-sm-center justify-content-lg-between">
+
+
+  {{#showfpblock10intro}}
+  <div class="col-12">
+    <div class="{{fpblock10introproperties}} {{^fpblock10introproperties}}col-sm-11 col-md-8 col-lg-6 m-auto text-center{{/fpblock10introproperties}}">
+      {{#fpblock10title}}<h3 class="c-special-box-title mt-0">{{{fpblock10title}}}</h3>{{/fpblock10title}}
+      {{#fpblock10content}}<div class="lead mb-3"">{{{fpblock10content}}}</div>{{/fpblock10content}}
+    </div>
+    {{/showfpblock10intro}}
+  </div>
+
+  <div id="accordionFaq" class="accordion col-12 justify-content-center align-items-center mt-4 px-0">
+
+    {{#block10}}
+    <div class="accordion" id="block10-{{fpblock10no}}">
+
+      {{#fpblock10question}}
+      <div class="accordion-header" id="headingOne">
+          <button class="btn btn-accordion text-left" type="button" data-toggle="collapse" data-target="#accordion-{{fpblock10no}}" aria-expanded="false" aria-controls="accordion-{{fpblock10no}}">
+            {{{fpblock10question}}}
+            <i class="accordion-icon fas fa-plus"></i>
+          </button>
+      </div>
+      {{/fpblock10question}}
+
+      {{#fpblock10answer}}
+      <div id="accordion-{{fpblock10no}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionFaq">
+        <div class="accordion-body">
+          {{{fpblock10answer}}}
+        </div>
+      </div>
+      {{/fpblock10answer}}
+
+    </div>
+    {{/block10}}
+
+  </div>
+
+    {{#block10footercontent}}<div class="c-block10-footer-content w-100 mt-4">{{{block10footercontent}}}</div>{{/block10footercontent}}
+
+</div>
+{{#showfpblock10hr}}<hr class="hr my-0" />{{/showfpblock10hr}}
+{{/fpblock10}}

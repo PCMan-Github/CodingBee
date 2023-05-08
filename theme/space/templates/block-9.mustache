@@ -1,0 +1,55 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#heroimgenabled}}
+<div id="heroimg" class="c-hero-container {{#herofwenabled}}rounded-0{{/herofwenabled}} {{^herofwenabled}}{{#heroshadow}}c-hero-container-shadow {{heroshadowstyle}}{{/heroshadow}}{{/herofwenabled}} {{#heroboxshadow}}c-hero-box-shadow {{heroshadowstyle}}{{/heroboxshadow}}">
+  <div class="c-hero {{#herofwenabled}}c-hero--fw {{/herofwenabled}} {{#heroimgonly}}c-hero-img{{/heroimgonly}} {{^herofwenabled}}l-container{{/herofwenabled}} row no-gutters justify-content-center align-items-center" {{^heroimgonly}}style="background-image: url({{{ heroimg }}});"{{/heroimgonly}}>
+    {{^heroimgonly}}
+      {{^herohtml}}
+      <div class="c-hero-content col-sm-11 col-lg-7 text-center">
+
+        {{#HeroText2}}<h5 class="h5">{{{HeroText2}}}</h5>{{/HeroText2}}
+        {{#HeroHeading}}<h1 class="h1">{{{HeroHeading}}}</h1>{{/HeroHeading}}
+        {{#HeroText}}<h3 class="h3">{{{HeroText}}}</h3>{{/HeroText}}
+
+        <div class="row mt-5 justify-content-center">
+          {{#HeroURL}}<a href="{{HeroURL}}" class="my-2 mr-2 ml-2 btn btn-cta btn-cta--primary">{{{HeroLabel}}}</a>{{/HeroURL}}
+          {{#HeroURL2}}<a href="{{HeroURL2}}" class="my-2 mr-2 ml-2 btn btn-cta btn-cta--secondary">{{{HeroLabel2}}}</a>{{/HeroURL2}}
+        </div>
+
+      </div>
+      {{/herohtml}}
+
+      {{{ herohtml }}}
+    {{/heroimgonly}}
+
+    {{#heroimgonly}}
+    <img src="{{{ heroimg }}}" alt="" width="100%" class="c-hero-img d-inline" />
+    {{/heroimgonly}}
+
+  </div>
+
+  {{^herofwenabled}}
+  {{#heroshadow}}
+    {{#heroshadowimg}}
+    <div class="c-hero-shadow-img-box" style="background-image: url({{{heroshadowimg}}}); {{heroshadowproperties}}"></div>
+    {{/heroshadowimg}}
+  {{/heroshadow}}
+  {{/herofwenabled}}
+
+</div>
+{{/heroimgenabled}}

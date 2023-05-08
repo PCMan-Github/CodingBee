@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon</title>
+    <defs>
+        <path d="M0,0.599974341 L0,8.63284013 C0.00723684,10.4492875 1.49071711,11.9111296 3.3,11.9039725 L15.0092105,11.9039725 C15.3421053,11.9039725 15.6098684,11.6361296 15.6098684,11.3104717 L15.6098684,3.27760592 C15.6026316,1.46115855 14.1190789,-0.000683559263 12.3098684,0.00647361206 L0.6006579,0.00647361206 C0.26776316,0.00647361206 0,0.274316441 0,0.599974341 Z M16.3552632,3.73352697 L21.1894737,0.201948021 C21.6092105,-0.145420399 21.9348684,-0.0585782893 21.9348684,0.571026971 L21.9348684,11.3394191 C21.9348684,12.0558665 21.5368421,11.9690244 21.1894737,11.7084981 L16.3552632,8.18415592 L16.3552632,3.73352697 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon">
+            <rect id="Rectangle" fill="#EBF2FF" fill-rule="nonzero" x="0" y="0" width="50" height="50" rx="5"></rect>
+            <g id="Path-Clipped" transform="translate(14.000000, 19.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="path-1"></g>
+                <polygon id="Path" fill="#4A8CFF" fill-rule="nonzero" mask="url(#mask-2)" points="-0.92631579 12.8302408 22.8611842 12.8302408 22.8611842 -0.91975921 -0.92631579 -0.91975921"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

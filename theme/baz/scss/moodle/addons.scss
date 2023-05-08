@@ -1,0 +1,148 @@
+// Plugin: https://github.com/mudrd8mz/moodle-block_course_contents
+// TODO: dodać zmienne, renderować jak jest plugin
+.block_course_contents .badge {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+  background-color: $primary-color-100;
+
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $primary-color-600;
+}
+
+.block_course_contents a {
+  display: block;
+  padding: 4px 0;
+  color: inherit;
+
+  .section-title {
+    margin-left: .25rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.block_course_contents {
+  .list-group-item {
+    padding: .25rem;
+    border-radius: $border-radius;
+    border-bottom: 0;
+  }
+}
+
+//-- Credits: https://codepen.io/supah/
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -15px 0 0 -15px;
+  width: 30px;
+  height: 30px;
+  
+  & .path {
+    stroke: $gray-300;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+
+// Module Section navigation https://moodle.org/plugins/block_course_modulenavigation
+.block.block_course_modulenavigation .section-group {
+  margin-bottom: 0;
+}
+
+.block.block_course_modulenavigation .section {
+  border: none
+}
+
+.block.block_course_modulenavigation .module-navigation-section-heading {
+  padding: 10px 1.25rem 0 1.25rem;
+  margin: 0 -1.25rem 10px;
+  width: calc(100% + 2.5rem);
+  border-top: 1px solid $border-color;
+
+  background-color: transparent;
+
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+
+  &:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $body-color;
+  }
+
+}
+
+.block.block_course_modulenavigation .section-default>.module-navigation-section-heading {
+  background-color: transparent;
+}
+
+.block.block_course_modulenavigation .section-group .section:last-of-type {
+  .module-navigation-section-heading {
+    margin-bottom: 0;
+  }
+}
+
+.block.block_course_modulenavigation ul.activities li>a {
+  border-bottom: none;
+  border-radius: $border-radius;
+
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs;
+  color: $body-color-secondary;
+}
+
+.block.block_course_modulenavigation .pagination>li a,
+.block.block_course_modulenavigation .allpagination>li a {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+}
+
+.block.block_course_modulenavigation .section-group .module-navigation-section-heading+.section-collapse>.section-body, .block.block_course_modulenavigation .section-group .module-navigation-section-heading+.section-collapse>.list-group {
+  border-top: none;
+}
+
+.block.block_course_modulenavigation .section-group .section {
+  border-radius: $border-radius;
+}

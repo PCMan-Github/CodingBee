@@ -1,0 +1,66 @@
+{{!
+    @template theme_space/nav-drawer
+
+
+    Example context (json): {}
+}}
+<div id="nav-drawer" data-region="drawer" class="{{#showsidebarlogo}}nav-drawer-with-logo{{/showsidebarlogo}} {{^showsidebarlogo}}nav-drawer-without-logo{{/showsidebarlogo}} d-print-none moodle-has-zindex {{^navdraweropen}}closed{{/navdraweropen}}" aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}">
+
+    {{#showsidebarlogo}}
+    <div class="c-logo text-center">
+      <a href="{{#customrooturl}}{{customrooturl}}{{/customrooturl}}{{^customrooturl}}{{{ config.wwwroot }}}{{/customrooturl}}" class="navbar-brand {{#customlogosidebar}}has-logo{{/customlogosidebar}}{{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }} {{^ output.should_display_navbar_logo }}d-none d-sm-inline{{/ output.should_display_navbar_logo }}">
+
+          {{^ customlogosidebar}}
+            {{# output.should_display_navbar_logo }}
+                <h1 class="logo d-none d-sm-block">
+                    <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}" class="img-fluid">
+                </h1>
+            {{/ output.should_display_navbar_logo }}
+          {{/ customlogosidebar}}
+
+
+          {{#customlogosidebar}}
+          <h1 class="logo d-none d-sm-block">
+              <img src="{{customlogosidebar}}" alt="{{sitename}}" class="img-fluid">
+          </h1>
+          {{/customlogosidebar}}
+
+          <h1 class="{{#customlogosidebar}}hidden{{/customlogosidebar}}{{^customlogosidebar}}{{# output.should_display_navbar_logo }}hidden{{/ output.should_display_navbar_logo }}{{/customlogosidebar}} site-name text-center">{{{ sitename }}}</h1>
+
+      </a>
+    </div>
+    {{/showsidebarlogo}}
+
+    {{#hassidebartopblocks}}
+    {{{ sidebartopblocks }}}
+    {{/hassidebartopblocks}}
+
+    {{{SidebarCustomHTML}}}
+
+    {{^removesidebarnav}}
+    {{> theme_space/flat_navigation }}
+    {{/removesidebarnav}}
+
+    {{#hassidebarblocks}}
+    {{{ sidebarblocks }}}
+    {{/hassidebarblocks}}
+
+    {{# output.custom_menu_flat }}<nav class="c-flat-nav my-4"><div class="c-flat-nav-items">{{> theme_space/custom_menu }}</div></nav>{{/ output.custom_menu_flat }}
+
+    {{#SidebarCustomNav}}
+    <div class="sidebar-custom-box-nav my-4">
+        <hr class="hr" />
+        <h4 class="sidebar-custom-box-nav-title">{{{SidebarCustomNavTitle}}}</h4>
+        {{{SidebarCustomNavigationLinks}}}
+    </div>
+    {{/SidebarCustomNav}}
+
+    {{#SidebarCustomBox}}
+    <div class="sidebar-custom-box my-4">
+        <hr class="hr" />
+        <h4 class="sidebar-custom-box-title">{{{SidebarCustomHeading}}}</h4>
+        <div class="sidebar-custom-box-desc">{{{SidebarCustomText}}}</div>
+    </div>
+    {{/SidebarCustomBox}}
+
+</div>

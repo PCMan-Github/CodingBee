@@ -1,0 +1,131 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_space/secure
+
+    space secure layout template.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+
+      Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         }
+    }
+}}
+{{> theme_space/head }}
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+
+<div id="page-wrapper">
+
+  {{{ output.standard_top_of_body_html }}}
+
+  <div class="logo-secure">
+        <div class="c-logo">
+            {{^ customlogosidebar}}
+                {{# output.should_display_navbar_logo }}
+                    <h1 class="logo d-none d-sm-block">
+                        <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}" class="logo-img img-fluid">
+                    </h1>
+                {{/ output.should_display_navbar_logo }}
+            {{/ customlogosidebar}}
+
+
+            {{#customlogosidebar}}
+            <h1 class="logo d-none d-sm-block">
+                <img src="{{customlogosidebar}}" alt="{{sitename}}" class="logo-img img-fluid">
+            </h1>
+            {{/customlogosidebar}}
+
+            <h1 class="{{#customlogosidebar}}hidden{{/customlogosidebar}}{{^customlogosidebar}}{{# output.should_display_navbar_logo }}hidden{{/ output.should_display_navbar_logo }}{{/customlogosidebar}} site-name text-center">{{{ sitename }}}</h1>
+        </div>
+  </div>
+
+    <div id="page" class="container-fluid">
+        {{{ output.full_header_secure }}}
+
+        <div id="page-content" class="row no-gutters page-main-content">
+            <div id="region-main-box">
+                {{#hasregionmainsettingsmenu}}
+                <div id="region-main-settings-menu" class="region-main-settings-menu d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
+                    <div> {{{ output.region_main_settings_menu }}} </div>
+                </div>
+                {{/hasregionmainsettingsmenu}}
+                <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}}>
+                    {{#hasregionmainsettingsmenu}}
+                    <div class="region_main_settings_menu_proxy"></div>
+                    {{/hasregionmainsettingsmenu}}
+                    {{{ output.course_content_header }}}
+
+                    {{#hasmaintopwidgets}}
+                    <section data-region="blocks-main-top-widget" class="blocks-main-top-widget d-print-none">
+                    {{{ maintopwidgets }}}
+                    </section>
+                    {{/hasmaintopwidgets}}
+
+                    <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}}>
+                    {{{ output.main_content }}}
+                    </section>
+
+                    {{#hasblocks}}
+                    <section data-region="blocks-column" class="sidebar-widgets d-print-none">
+                        {{{ sidepreblocks }}}
+                    </section>
+                    {{/hasblocks}}
+                    
+                    {{{ output.activity_navigation }}}
+                    {{{ output.course_content_footer }}}
+
+                    {{#hasmainfwidgets}}
+                    <section data-region="blocks-main-footer-widget" class="blocks-main-footer-widget d-print-none">
+                    {{{ mainfwidgets }}}
+                    </section>
+                    {{/hasmainfwidgets}}
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+    {{{ output.standard_after_main_region_html }}}
+    {{{ output.standard_end_of_body_html }}}
+
+</div>
+
+</body>
+</html>
+{{#js}}
+M.util.js_pending('theme_space/loader');
+require(['theme_space/loader'], function() {
+    M.util.js_complete('theme_space/loader');
+});
+require(['theme_space/backtotop'], function(mod) {
+    mod.init();
+});
+require(['theme_space/backtotop'], function(mod) {
+    mod.init();
+});
+{{/js}}

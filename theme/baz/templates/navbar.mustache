@@ -1,0 +1,124 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+
+    @template theme_baz/navbar
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+        "output": {
+            "should_display_navbar_logo": true,
+            "get_compact_logo_url": "http://placekitten.com/50/50",
+            "custom_menu": "<li>..</li>",
+            "page_heading_menu": "<li>..</li>",
+            "search_box": "<div><input type='text'></div>",
+            "navbar_plugin_output": "<div class='dropdown'>Messaging</div>",
+            "user_menu": "<div class='dropdown'>John Doe</div>"
+        },
+        "config": {
+            "wwwroot": "#"
+        },
+        "sitename": "Moodle Site"
+    }
+}}
+
+<nav id="topBar" class="rui-topbar moodle-has-zindex {{# output.custom_menu }}rui-topbar--custom-menu{{/ output.custom_menu }}" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+
+        {{# topbarhamburgermenu }}
+        <div class="rui-main-menu-container dropdown mr-2">
+            <a href="#" class="rui-main-menu-btn"  id="mainNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.75 5.75H14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.75 18.25H14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.75 12H19.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+
+                <div aria-labelledby="mainNav" class="dropdown-menu rui-dropdown-main-menu">
+                    <div class="rui-main-menu-wrapper" data-simplebar data-simplebar-auto-hide="false">{{> theme_baz/flat_navigation }}</div>
+                </div>
+        </div>
+        {{/ topbarhamburgermenu }}
+
+        <a id="logo" href="{{{ config.wwwroot }}}" class="d-none d-md-inline-flex rui-navbar-brand {{#customlogo}}rui-navbar-brand--img{{/customlogo}} aabtn {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}">
+            {{#customlogo}}
+                <span class="rui-logo {{#logocontainer}}rui-logo-box{{/logocontainer}} {{^logocontainer}}rui-logo-ml{{/logocontainer}}">
+                    <img src="{{customlogo}}" alt="{{sitename}}" />
+                </span>
+            {{/customlogo}}
+
+            {{^customlogo}}
+            <span class="site-name">{{{ sitename }}}</span>
+            {{/customlogo}}
+        </a>
+
+        {{{ output.render_lang_menu }}}
+
+        <div id="myCoursesBtn" class="rui-topbar-special-btn-container dropdown">
+            <a class="rui-topbar-special-btn" id="courseUserNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" aria-label="Courses list" class="icon">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.25 5.75C19.25 5.19772 18.8023 4.75 18.25 4.75H14C12.8954 4.75 12 5.64543 12 6.75V19.25L12.8284 18.4216C13.5786 17.6714 14.596 17.25 15.6569 17.25H18.25C18.8023 17.25 19.25 16.8023 19.25 16.25V5.75Z"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.75 5.75C4.75 5.19772 5.19772 4.75 5.75 4.75H10C11.1046 4.75 12 5.64543 12 6.75V19.25L11.1716 18.4216C10.4214 17.6714 9.40401 17.25 8.34315 17.25H5.75C5.19772 17.25 4.75 16.8023 4.75 16.25V5.75Z"></path>
+                </svg>
+            </a>
+
+                <div aria-labelledby="courseUserNav" class="dropdown-menu rui-dropdown-course-menu">
+                    {{#stringmycourses}}
+                    <h5 class="rui-course-menu-h">
+                        {{{stringmycourses}}}
+                    </h5>
+                    {{/stringmycourses}}
+                    <div class="rui-course-wrapper" data-simplebar data-simplebar-auto-hide="false">{{{ output.baz_mycourses }}}</div>
+                    {{{ output.baz_allcourseslink }}}
+                </div>
+        </div>
+
+        {{# output.custom_menu }}
+            <div id="customNav" class="rui-navbar-nav-wrapper rui-navbar-nav--sep">
+                <div class="rui-navbar-nav-container greedy">
+                    <ul id="more-menu-nav" class="links rui-navbar-nav navbar-nav ml-lg-3">
+                        {{{ output.custom_menu }}}
+                        {{{ output.page_heading_menu }}}
+                    </ul>
+                    <div class="position-relative">
+                        <button class="rui-moremenu-btn hidden">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.5"><path d="M6 11C5.44772 11 5 11.4477 5 12C5 12.5523 5.44772 13 6 13H14C14.5523 13 15 12.5523 15 12C15 11.4477 14.5523 11 14 11H6Z" fill="currentColor" /><path d="M6 15C5.44772 15 5 15.4477 5 16C5 16.5523 5.44772 17 6 17H14C14.5523 17 15 16.5523 15 16C15 15.4477 14.5523 15 14 15H6Z" fill="currentColor" /></g><path d="M5 8C5 7.44772 5.44772 7 6 7H18C18.5523 7 19 7.44772 19 8C19 8.55228 18.5523 9 18 9H6C5.44772 9 5 8.55228 5 8Z" fill="currentColor" /></svg>
+                        </button>
+                        <ul class="hidden-links hidden"></ul>
+                    </div>
+                </div>
+            </div>
+        {{/ output.custom_menu }}
+
+        <div id="topbarRight" class="rui-navbar--right d-inline-flex ml-auto">
+            <div class="rui-navbar-nav">
+                {{{ output.search_box }}}
+            </div>
+            <ul class="rui-navbar-nav d-inline-flex m-0 p-0">
+                <!-- navbar_plugin_output -->
+                <li class="nav-item">
+                    {{{ output.navbar_plugin_output }}}
+                </li>
+                <!-- user_menu -->
+                <li class="nav-item align-items-center ml-md-1">
+                    {{{ output.user_menu }}}
+                </li>
+            </ul>
+        </div>
+</nav>

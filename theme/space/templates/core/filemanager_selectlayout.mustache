@@ -1,0 +1,91 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/filemanager_selectlayout
+
+    This template renders the window appearing to select a file.
+
+    Example context (json):
+    {}
+}}
+<div class="file-picker fp-select">
+    <div class="fp-select-loading">
+        <span class="sr-only">{{#str}}loadinghelp{{/str}}</span>
+        {{#pix}}i/loading_small{{/pix}}
+    </div>
+    <div class="container">
+        <form>
+            <fieldset class="form-group row no-gutters">
+                <div class="form-check fp-linktype-2 pl-0">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio">
+                        {{#str}}makefileinternal, repository{{/str}}
+                    </label>
+                </div>
+                <div class="form-check fp-linktype-1 pl-0">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio">
+                        {{#str}}makefilelink, repository{{/str}}
+                    </label>
+                </div>
+                <div class="form-check fp-linktype-4 pl-0">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio">
+                        {{#str}}makefilereference, repository{{/str}}
+                    </label>
+                </div>
+                <div class="form-check fp-linktype-8 pl-0">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio">
+                        {{#str}}makefilecontrolledlink, repository{{/str}}
+                    </label>
+                </div>
+            </fieldset>
+            <div class="fp-saveas form-group row no-gutters">
+                <label class="col-form-label">{{#str}}saveas, repository{{/str}}</label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="fp-setauthor form-group row no-gutters">
+                <label class="col-form-label">{{#str}}author, repository{{/str}}</label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="fp-setlicense form-group row no-gutters">
+                {{>core/filemanager_chooselicense}}
+            </div>
+            <div class="form-group row no-gutters">
+                <div class="fp-select-buttons">
+                    <button class="fp-select-confirm btn-primary btn mr-2">{{#str}}getfile, repository{{/str}}</button>
+                    <button class="fp-select-cancel btn-secondary btn ml-2">{{#str}}cancel{{/str}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr />
+    <div class="fp-info clearfix d-inline-flex align-items-start col-12 p-0">
+        <div class="row no-gutters w-100">
+                <div class="fp-thumbnail col m-0"></div>
+                <div class="col m-0 px-4 py-3 alert alert-warning fp-fileinfo">
+                <div class="fp-datemodified"><strong>{{#str}}lastmodified, repository{{/str}}</strong><span class="fp-value"></span></div>
+                <div class="fp-datecreated"><strong>{{#str}}datecreated, repository{{/str}}</strong><span class="fp-value"></span></div>
+                <div class="fp-size"><strong>{{#str}}size, repository{{/str}}</strong><span class="fp-value"></span></div>
+                <div class="fp-license"><strong>{{#str}}license, repository{{/str}}</strong><span class="fp-value"></span></div>
+                <div class="fp-author"><strong>{{#str}}author, repository{{/str}}</strong><span class="fp-value"></span></div>
+                <div class="fp-dimensions"><strong>{{#str}}dimensions, repository{{/str}}</strong><span class="fp-value" dir="ltr"></span></div>
+            </div>
+        </div>
+    </div>
+</div>

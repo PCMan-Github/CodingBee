@@ -1,0 +1,343 @@
+/* Anchor link offset fix. This makes hash links scroll 60px down to account for the fixed header. */
+$fixed-header-y: 100px;
+
+$drawer-width: 320px !default;
+$drawer-padding-x: 15px !default;
+$drawer-padding-y: 15px !default;
+$drawer-offscreen-gutter: 20px !default;
+$drawer-scroll-bg-track: $gray-100 !default;
+$dm-drawer-scroll-bg-track: $dm-gray-100 !default;
+
+:target::before {
+    content: " ";
+    display: block;
+    height: ($fixed-header-y + 10px); /* fixed header height*/
+    margin-top: -($fixed-header-y + 10px); /* negative fixed header height */
+    width: 1px;
+    pointer-events: none;
+}
+
+.pagelayout-embedded :target {
+    padding-top: initial;
+    margin-top: initial;
+}
+
+#nav-drawer.closed {
+    left: -($drawer-width + $drawer-offscreen-gutter);
+}
+
+#nav-drawer[aria-hidden=true] .list-group-item {
+    display: none;
+}
+
+.drawer-toggle-icon-open,
+.drawer-toggle-icon-close {
+    opacity: 0;
+    display: none;
+
+    transition: $transition-base;
+}
+
+.sidebar-btn[aria-expanded="true"] {
+    .drawer-toggle-icon-open {
+        opacity: 1;
+        display: inline-flex;
+    }
+}
+
+.sidebar-btn[aria-expanded="false"] {
+    .drawer-toggle-icon-close {
+        opacity: 1;
+        display: inline-flex;
+    }
+}
+
+
+/* Use a variable for the drawer background colors. */
+$drawer-bg: darken($body-bg, 5%) !default;
+
+[data-region="drawer"] {
+    position: fixed;
+    width: $drawer-width;
+    top: 30px;
+    z-index: 10010;
+
+    border-radius: $border-radius;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.26), 0 14px 44px 0 rgba(0,0,0,0.20);
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: $container-bg;
+
+    transition: left 350ms ease-in-out;
+}
+
+@include media-breakpoint-up(sm) {
+    [data-region="drawer"] {
+        padding: 0 $drawer-padding-x $drawer-padding-x $drawer-padding-x;
+    }
+}
+#nav-drawer {
+    right: auto;
+    left: 30px;
+
+    /* Override the z-indexes defined in bootstrap/_list-group.scss that
+       lead to side effects on the user tours positioning. */
+    .list-group-item-action.active,
+    .list-group-item.active {
+        z-index: inherit;
+    }
+    .list-group-item-action.active + .list-group-item,
+    .list-group-item.active + .list-group-item {
+        border-top: none;
+    }
+
+    .list-group {
+        // Remove default list styling in nav menus.
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        // Add margin to be consistent with `.list-group-item` spacing.
+        li {
+            margin-bottom: .25rem;
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    hr {
+        width: calc(100% + 30px);
+        margin-left: -15px;
+    }
+}
+
+body.drawer-ease {
+    transition: margin-left 0.5s ease, margin-right 0.5s ease;
+}
+
+//TODO: Need to be improved in 1.1
+$right-drawer-width: 340px;
+
+[data-region=right-hand-drawer] {
+    display: flex;
+    flex-direction: column;
+    transition: all 350ms ease-in-out;
+    box-shadow: $box-shadow;
+
+    &.drawer {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        height: calc(100% - 20px);
+        width: $right-drawer-width;
+        padding: 0;
+        visibility: visible;
+        opacity: 1;
+
+        overflow: hidden;
+        z-index: 99999;
+
+        @include media-breakpoint-down(sm) {
+        width: calc(100% - 20px);
+        }
+    }
+    &.hidden {
+        display: block;
+        right: $right-drawer-width * -1;
+        // Turn off visibility so that nothing in the drawer can receive focus when
+        // it is hidden.
+        visibility: hidden;
+        opacity: 0;
+        // Delay visibility changes until after the slide right animation has completed.
+        @include transition(right .2s ease-in-out, visibility 0s ease-in-out .2s, opacity 0s ease-in-out .2s);
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    [data-region=right-hand-drawer] {
+        .closewidget {
+            display: block;
+            padding: 0 0.2rem;
+        }
+    }
+}
+
+
+    .message-drawer-backdrop {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $zindex-fixed;
+
+        background-color: rgba(#000, .6);
+
+        cursor: e-resize;
+    }
+
+
+    .rui-flatnavigation {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: .35rem;
+        }
+
+        .rui-list-group-item {
+            padding: 7px 24px 7px 16px;
+
+            font-weight: $font-weight-medium;
+
+            border: none;
+            border-radius: $border-radius;
+
+            &:hover {
+                border: none;
+                background-color: $primary-color-100;
+                text-decoration: none;
+                color: $primary-color-600;
+
+                .theme-dark & {
+                    background-color: $primary-color-700;
+                    color: $primary-color-100;
+                }
+            }
+
+            &.active {
+                border: none;
+
+                background-color: $gray-100;
+                color: $gray-600;
+
+                .theme-dark & {
+                    background-color: $dm-gray-300;
+                    color: $dm-gray-600;
+                }
+            }
+
+            .rui-nav-icon {
+                width: 32px;
+                align-self: center;
+                line-height: 1;
+            }
+
+            .icon {
+                margin-right: 13px;
+                opacity: .6;
+            }
+        }
+    }
+
+    .rui-flatnavigation-base .rui-list-group-item {
+        font-size: $font-size-base;
+        color: $body-color;
+
+        .theme-dark & {
+            color: $dm-body-color;
+        }
+    }
+
+    .rui-flatnavigation-sm .rui-list-group-item {
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        font-size: .8rem;
+        color: $body-color-secondary;
+
+        .icon {
+            width: auto;
+            height: 18px;
+        }
+    }
+
+    .rui-nav-item-container {
+        display: flex;
+        align-items: start;
+    }
+
+    .rui-nav-list-group {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $body-color-secondary;
+    }
+
+
+    .rui-nav-drawer-header {
+        background-color: $container-bg;
+        position: sticky;
+        top: 0;
+        margin: -15px -15px 30px;
+        padding: $drawer-padding-x $drawer-padding-x 0 $drawer-padding-x;
+        z-index: $zindex-sticky;
+    }
+
+    #nav-drawer {
+        max-height: 80vh;
+
+        .rui-sidebar-accordion {
+            margin: 0;
+            padding: 0;
+            border: none;
+
+            background-color: $gray-100;
+            border-radius: $border-radius;
+            overflow: hidden;
+
+            .list-group ul {
+                list-style: disc;
+                padding-left: 30px;
+                margin: 10px 20px 10px 10px;
+
+                li {
+                    margin-bottom: .35rem;
+                }
+            }
+
+            .rui-accordion-btn {
+                padding: 10px 10px 10px 20px;
+
+                display: flex;
+                justify-content: space-between;
+
+                font-size: $font-size-sm;
+                font-weight: $font-weight-medium;
+                color: $body-color;
+                border: none;
+            }
+
+            .rui-sidebar-accordion-list {
+                .list-group-item {
+                    padding: 0;
+                    background-color: transparent;
+                    border: 0;
+
+                    a {
+                        display: block;
+                        padding: 5px 0;
+
+                        font-size: 0.813rem;
+                        font-weight: $font-weight-medium;
+                        color: $body-color-secondary;
+
+                        word-break: keep-all;
+
+                        &.active {
+                            opacity: .6;
+                        }
+
+                        &:hover {
+                            color: $link-color;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+

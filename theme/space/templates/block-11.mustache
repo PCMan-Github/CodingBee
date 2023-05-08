@@ -1,0 +1,101 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#fpblock11}}
+<div id="block11" class="s-block-11 l-container s-special-box section-padding row no-gutters justify-content-sm-center justify-content-lg-between">
+
+  {{#showfpblock11intro}}
+  <div class="{{fphtmlblock11introclass}} {{^fphtmlblock11introclass}}col-sm-11 col-md-8 col-lg-6 m-auto text-center{{/fphtmlblock11introclass}}">
+  {{#fpblock11title}}<h3 class="c-special-box-title mt-0">{{{fpblock11title}}}</h3>{{/fpblock11title}}
+  {{#fpblock11content}}<div class="lead mb-3"">{{{fpblock11content}}}</div>{{/fpblock11content}}
+  </div>
+  {{/showfpblock11intro}}
+
+  <div class="{{#fpblock11slider}}courses-slider{{/fpblock11slider}} {{^fpblock11slider}} col-12 row no-gutters justify-content-sm-center justify-content-md-start{{/fpblock11slider}} c-course-container m-t-5 px-0 py-0">
+
+    {{#block11}}
+      {{^showfpblock11subsection}}
+      {{#fpblock11slider}}<div class="c-course-slider-item mb-5">{{/fpblock11slider}}
+        <div class="{{^fpblock11slider}}c-course-card-item--size{{/fpblock11slider}} c-course-card-item">
+          <div class="c-course-card" id="block11-{{{fpblock11no}}}">
+
+            {{#image}}
+            <div class="c-course-card-img">
+              {{#fpblock11badge}}{{{fpblock11badge}}}{{/fpblock11badge}}
+              {{#fpblock11url}}<a href="{{fpblock11url}}">{{/fpblock11url}}<img src="{{{image}}}" alt="{{fpblock11coursetitle}}"/>{{#fpblock11url}}</a>{{/fpblock11url}}
+            </div>
+            {{/image}}
+
+            <div class="c-course-card-content">
+              {{#fpblock11coursetitle}}
+              <h4 class="c-course-card-title">
+                {{#fpblock11url}}<a href="{{fpblock11url}}">{{/fpblock11url}}{{{fpblock11coursetitle}}}{{#fpblock11url}}</a>{{/fpblock11url}}
+              </h4>
+              {{/fpblock11coursetitle}}
+              {{#fpblock11desc}}<div class="c-course-card-desc">{{{fpblock11desc}}}</div>{{/fpblock11desc}}
+            </div>
+            
+          </div>
+        </div>
+      {{#fpblock11slider}}</div>{{/fpblock11slider}}
+      {{/showfpblock11subsection}}
+
+      {{#showfpblock11subsection}}
+       
+      <div class="col-12">
+      {{{fpblock11subsectioncontent}}}
+      </div>
+
+      {{/showfpblock11subsection}}    
+
+    {{/block11}}
+
+  </div><!-- Courses list end -->
+
+    {{#block11footercontent}}<div class="c-block11-footer-content w-100">{{{block11footercontent}}}</div>{{/block11footercontent}}
+
+</div>
+{{#showfpblock11hr}}<hr class="hr my-0" />{{/showfpblock11hr}}
+
+{{#fpblock11slider}}
+<script>
+  var slider = tns({
+    container: '.courses-slider',
+    items: 1,
+    slideBy: 1,
+    mouseDrag: true,
+    controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    loop: false,
+    controls: true,
+    responsive: {
+      768: {
+        items: 2,
+        slideBy: 2,
+      },
+      1000: {
+        items: 3,
+        slideBy: 3,
+      },
+      1200: {
+        items: {{fpblock11slidesperrow}},
+        slideBy: {{fpblock11slidesperrow}},
+      }
+    }
+  });
+</script>
+{{/fpblock11slider}}
+
+{{/fpblock11}}

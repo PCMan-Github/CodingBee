@@ -1,0 +1,1645 @@
+/* calendar.less */
+
+// Calendar colour variables defined.
+$calendarEventCategoryColor: $purple-500 !default; // Pale purple.
+$calendarEventCourseColor: $red-300 !default; // Pale red.
+$calendarEventGlobalColor: $green-400 !default; // Pale green.
+$calendarEventGroupColor: $yellow-400 !default; // Pale yellow.
+$calendarEventUserColor: $blue-300 !default; // Pale blue.
+
+// Calendar event background colours defined.
+[data-action=filter-event-type] {
+    border-radius: $border-radius-lg;
+    padding: 7px 0;
+
+    &:focus {
+      border-radius: 30px;
+    }
+
+    .icon {
+      font-size: 0.75rem;
+    }
+
+}
+
+.day {
+  .calendar_event_,
+  .calendar_event_category,
+  .calendar_event_course,
+  .calendar_event_site,
+  .calendar_event_group,
+  .calendar_event_user,
+  .calendar_event_close,
+  .calendar_event_due {
+    border-width: 2px;
+    border-style: solid;
+    background-color: transparent!important;
+  }
+
+  .calendar_event_due,
+  .calendar_event_other {
+    border-color: $gray-500;
+  }
+
+  .calendar_event_close {
+    border-color: $red-700;
+  }
+
+  .calendar_event_category {
+      border-color: $calendarEventCategoryColor;
+  }
+  .calendar_event_course {
+      border-color: $calendarEventCourseColor;
+  }
+
+  .calendar_event_site {
+      border-color: $calendarEventGlobalColor;
+  }
+
+  .calendar_event_group {
+      border-color: $calendarEventGroupColor;
+  }
+
+  .calendar_event_user,
+  .calendar_event_ {
+      border-color: $calendarEventUserColor;
+  }
+
+  .description-content {
+    margin-top: 5px;
+    font-weight: $font-weight-base;
+  }
+}
+
+
+.calendar_event_ {
+  background-color: $theme-color-7;
+  color: $theme-color-3;
+
+  .modal-sm & {
+    background-color: transparent;
+    padding-left: 50px!important;
+    border-radius: 0;
+
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+
+      background-color: $theme-color-7;
+    }
+
+  }
+
+  .badge-special {
+    background-color: $theme-color-7;
+    color: $theme-color-3;
+  }
+
+}
+
+.calendar_event_other {
+  background-color: $gray-400;
+  color: $gray-900;
+
+
+  .modal-sm & {
+    background-color: transparent;
+    padding-left: 50px!important;
+    border-radius: 0;
+
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+
+      background-color: $gray-500;
+    }
+
+  }
+
+  .badge-special {
+    background-color: $gray-500;
+    color: $gray-900;
+  }
+
+}
+
+.calendar_event_category {
+    background-color: $calendarEventCategoryColor;
+    color: darken($calendarEventCategoryColor, 80%)!important;
+
+    .modal-sm & {
+      background-color: transparent;
+      padding-left: 50px!important;
+      border-radius: 0;
+
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 9px);
+        left: 20px;
+
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+
+        background-color: $calendarEventCategoryColor;
+      }
+
+    }
+
+    .badge-special {
+      background-color: $calendarEventCategoryColor;
+      color: lighten($calendarEventCategoryColor, 80%)!important;
+    }
+
+    a, .modal-title, span {
+      color: darken($calendarEventCategoryColor, 80%)!important;
+    }
+}
+.calendar_event_course {
+    background-color: $calendarEventCourseColor;
+    color: darken($calendarEventCourseColor, 80%)!important;
+
+    .modal-sm & {
+      background-color: transparent;
+      padding-left: 50px!important;
+      border-radius: 0;
+
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 9px);
+        left: 20px;
+
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+
+        background-color: $calendarEventCourseColor;
+      }
+
+    }
+
+    .badge-special {
+      background-color: $calendarEventCourseColor;
+      color: lighten($calendarEventCourseColor, 80%)!important;
+    }
+
+    a, .modal-title, span {
+      color: darken($calendarEventCourseColor, 80%)!important;
+    }
+}
+
+.calendar_event_site {
+    background-color: $calendarEventGlobalColor;
+    color: darken($calendarEventGlobalColor, 80%)!important;
+
+    .modal-sm & {
+      background-color: transparent;
+      padding-left: 50px!important;
+      border-radius: 0;
+
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 9px);
+        left: 20px;
+
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+
+        background-color: $calendarEventGlobalColor;
+      }
+
+    }
+
+    .badge-special {
+      background-color: $calendarEventGlobalColor;
+      color: lighten($calendarEventGlobalColor, 80%)!important;
+    }
+
+    a, .modal-title, span {
+      color: darken($calendarEventGlobalColor, 80%)!important;
+    }
+
+}
+
+.calendar_event_group {
+    background-color: $calendarEventGroupColor;
+    color: darken($calendarEventGroupColor, 80%)!important;
+
+    .modal-sm & {
+      background-color: transparent;
+      padding-left: 50px!important;
+      border-radius: 0;
+
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 9px);
+        left: 20px;
+
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+
+      }
+      background-color: $calendarEventGroupColor;
+    }
+
+    .badge-special {
+      background-color: $calendarEventGroupColor;
+      color: lighten($calendarEventGroupColor, 80%)!important;
+    }
+
+    a, .modal-title, span {
+      color: darken($calendarEventGroupColor, 80%)!important;
+    }
+}
+
+.calendar_event_user,
+.calendar_event_ {
+    background-color: $calendarEventUserColor;
+    color: darken($calendarEventUserColor, 80%)!important;
+
+    .modal-sm & {
+      background-color: transparent;
+      padding-left: 50px!important;
+      border-radius: 0;
+
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 9px);
+        left: 20px;
+
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+        background-color: $calendarEventUserColor;
+      }
+
+    }
+
+    .badge-special {
+      background-color: $calendarEventUserColor;
+      color: lighten($calendarEventUserColor, 80%)!important;
+    }
+
+    a, .modal-title, span {
+      color: darken($calendarEventUserColor, 80%)!important;
+    }
+}
+
+
+.minicalendar.calendartable {
+
+  .calendar_event_category,
+  .calendar_event_course,
+  .calendar_event_site,
+  .calendar_event_group,
+  .calendar_event_other,
+  .calendar_event_user,
+  .calendar_event_
+  {
+    position: relative;
+    background-color: transparent;
+
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 6px;
+
+      position: absolute;
+      top:1px;
+      left: calc(50% - 3px);
+    }
+  }
+
+  .calendar_event_category {
+    &:before {
+      background-color: $calendarEventCategoryColor;
+    }
+  }
+
+  .calendar_event_course {
+    &:before {
+      background-color: $calendarEventCourseColor;
+    }
+  }
+
+  .calendar_event_site {
+    &:before {
+      background-color: $calendarEventGlobalColor;
+    }
+  }
+
+  .calendar_event_group {
+    &:before {
+      background-color: $calendarEventGroupColor;
+    }
+  }
+
+  .calendar_event_other {
+    &:before {
+      background-color: $gray-400;
+    }
+  }
+
+  .calendar_event_user,
+  .calendar_event_ {
+    &:before {
+      background-color: $calendarEventUserColor;
+    }
+  }
+
+}
+
+.calendar-event-box {
+  position: relative;
+
+  .eventlist & {
+    background-color: $body-bg;
+  }
+
+  &.calendar_event_category {
+    border:  2px solid $calendarEventCategoryColor;
+
+    .badge-special {
+      background-color: $calendarEventCategoryColor;
+      color: darken($calendarEventCategoryColor, 80%)!important;
+    }
+  }
+
+  &.calendar_event_due,
+  &.calendar_event_other {
+    border:  2px solid $gray-400;
+  }
+
+  &.calendar_event_close {
+    border:  2px solid $red-600;
+  }
+
+  &.calendar_event_course {
+    border:  2px solid $calendarEventCourseColor;
+  }
+
+  &.calendar_event_site {
+    border:  2px solid $calendarEventGlobalColor;
+  }
+
+  &.calendar_event_group {
+    border:  2px solid $calendarEventGroupColor;
+  }
+
+  &.calendar_event_user {
+      border:  2px solid $calendarEventUserColor;
+
+      .badge-special {
+        background-color: $calendarEventUserColor;
+        color: darken($calendarEventUserColor, 80%)!important;
+      }
+  }
+}
+
+a.day {
+  color: $body-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $theme-color-3;
+    text-decoration: none;
+  }
+}
+
+td.day.bg-primary {
+  background-color: $gray-200!important;
+  color: $gray-900!important;
+}
+
+    .dayblank {
+      background-image: url([[pix:theme|diagonal-lines]]);
+      background-repeat: repeat;
+      background-color: transparent;
+      background-size: 9px;
+
+      .minicalendar & {
+        background-size: 5px;
+      }
+    }
+
+
+td.day {
+  [data-toggle=popover] {
+    font-weight: $font-weight-bold;
+    color: $body-color;
+  }
+}
+
+// Calendar restyling.
+.path-calendar {
+    .calendartable {
+        width: auto;
+
+        th,
+        td {
+            width: 14%;
+            vertical-align: top;
+            text-align: center;
+            border: 0;
+        }
+    }
+
+    .calendar-controls {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+
+        @include media-breakpoint-only(sm) {
+        .arrow_text { display: none;}
+        }
+
+        .previous {
+            padding-left: 36px!important;
+            text-align: left;
+
+            position: relative;
+
+            @include media-breakpoint-only(sm) {
+              padding: 20px;
+              width: 40px;
+            }
+
+            &:after {
+              @extend %fa-icon;
+              @extend .fas;
+
+              content: fa-content($fa-var-caret-left);
+
+              font-size: 12px;
+              color: inherit;
+              opacity: 0.5;
+
+              position: absolute;
+              top: calc(50% - 6px);
+              left: 14px;
+            }
+        }
+
+        .current {
+            padding: 0 20px;
+            line-height: 1.5;
+            text-align: center;
+            font-size: $font-size-sm;
+        }
+
+        .next {
+            padding-right: 36px!important;
+            text-align: right;
+
+            position: relative;
+
+            @include media-breakpoint-only(sm) {
+            padding: 20px;
+            width: 40px;
+            }
+
+            &:after {
+              @extend %fa-icon;
+              @extend .fas;
+
+              content: fa-content($fa-var-caret-right);
+
+              font-size: 12px;
+              color: inherit;
+              opacity: 0.5;
+
+              position: absolute;
+              top: calc(50% - 6px);
+              right: 14px;
+            }
+        }
+
+        .drop-target {
+            box-sizing: border-box;
+            border: 1px dashed $brand-primary;
+        }
+    }
+
+    .filters {
+        table {
+            border-collapse: separate;
+            border-spacing: 2px;
+            width: 100%;
+        }
+    }
+
+    .maincalendar {
+        vertical-align: top;
+        padding: 0;
+
+        .bottom {
+          margin-top: 2 * $spacer;
+          text-align: center;
+
+          @include media-breakpoint-only(sm) {
+          width: 100%;
+          .btn {
+            width: 100%;
+          }
+          }
+        }
+
+        @include media-breakpoint-only(sm) {
+          .header {
+            padding: 0!important;
+
+            [data-region="view-selector"] {
+              width: 100%;
+            }
+
+            .btn,
+            select {
+              margin: 5px 0!important;
+              width: 100%;
+            }
+          }
+        }
+
+        .heightcontainer {
+            height: 100%;
+            position: relative;
+        }
+
+        .calendarmonth {
+            width: 100%;
+            margin: $spacer auto;
+
+            ul {
+                margin: 0.5rem 0 0 0;
+                padding: 0;
+
+                li {
+                    padding: 5px;
+                    margin-bottom: 5px;
+                    list-style-type: none;
+                    border-radius: $border-radius;
+
+                    > a {
+                        max-width: 100%;
+                        display: block;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+
+                    &:last-child {
+                      margin-bottom: 0;
+                    }
+
+                    img {
+                      max-width: 100%;
+                      width: 100%;
+                      margin: 0.25rem 0 0;
+                      border-radius: $border-radius;
+                    }
+
+                    .icon {
+                        margin: 0 0.25rem 0 0;
+                        padding: 5px;
+                        display: inline-flex;
+                        width: 18px;
+                        height: 18px;
+
+                        background-color: $gray-100;
+                        border-radius: $border-radius;
+
+                        color: $gray-800;
+
+                        &:before {
+                          position: relative;
+                          font-size: 15px;
+
+                          top: calc(50% - 8px);
+                        }
+
+                        &.fa-book {
+                          &:before {
+                            left: calc(50% - 6px);
+                          }
+                        }
+
+                        &.fa-user {
+                          &:before {
+                            left: calc(50% - 6px);
+                          }
+                        }
+
+                        &.fa-users {
+                          &:before {
+                            left: calc(50% - 9px);
+                          }
+                        }
+
+                        &.fa-globe-americas {
+                          &:before {
+                            left: calc(50% - 7px);
+                          }
+                        }
+
+                        &.fa-university {
+                          &:before {
+                            font-size: 14px;
+                            left: calc(50% - 7px);
+                          }
+                        }
+
+                    }
+
+                    span {
+
+                      &.event-icon {
+                        margin-bottom: 5px;
+                      }
+
+                      display: block;
+
+                      font-weight: $font-weight-sm-bold;
+                      color: $body-color;
+                    }
+
+                }
+            }
+
+            td {
+                padding: 5px;
+                height: 5em;
+                border: 1px solid $border-color;
+
+                font-size: $font-size-xs;
+
+                transition: $general-transition;
+            }
+
+            .clickable:hover {
+                position: relative;
+                box-shadow: 0 20px 42px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+
+                border-radius: $border-radius;
+            }
+        }
+
+        .calendarmonth {
+          th.header {
+            padding: 1rem 5px;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-sm-bold;
+
+            text-align: center;
+
+            border-bottom: 2px solid $gray-600;
+            color: $gray-900;
+
+            @include media-breakpoint-between(sm,md) {
+              padding: 5px 0;
+              font-size: $font-size-sm;
+            }
+          }
+        }
+
+        .calendar-controls {
+            .current {
+                margin-bottom: 0;
+            }
+        }
+
+        .controls {
+            width: 100%;
+            margin: 40px auto;
+        }
+
+        .calendar_event_category,
+        .calendar_event_course,
+        .calendar_event_site,
+        .calendar_event_group,
+        .calendar_event_user {
+            &:hover {
+                a {
+                    color: $link-hover-color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .calendar_event_category {
+            border-color: $calendarEventCategoryColor;
+            color: darken($calendarEventCategoryColor, 60%);
+        }
+
+        .calendar_event_course {
+            border-color: $calendarEventCourseColor;
+            color: darken($calendarEventCourseColor, 60%);
+        }
+
+        .calendar_event_site {
+            border-color: $calendarEventGlobalColor;
+            color: darken($calendarEventGlobalColor, 60%);
+        }
+
+        .calendar_event_group {
+            border-color: $calendarEventGroupColor;
+            color: darken($calendarEventGroupColor, 60%);
+        }
+
+        .calendar_event_user {
+            border-color: $calendarEventUserColor;
+            color: darken($calendarEventUserColor, 60%);
+        }
+
+        .calendartable {
+            li {
+                text-align: left;
+            }
+        }
+
+        .header {
+            .buttons {
+                float: right;
+            }
+        }
+
+        .event .card-header img {
+            vertical-align: baseline;
+        }
+
+    }
+}
+
+.path-calendar {
+  .maincalendar {
+
+    .calendarmonth {
+      td {
+        position: relative;
+
+        [data-action="view-day-link"] {
+          font-weight: $font-weight-bold;
+          text-align: center;
+          line-height: 190%;
+
+          position: relative;
+        }
+
+        &.today {
+
+          .calendar-day-label {
+            padding: 0;
+            display: block;
+
+            background: $red-600;
+            border-radius: $border-radius-max;
+            color: $red-200;
+            width: 30px;
+            height: 30px;
+
+
+            font-weight: $font-weight-bold;
+            text-align: center;
+            line-height: 190%;
+
+            position: relative;
+            top: -2px;
+          }
+
+        }
+
+      }
+    }
+  }
+}
+
+
+.calendar-day-label {
+  padding: 20px 20px 20px 0;
+  font-size: 1rem;
+  font-weight: $font-weight-base;
+  color: $gray-700;
+}
+
+// Calendar export.
+#page-calendar-export {
+    .indent {
+        padding-left: 20px;
+    }
+}
+
+// Block minicalendar.
+.block {
+
+    .calendarwrapper {
+      margin: 0 0 2 * $spacer 0;
+
+      @media only screen and (max-width : 1900px) {
+      &:nth-child(2) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-left: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+      }
+      }
+
+      @include media-breakpoint-only(sm) {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .minicalendar {
+        width: 100%;
+
+        h3,
+        .current {
+          margin: 0;
+          font-size: $font-size-sm;
+          font-weight: $font-weight-bold;
+          color: $card-title;
+
+          a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .arrow_link {
+          color: $card-text;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        td {
+          padding: 0!important;
+          height: 27px;
+          width: 28px;
+          border-radius: 28px;
+          line-height: 2.5;
+
+          a {
+            padding: 8px;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .today {
+          background: $red-600;
+          color: $red-200;
+
+          a {
+            color: $red-200!important;
+          }
+        }
+
+        th {
+          color: $card-title;
+          font-size: $font-size-xs;
+          font-weight: $font-weight-sm-bold;
+
+          abbr[title], abbr[data-original-title] {
+            white-space: nowrap;
+            text-decoration: none;
+          }
+
+        }
+
+        th,
+        td {
+            font-size: $font-size-xs;
+            text-align: center;
+        }
+
+        td {
+            &.weekend {
+                @extend .text-muted;
+            }
+
+            &.duration_global {
+                border-top: 1px solid $calendarEventGlobalColor;
+                border-bottom: 1px solid $calendarEventGlobalColor;
+
+                &.duration_finish {
+                    background-color: $calendarEventGlobalColor;
+                }
+            }
+
+            &.duration_category {
+                border-top: 1px solid $calendarEventCategoryColor;
+                border-bottom: 1px solid $calendarEventCategoryColor;
+
+                &.duration_finish {
+                    background-color: $calendarEventCategoryColor;
+                }
+            }
+
+            &.duration_course {
+                border-top: 1px solid $calendarEventCourseColor;
+                border-bottom: 1px solid $calendarEventCourseColor;
+
+                &.duration_finish {
+                    background-color: $calendarEventCourseColor;
+                }
+            }
+
+            &.duration_group {
+                border-top: 1px solid $calendarEventGroupColor;
+                border-bottom: 1px solid $calendarEventGroupColor;
+
+                &.duration_finish {
+                    background-color: $calendarEventGroupColor;
+                }
+            }
+
+            &.duration_user {
+                border-top: 1px solid $calendarEventUserColor;
+                border-bottom: 1px solid $calendarEventUserColor;
+
+                &.duration_finish {
+                    background-color: $calendarEventUserColor;
+                }
+            }
+        }
+
+        caption {
+            display: table-caption;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            text-align: center;
+        }
+    }
+
+    .calendar-controls {
+        .previous,
+        .next {
+            display: block;
+            float: left;
+        }
+
+        .previous {
+            text-align: left;
+            width: 12%;
+        }
+
+        .current {
+          display: block;
+          text-align: center;
+          width: 76%;
+          margin: 0 auto;
+        }
+
+        .next {
+            text-align: right;
+            width: 12%;
+        }
+    }
+
+    @media only screen and (max-width : 1900px) {
+      .calendar-multi-box {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-around;
+      }
+
+      .calendarwrapper-box {
+        width: calc(100% / 3.3);
+      }
+    }
+
+    @include media-breakpoint-only(md) {
+      .calendarwrapper-box {
+        width: calc(100% / 2.2);
+      }
+    }
+
+    @include media-breakpoint-only(sm) {
+      .calendar-multi-box {
+        display: block;
+      }
+
+      .calendarwrapper-box {
+        width: 100%;
+      }
+    }
+
+    .calendar_filters {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            @media only screen and (max-width : 1900px) {
+            #page-calendar-view & {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            }
+            }
+
+            @include media-breakpoint-only(sm) {
+              #page-calendar-view & {
+                display: block;
+              }
+            }
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+
+            > a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .content {
+        h3 {
+            &.eventskey {
+                margin-top: 0.5em;
+            }
+        }
+    }
+}
+
+
+.calendar_filters [data-action=filter-event-type] {
+
+  .calendar_event_other,
+  .calendar_event_category,
+  .calendar_event_course,
+  .calendar_event_site,
+  .calendar_event_group,
+  .calendar_event_user {
+    padding: 5px 0;
+
+    border-radius: $border-radius-max;
+    display: inline-flex;
+
+    width: 32px;
+    height: 32px;
+
+    text-align: center;
+    line-height: 1;
+
+    .icon {
+      background-color: #fff;
+      padding: 4px;
+      font-size: 11px;
+      margin: 1px auto!important;
+      height: 12px;
+      width: 12px;
+      border-radius: 12px;
+      color: #000;
+    }
+  }
+
+  .event-icon {
+    .icon {
+      margin: 0;
+      font-size: 0.75rem;
+
+      position: relative;
+
+      color: #212121;
+      vertical-align: initial;
+    }
+  }
+
+  .eventname,
+  .event-icon {
+    display: inline-flex;
+
+    #nav-drawer & {
+      margin: 0 6px;
+    }
+  }
+
+  .eventname {
+    width: calc(100% - 60px);
+    color: $body-color;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-sm-bold;
+  }
+
+}
+
+    .event-time {
+      font-weight: $font-weight-base;
+      opacity: 0.7;
+    }
+
+    .event-title {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-bold;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+/* Display month name above the calendar */
+table.calendartable caption {
+    caption-side: top;
+}
+
+@media (min-width: 768px) {
+    #page-calender-view {
+        .container-fluid {
+            min-width: 1024px;
+        }
+    }
+}
+
+.calendarwrapper {
+    position: relative;
+
+    label {
+      margin: 0!important;
+    }
+}
+
+.day-popover-content {
+    &:empty + .day-popover-alternate {
+        display: block;
+    }
+}
+
+.summary-modal-container {
+    .description-content {
+        > p {
+            margin: 0;
+        }
+    }
+}
+
+
+/* Custom YUI CSS for Space Moodle Theme */
+.yui3-skin-sam {
+
+  .yui3-calendar-header {
+      display: block;
+      width: 300px;
+
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+
+      border-bottom: 1px solid $gray-900;
+  }
+
+
+  .dateselector-calendar-panel {
+    top: 30px;
+  }
+
+  .yui3-calendar-day,
+  .yui3-calendar-prevmonth-day,
+  .yui3-calendar-nextmonth-day {
+    background: transparent;
+    border: none;
+  }
+
+  .yui3-calendar-day {
+    width: 35px;
+    height: 35px;
+
+    &:hover {
+      border-radius: $border-radius-max;
+      background: $theme-color-3;
+      color: $theme-color-9;
+    }
+  }
+
+  .yui3-calendar-day-selected {
+    color: $red-200;
+    background: $red-600;
+
+    border-radius: $border-radius;
+  }
+
+  .yui3-calendar-content {
+    padding: 1.5rem;
+    background: $gray-900;
+    box-shadow: 10px 32px 60px 0 rgba(0,0,0,.35);
+
+    border: 0;
+    color: $gray-100;
+  }
+
+  .yui3-calendarnav-prevmonth {
+    border-right-color: $gray-100;
+    margin-left: 1rem;
+
+    &:hover {
+      border-right-color: $gray-200;
+    }
+  }
+
+  .yui3-calendarnav-nextmonth {
+    border-left-color: $gray-100;
+    margin-right: 1rem;
+
+    &:hover {
+      border-left-color: $gray-200;
+    }
+  }
+
+  .yui3-button.closebutton {
+    @extend .close;
+    background-image: none;
+    box-shadow: none;
+
+    [aria-hidden="true"] {
+      display: none;
+    }
+  }
+
+}
+
+
+/* blocks */
+.block_calendar_upcoming {
+  .event {
+    span {
+      background-color: $gray-100;
+      padding: 5px;
+      border-radius: $border-radius;
+
+      width: 30px;
+      height: 30px;
+
+      display: inline-flex;
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  [data-type=event] {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-sm-bold;
+    line-height: 1.5;
+    color: $body-color;
+    display: inline-flex;
+    width: calc(80% - 5px);
+
+    margin-top: 0;
+  }
+
+  .date {
+    display: inline-block;
+    width: calc(80% - 5px);
+    margin-left: 43px;
+
+    color: $gray-700;
+    font-size: $font-size-xs;
+    padding: 0;
+
+    span {
+      width: 100%;
+      background-color: transparent;
+    }
+
+    a {
+      color: $gray-700;
+    }
+  }
+
+}
+
+.maincalendar {
+  .event {
+    background-color: $gray-100;
+    padding: 2 * $spacer;
+    margin-bottom: 2 * $spacer;
+
+    border-radius: $border-radius;
+  }
+}
+
+/* day view */
+.calendar-event-box {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: $border-radius;
+
+  @include media-breakpoint-only(sm) {
+    padding: 1rem;
+  }
+
+  .calendar-event-settings {
+    @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    }
+
+    @include media-breakpoint-only(sm) {
+    position: relative;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .calendar-event-date {
+    margin-bottom: 2rem;
+    padding-left: 20px;
+
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xs;
+    color: $card-text;
+
+    position: relative;
+
+    a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem 0 0;
+      font-size: $tag-font-size!important;
+      font-weight: $tag-font-weight;
+      line-height: 1;
+      color: $gray-900;
+      text-align: center;
+      vertical-align: baseline;
+      @include border-radius();
+
+      background-color: $gray-100;
+
+      transition: $general-transition;
+
+      &:hover {
+        background-color: $theme-color-9;
+        color: $theme-color-3!important;
+      }
+    }
+
+
+    &:after {
+      @extend %fa-icon;
+      @extend .fas;
+
+      content: fa-content($fa-var-calendar);
+
+      font-size: 12px;
+      color: inherit;
+
+      position: absolute;
+      top: calc(50% - 6px);
+      left: 0;
+
+      .eventlist & {
+        top: 8px;
+      }
+    }
+
+    a, strong {
+      font-weight: $font-weight-sm-bold;
+      color: $card-title!important;
+    }
+
+    .dimmed_text {
+      color: $card-title!important;
+
+      strong {
+        font-weight: $font-weight-sm-bold;
+      }
+
+      a.dimmed {
+        font-weight: $font-weight-sm-bold;
+        color: $card-title!important;
+      }
+    }
+  }
+
+  .calendar-event-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  .calendar-event-heading {
+    display: inline-flex;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-sm-bold;
+    vertical-align: middle;
+    margin: 0!important;
+  }
+
+  .calendar-event-desc {
+    margin-top: 1rem;
+    padding-left: 65px;
+
+    font-size: $font-size-sm;
+
+    border-radius: $border-radius;
+
+    p {
+      margin: 0;
+
+      a, & + a {
+        padding: 3px 10px;
+        display: inline-block;
+        background-color: $theme-color-6;
+
+        font-weight: $font-weight-sm-bold;
+
+        border-radius: $border-radius;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    p + a {
+      margin-top: 1rem;
+    }
+
+    p + div, p + p {
+      margin-top: 1rem;
+    }
+  }
+
+}
+
+.calendar-event-icon {
+  .calendar-event-row & {
+    width: 50px;
+    height: 50px;
+
+    background-color: $theme-color-9;
+    color: $theme-color-3;
+    border-radius: $border-radius;
+
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.calendar-event-content {
+  .calendar-event-icon {
+    .icon {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* modal */
+.modal-cal-desc {
+  width: 100%;
+
+  border-bottom: 1px solid $border-color;
+}
+
+.modal-cal-time {
+  font-size: $font-size-xs;
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    margin: 0 0.5rem 0.25rem 0;
+    font-size: $tag-font-size!important;
+    font-weight: $tag-font-weight;
+    line-height: 1;
+    color: $gray-900!important;
+    text-align: center;
+    vertical-align: baseline;
+    @include border-radius();
+
+    background-color: $gray-100;
+
+    transition: $general-transition;
+
+
+    &:after {
+      @extend %fa-icon;
+      @extend .fas;
+
+      content: fa-content($fa-var-calendar);
+
+      font-size: 12px;
+      color: inherit;
+
+      position: absolute;
+      top: calc(50% - 6px);
+      left: 12px;
+
+      .eventlist & {
+        top: 8px;
+      }
+    }
+
+    &:hover {
+      background-color: $theme-color-9;
+      color: $theme-color-3!important;
+      text-decoration: none;
+    }
+  }
+}
+
+/* mobile */
+@include media-breakpoint-only(sm) {
+.calendarwrapper {
+  .btn {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .custom-select {
+    width: 100%;
+    margin: 0;
+  }
+
+ }
+}
+
+/* other */
+[data-groupname=timedurationuntil] {
+  margin-bottom: 0.25rem!important;
+}
+
+#page-calendar-view {
+  .calendar-event-box .calendar-event-icon {
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+.yui3-skin-sam .yui3-calendar-weekday {
+  font-size: $font-size-xs;
+  text-align: center;
+}

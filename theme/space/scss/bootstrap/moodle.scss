@@ -1,0 +1,41 @@
+// Making BS4 Stable compatible with BS4 Alpha for moodle core sass
+@import "moodle_bs4alphacompat";
+
+// Specific overrides to make Bootstrap RTL.
+@import "moodle_bootstrap-rtl";
+
+// Old Moodle stuff from base theme.
+// Massive, needs broken up.
+@import "moodle_core";
+@import "moodle_icons";
+@import "moodle_admin";
+@import "moodle_blocks";
+@import "moodle_calendar";
+@import "moodle_course";
+@import "moodle_drawer";
+@import "moodle_message";
+@import "moodle_question";
+@import "moodle_user";
+@import "moodle_search";
+@import "moodle_forms";
+@import "moodle_login";
+@import "moodle_modules";
+@import "moodle_chat";
+@import "moodle_reports";
+@import "moodle_backup-restore";
+@import "moodle_tables";
+@import "moodle_buttons";
+@import "moodle_grade";
+@import "moodle_templates";
+@import "moodle_undo";
+@import "moodle_debug";
+@import "moodle_expendable";
+@import "moodle_popover-region";
+@import "moodle_tool_usertours";
+@import "moodle_bs2-compat";
+@import "moodle_modal";
+@import "moodle_glossary";
+@import "moodle_filemanager";
+@import "moodle_contentbank";
+@import "moodle_layout";
+@import "moodle_print";

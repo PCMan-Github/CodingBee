@@ -1,0 +1,238 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template enrol_xendit/payment_region
+
+    This template will render information about course fee along with a button for payment.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * data-component
+    * data-paymentarea
+    * data-itemid
+    * data-cost
+    * data-description
+
+    Context variables required for this template:
+    * cost - Human readable cost string including amount and currency
+    * instanceid - Id of the enrolment instance
+    * description - The description for this purchase
+
+    Example context (json):
+    {
+        "cost": "$108.50",
+        "instanceid": 11,
+        "description": "Enrolment in course Introduction to algorithms",
+        "isguestuser": false
+    }
+
+}}
+<div class="enrol_xendit_payment_region text-center">
+    {{#isguestuser}}
+        <div class="mdl-align">
+            <p>{{# str }} paymentrequired {{/ str}}</p>
+            <p><b>{{cost}}</b></p>
+            <p><a href="{{config.wwwroot}}/login/">{{# str }} loginsite {{/ str }}</a></p>
+        </div>
+    {{/isguestuser}}
+    {{^isguestuser}}
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="row">Course</th>
+              <th>{{course}}<input type="hidden" id="inputCategory" value={{categoryid}}></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Full Price</th>
+              <td><input type="hidden" id="inputFullPrice" value={{fullprice}}>{{fullpriceText}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Discount</th>
+              <td><input type="hidden" id="inputDiscount" value={{discount}}>{{discountText}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Coupon Code</th>
+              <td>
+              <input type="text" id="couponcode">
+              <label id="labelcouponstatus" style="display: none; margin-top:10px; color:red">Coupon does not exists</label>
+              </td>
+            </tr>
+            <tr id="couponamountid">
+                <th scope="row">Coupon Amount</th>
+                <td id="couponamount"><input type="hidden" id="inputCouponAmount">{{couponamountText}}</td>
+              </tr>
+            <tr>
+            <tr>
+              <th scope="row">Total</th>
+              <td>
+                <input type="hidden" id="inputSubTotal" value={{subtotal}}>
+                <strong id="subtotal">{{subtotalText}}</strong>
+              </td>
+            </tr>
+            <tr><td colspan='2'>
+              <span style='color:red'>*Payment does not include admin fee</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Button trigger modal -->
+        <label>Bank Transfer</label>
+        <br>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="BCA">BCA</button>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="BNI">BNI</button>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="BRI">BRI</button>
+        <!-- <button type="button" class="btn btn-primary paymentBtn my-2" id="BSS">BSS</button> -->
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="MANDIRI">MANDIRI</button>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="PERMATA">PERMATA</button>
+        <hr>
+        <!-- Button tambahan e-wallet 17 Februari 2023-->
+        <label>E-Wallet / QRIS</label>
+        <br>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="OVO">OVO</button>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="DANA">DANA</button>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="LINKAJA">LINKAJA</button>
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="SHOPEEPAY">SHOPEEPAY</button>
+        <!-- Button tambahan QRIS 21 Februari 2023-->
+        <button type="button" class="btn btn-primary paymentBtn my-2" id="QRIS">QRIS</button>
+        <hr>
+        <label>Recurring</label>
+        <br>
+        <button type="button" class="btn btn-default" id="CREDIT_CARD">CREDIT CARD</button>
+    {{/isguestuser}}
+</div>
+{{^element.frozen}}
+{{#js}}
+  require(['jquery', 'core/modal_factory', 'core/ajax'], function($, ModalFactory, ajax) {
+
+    var triggerRec = $('#CREDIT_CARD');
+    ModalFactory.create({
+      title: 'Checkout',
+      body: '',
+      footer: '',
+    }, triggerRec)
+    .done(function(modal) {
+      modal.addClass('modal-md');
+      console.log(modal);
+    });
+
+    triggerRec.click(function() {
+      var payment = this.id;
+      var requests = ajax.call([{
+          methodname: 'enrol_xendit_create_recurring',
+          args: {instance: {{instanceid}}, method: "CREDIT CARD", couponcode: $('#couponcode').val() },
+      }]);
+
+      var url, xenditFrame;
+      requests[0].done(function(response) {
+          url = response;
+          xenditFrame = '<iframe class="embed-responsive-item" src="' + url + '" width="100%" height="600" frameborder="0"></iframe>';
+          $('.modal-body').html(xenditFrame);
+      }).fail(function(ex) {
+          // do something with the exception
+      });
+    });
+
+    var trigger = $('.paymentBtn');
+    ModalFactory.create({
+      title: 'Checkout',
+      body: '',
+      footer: '',
+    }, trigger)
+    .done(function(modal) {
+      modal.addClass('modal-md');
+      console.log(modal);
+    });
+
+    trigger.click(function() {
+      var payment = this.id;
+      var requests = ajax.call([{
+          methodname: 'enrol_xendit_create_invoice',
+          args: {instance: {{instanceid}}, method: payment, couponcode: $('#couponcode').val() },
+      }]);
+
+      var url, xenditFrame;
+      requests[0].done(function(response) {
+          url = response;
+          xenditFrame = '<iframe class="embed-responsive-item" src="' + url + '" width="100%" height="600" frameborder="0"></iframe>';
+          $('.modal-body').html(xenditFrame);
+      }).fail(function(ex) {
+          // do something with the exception
+      });
+    });
+
+    const formatter = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0
+    })
+
+    $('#couponcode').on('keypress keydown',function(e) {
+        if(e.which == 13 || e.which == 8 || e.which == 46) {
+            $.ajax({
+              url: "/local/coupon/api.php",
+              dataType: 'json',
+              type: "get", //send it through get method
+              data: { 
+                action: 'getcoupon',
+                couponcode: $('#couponcode').val(),
+                category: $('#inputCategory').val(),
+              },
+              success: function(response) {
+                var fullprice = parseFloat($('#inputFullPrice').val());
+                var discount = parseFloat($('#inputDiscount').val());
+
+                if(response.length > 0){
+                  var percentage = response[0].percentage;
+                  var amount = response[0].amount;
+                  var total = $('#inputSubTotal').val();
+                  var totalDiscount = 0;
+                  
+                  
+                  if(percentage > 0){
+                    totalDiscount = parseFloat(total * (percentage / 100));
+                  }
+
+                  if(amount > 0){
+                    totalDiscount = parseFloat(totalDiscount + amount);
+                  }
+
+                  $('#inputCouponAmount').val(totalDiscount);
+                  $('#couponamount').html(formatter.format(parseFloat(totalDiscount)));
+
+                  var total = parseFloat(fullprice - (totalDiscount + discount));
+                  $('#subtotal').html(formatter.format(total));
+                  $('#labelcouponstatus').hide();
+                }else{
+                  $('#inputCouponAmount').val(0);
+                  $('#couponamount').html("");
+                  $('#subtotal').html(formatter.format(fullprice - discount));
+                  $('#labelcouponstatus').show();
+                }
+              },
+              error: function(xhr) {
+              }
+            });
+        }
+    });
+  });
+{{/js}}
+{{/element.frozen}}
